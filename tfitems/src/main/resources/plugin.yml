@@ -1,0 +1,6 @@
+name: SMPItems
+version: ${project.version}
+main: tfsmp.smpitems.SMPItems
+api-version: 1.13
+authors: [lildarke, lildarkee, fionnn]
+description: Items for SMP. Based on https://docs.google.com/spreadsheets/d/1CzddRDa38kimHsFf5tJgeP0CZoR2P5yUBMJwnQJ1LIU/edit
