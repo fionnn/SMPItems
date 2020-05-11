@@ -3,7 +3,9 @@ package tfsmp.smpitems.mob;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,6 +40,12 @@ public class MobDrop implements Listener
             skeleton(e);
             return;
         }
+
+        if (e.getEntity() instanceof WitherSkeleton)
+        {
+            witherskeleton(e);
+            return;
+        }
     }
 
     private void zombie(EntityDeathEvent e)
@@ -66,6 +74,21 @@ public class MobDrop implements Listener
                 boneSword.applyMetaToStack();
                 e.getDrops().clear();
                 e.getDrops().add(boneSword.getStack());
+            }
+        }
+    }
+
+    private void witherskeleton(EntityDeathEvent e)
+    {
+        if (e.getEntity().hasMetadata("Tubby Wither Skeleton"))
+        {
+            if (gotRandom(3))
+            {
+                CustomItem witherAxe = new CustomItem(ChatColor.DARK_GRAY + "Wither Axe", Material.DIAMOND_AXE);
+                witherAxe.addEnchant(Enchantment.DIG_SPEED, 10);
+                witherAxe.applyMetaToStack();
+                e.getDrops().clear();
+                e.getDrops().add(witherAxe.getStack());
             }
         }
     }
