@@ -4,6 +4,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tfsmp.smpitems.mob.SkeletonMob;
 import tfsmp.smpitems.mob.ZombieMob;
+import tfsmp.smpitems.util.SLog;
 
 public final class SMPItems extends JavaPlugin
 {
@@ -14,6 +15,7 @@ public final class SMPItems extends JavaPlugin
     {
         plugin = this;
         enableListeners();
+        SLog.info("Enabled.");
     }
 
     private void enableListeners()
@@ -26,6 +28,6 @@ public final class SMPItems extends JavaPlugin
     @Override
     public void onDisable()
     {
-        // Plugin shutdown logic
+        SLog.info("Disabled.");
     }
 }
