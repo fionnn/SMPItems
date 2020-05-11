@@ -35,12 +35,13 @@ public class ZombieMob implements Listener
         if (entity instanceof Zombie)
         {
             Random rand = new Random();
-            int spawnChance = rand.nextInt(30);
+            int spawnChance = rand.nextInt(50);
             if (spawnChance == 1)
             {
                 Zombie zombie = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Zombie.class);
-                Bukkit.broadcastMessage(ChatColor.YELLOW + "A tubby has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
-                        zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + "!");
+                Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + "Tubby Zombie " +
+                        ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
+                            zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + "!");
                 zombie.setCustomName("Tubby Zombie");
                 zombie.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_AXE));
                 zombie.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
@@ -65,7 +66,7 @@ public class ZombieMob implements Listener
                 {
                     ItemStack freedomAxe = new ItemStack(Material.IRON_AXE);
                     ItemMeta freedomMeta = freedomAxe.getItemMeta();
-                    freedomMeta.setDisplayName(ChatColor.AQUA + "Freedom Axe");
+                    freedomMeta.setDisplayName(ChatColor.AQUA + "Axe!");
                     freedomMeta.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, new AttributeModifier("generic.movementSpeed", 1.0, AttributeModifier.Operation.MULTIPLY_SCALAR_1));
                     freedomAxe.setItemMeta(freedomMeta);
                     event.getDrops().clear();
