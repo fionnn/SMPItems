@@ -50,7 +50,7 @@ public class MobDrop implements Listener
                 freedomAxe.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.0);
                 freedomAxe.applyMetaToStack();
                 e.getDrops().clear();
-                e.getDrops().add(new ItemStack(freedomAxe.getStack()));
+                e.getDrops().add(freedomAxe.getStack());
             }
         }
     }
@@ -65,7 +65,7 @@ public class MobDrop implements Listener
                 boneSword.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5.0);
                 boneSword.applyMetaToStack();
                 e.getDrops().clear();
-                e.getDrops().add(new ItemStack(boneSword.getStack()));
+                e.getDrops().add(boneSword.getStack());
             }
         }
     }
