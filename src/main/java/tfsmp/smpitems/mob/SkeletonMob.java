@@ -38,7 +38,7 @@ public class SkeletonMob implements Listener
                 Skeleton skeleton = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Skeleton.class);
                 Bukkit.broadcastMessage(ChatColor.YELLOW + "A" + ChatColor.GOLD + " Tubby Skeleton " +
                         ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + skeleton.getLocation().getBlockX() + ", " +
-                        skeleton.getLocation().getBlockY() + ", " + skeleton.getLocation().getBlockZ() + ChatColor.YELLOW + "!");
+                            skeleton.getLocation().getBlockY() + ", " + skeleton.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + skeleton.getWorld().getName() + ChatColor.YELLOW + "!");
                 skeleton.setCustomName("Tubby Skeleton");
                 skeleton.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
                 skeleton.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
