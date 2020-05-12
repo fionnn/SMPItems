@@ -3,11 +3,13 @@ package tfsmp.smpitems.mob;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
+import org.bukkit.entity.ZombieVillager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.*;
+
 
 import java.util.Random;
 
@@ -42,6 +44,12 @@ public class MobDrop implements Listener
             witherskeleton(e);
             return;
         }
+
+        if (e.getEntity() instanceof ZombieVillager)
+        {
+            midgetmob(e);
+            return;
+        }
     }
 
     private void zombie(EntityDeathEvent e)
@@ -55,17 +63,7 @@ public class MobDrop implements Listener
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
-
-        }   else if (e.getEntity().hasMetadata("Tubby Loot Midget"))
-            {
-                for (int i = 0; i < 5; i++){
-                    RandomCollection<CustomItem> items = new RandomCollection<>();
-                    items.add(0.1, new Axe());
-                    items.add(0.9, new BoneSword());
-                    CustomItem item = items.next();
-                    e.getDrops().add(item.getStack());
-                }
-            }
+        }
     }
 
     private void skeleton(EntityDeathEvent e)
@@ -94,6 +92,22 @@ public class MobDrop implements Listener
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
+        }
+    }
+
+    private void midgetmob(EntityDeathEvent e)
+    {
+        if (e.getEntity().hasMetadata("Tubby Loot Midget"))
+        {
+            if (gotRandom(5))
+                for (int i = 0; i < 5; i++){
+                    RandomCollection<CustomItem> items = new RandomCollection<>();
+                    items.add(0.5, new Axe());
+                    items.add(0.3, new BoneSword());
+                    items.add(0.2, new FleshSword());
+                    CustomItem item = items.next();
+                    e.getDrops().add(item.getStack());
+                }
         }
     }
 
