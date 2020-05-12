@@ -52,7 +52,14 @@ public class MobDrop implements Listener
                 e.getDrops().clear();
                 e.getDrops().add(new ItemStack(freedomAxe.getStack()));
             }
-        }
+        }   else if (e.getEntity().hasMetadata("Tubby Loot Midget"))
+            {
+                CustomItem freedomAxe = new CustomItem(ChatColor.AQUA + "Pick!", Material.IRON_PICKAXE);
+                freedomAxe.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.0);
+                freedomAxe.applyMetaToStack();
+                e.getDrops().clear();
+                e.getDrops().add(new ItemStack(freedomAxe.getStack()));
+            }
     }
 
     private void skeleton(EntityDeathEvent e)
