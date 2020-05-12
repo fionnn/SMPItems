@@ -9,7 +9,7 @@ public class BoneSword extends CustomItem
     public BoneSword()
     {
         super(ChatColor.GRAY + "Bone Sword", Material.IRON_SWORD, Rarity.COMMON);
-        super.addLoreLine("+500% attack damage");
+        super.addLoreLine("&f+500% attack damage");
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5.0);
         super.applyMetaToStack();
     }
