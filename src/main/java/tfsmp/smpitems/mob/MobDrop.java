@@ -10,9 +10,11 @@ import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.inventory.ItemStack;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.item.BoneSword;
 import tfsmp.smpitems.item.CustomItem;
+import tfsmp.smpitems.item.FreedomAxe;
+import tfsmp.smpitems.item.WitherAxe;
 
 import java.util.Random;
 
@@ -54,11 +56,8 @@ public class MobDrop implements Listener
         {
             if (gotRandom(5))
             {
-                CustomItem freedomAxe = new CustomItem(ChatColor.AQUA + "Axe!", Material.IRON_AXE);
-                freedomAxe.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.0);
-                freedomAxe.applyMetaToStack();
                 e.getDrops().clear();
-                e.getDrops().add(freedomAxe.getStack());
+                e.getDrops().add(new FreedomAxe().getStack());
             }
         }
     }
@@ -69,11 +68,8 @@ public class MobDrop implements Listener
         {
             if (gotRandom(7))
             {
-                CustomItem boneSword = new CustomItem(ChatColor.GRAY + "Bone Sword", Material.IRON_SWORD);
-                boneSword.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5.0);
-                boneSword.applyMetaToStack();
                 e.getDrops().clear();
-                e.getDrops().add(boneSword.getStack());
+                e.getDrops().add(new BoneSword().getStack());
             }
         }
     }
@@ -84,11 +80,8 @@ public class MobDrop implements Listener
         {
             if (gotRandom(3))
             {
-                CustomItem witherAxe = new CustomItem(ChatColor.DARK_GRAY + "Wither Axe", Material.DIAMOND_AXE);
-                witherAxe.addEnchant(Enchantment.DIG_SPEED, 10);
-                witherAxe.applyMetaToStack();
                 e.getDrops().clear();
-                e.getDrops().add(witherAxe.getStack());
+                e.getDrops().add(new WitherAxe().getStack());
             }
         }
     }
