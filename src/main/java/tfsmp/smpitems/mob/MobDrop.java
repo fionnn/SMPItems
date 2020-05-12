@@ -1,9 +1,5 @@
 package tfsmp.smpitems.mob;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
@@ -11,9 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.item.Axe;
 import tfsmp.smpitems.item.BoneSword;
-import tfsmp.smpitems.item.CustomItem;
-import tfsmp.smpitems.item.FreedomAxe;
 import tfsmp.smpitems.item.WitherAxe;
 
 import java.util.Random;
@@ -21,6 +16,7 @@ import java.util.Random;
 public class MobDrop implements Listener
 {
     private SMPItems plugin;
+
     public MobDrop(SMPItems plugin)
     {
         this.plugin = plugin;
@@ -57,7 +53,7 @@ public class MobDrop implements Listener
             if (gotRandom(5))
             {
                 e.getDrops().clear();
-                e.getDrops().add(new FreedomAxe().getStack());
+                e.getDrops().add(new Axe().getStack());
             }
         }
     }

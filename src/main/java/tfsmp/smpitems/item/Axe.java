@@ -4,9 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 
-public class FreedomAxe extends CustomItem
+public class Axe extends CustomItem
 {
-    public FreedomAxe()
+    public Axe()
     {
         super(ChatColor.AQUA + "Axe!", Material.IRON_AXE);
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.0);

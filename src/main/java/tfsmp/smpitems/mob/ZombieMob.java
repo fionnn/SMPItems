@@ -41,7 +41,7 @@ public class ZombieMob implements Listener
                     Zombie zombie = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Zombie.class);
                     Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + "Tubby Zombie " +
                             ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
-                            zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + zombie.getWorld().getName() + ChatColor.YELLOW + "!");
+                                zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + zombie.getWorld().getName() + ChatColor.YELLOW + "!");
                     zombie.setCustomName("Tubby Zombie");
                     zombie.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_AXE));
                     zombie.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
