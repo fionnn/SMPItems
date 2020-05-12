@@ -84,7 +84,6 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().hasMetadata("Tubby Wither Skeleton"))
         {
-            // issue dropping, doesn't drop
             for (int i = 0; i < 2; i++){
                 RandomCollection<CustomItem> items = new RandomCollection<>();
                 items.add(5, new WitherAxe());
