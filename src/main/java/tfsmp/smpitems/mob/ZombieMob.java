@@ -3,6 +3,7 @@ package tfsmp.smpitems.mob;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
@@ -28,23 +29,27 @@ public class ZombieMob implements Listener
     public void zombieSpawnEvent(EntitySpawnEvent event)
     {
         Entity entity = event.getEntity();
-        if (entity instanceof Zombie)
+
+        if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
         {
-            Random rand = new Random();
-            int spawnChance = rand.nextInt(50);
-            if (spawnChance == 1)
+            if (entity instanceof Zombie)
             {
-                Zombie zombie = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Zombie.class);
-                Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + "Tubby Zombie " +
-                        ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
-                            zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + zombie.getWorld().getName() + ChatColor.YELLOW + "!");
-                zombie.setCustomName("Tubby Zombie");
-                zombie.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_AXE));
-                zombie.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
-                zombie.getEquipment().setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
-                zombie.getEquipment().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
-                zombie.getEquipment().setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
-                zombie.setMetadata("Tubby Zombie", new FixedMetadataValue(plugin, "Tubby Zombie"));
+                Random rand = new Random();
+                int spawnChance = rand.nextInt(50);
+                if (spawnChance == 1)
+                {
+                    Zombie zombie = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Zombie.class);
+                    Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + "Tubby Zombie " +
+                            ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
+                                zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + zombie.getWorld().getName() + ChatColor.YELLOW + "!");
+                    zombie.setCustomName("Tubby Zombie");
+                    zombie.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_AXE));
+                    zombie.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
+                    zombie.getEquipment().setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
+                    zombie.getEquipment().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
+                    zombie.getEquipment().setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
+                    zombie.setMetadata("Tubby Zombie", new FixedMetadataValue(plugin, "Tubby Zombie"));
+                }
             }
         }
     }
