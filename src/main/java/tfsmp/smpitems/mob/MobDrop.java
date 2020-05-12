@@ -58,8 +58,8 @@ public class MobDrop implements Listener
         {
             for (int i = 0; i < 2; i++){
                 RandomCollection<CustomItem> items = new RandomCollection<>();
-                items.add(0.1, new Axe());
-                items.add(0.9, new BoneSword());
+                items.add(40, new Axe());
+                items.add(60, new BoneSword());
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
@@ -72,8 +72,8 @@ public class MobDrop implements Listener
         {
                 for (int i = 0; i < 2; i++){
                     RandomCollection<CustomItem> items = new RandomCollection<>();
-                    items.add(0.1, new Axe());
-                    items.add(0.9, new BoneSword());
+                    items.add(20, new Axe());
+                    items.add(80, new BoneSword());
                     CustomItem item = items.next();
                     e.getDrops().add(item.getStack());
                 }
@@ -87,8 +87,8 @@ public class MobDrop implements Listener
             // issue dropping, doesn't drop
             for (int i = 0; i < 2; i++){
                 RandomCollection<CustomItem> items = new RandomCollection<>();
-                items.add(0.1, new WitherAxe());
-                items.add(0.9, new BoneSword());
+                items.add(5, new WitherAxe());
+                items.add(95, new BoneSword());
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
@@ -102,9 +102,9 @@ public class MobDrop implements Listener
             if (gotRandom(5))
                 for (int i = 0; i < 5; i++){
                     RandomCollection<CustomItem> items = new RandomCollection<>();
-                    items.add(0.5, new Axe());
-                    items.add(0.3, new BoneSword());
-                    items.add(0.2, new FleshSword());
+                    items.add(50, new Axe());
+                    items.add(10, new BoneSword());
+                    items.add(40, new FleshSword());
                     CustomItem item = items.next();
                     e.getDrops().add(item.getStack());
                 }

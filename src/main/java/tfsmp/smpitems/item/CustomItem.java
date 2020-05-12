@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import tfsmp.smpitems.util.SUtil;
@@ -45,6 +46,7 @@ public class CustomItem
     public void addAttribute(Attribute attr, double amount, AttributeModifier.Operation operation)
     {
         meta.addAttributeModifier(attr, new AttributeModifier(getStringAttribute(attr), amount, operation));
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
     }
 
     public void addAttribute(Attribute attr, double amount)
