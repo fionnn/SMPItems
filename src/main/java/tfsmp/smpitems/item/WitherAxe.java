@@ -9,7 +9,7 @@ public class WitherAxe extends CustomItem
 {
     public WitherAxe()
     {
-        super(ChatColor.DARK_GRAY + "Wither Axe", Material.DIAMOND_AXE);
+        super(ChatColor.DARK_GRAY + "Wither Axe", Material.DIAMOND_AXE, Rarity.LEGENDARY);
         super.addEnchant(Enchantment.DIG_SPEED, 10);
         super.applyMetaToStack();
     }

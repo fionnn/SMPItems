@@ -8,7 +8,7 @@ public class FleshSword extends CustomItem
 {
     public FleshSword()
     {
-        super(ChatColor.RED + "Flesh Sword", Material.STONE_SWORD);
+        super(ChatColor.RED + "Flesh Sword", Material.STONE_SWORD, Rarity.UNCOMMON);
         super.addEnchant(Enchantment.KNOCKBACK, 5);
         super.applyMetaToStack();
     }
