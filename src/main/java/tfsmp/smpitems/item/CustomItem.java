@@ -1,5 +1,6 @@
 package tfsmp.smpitems.item;
 
+import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -15,6 +16,7 @@ import java.util.List;
 public class CustomItem
 {
     // the actual stack that is used in the game
+    @Getter
     private ItemStack stack;
 
     // the stack's meta
@@ -61,17 +63,12 @@ public class CustomItem
 
     public void addEnchant(Enchantment enchantment, int level)
     {
-        stack.addEnchantment(enchantment, level);
+        meta.addEnchant(enchantment, level, true);
     }
 
     public void addLoreLine(String s)
     {
         lore.add(SUtil.color(s));
-    }
-
-    public ItemStack getStack()
-    {
-        return stack;
     }
 
     private static String getStringAttribute(Attribute attr)

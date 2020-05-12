@@ -1,56 +1,19 @@
 package tfsmp.smpitems.mob;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Zombie;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
-import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.item.Axe;
 
-import java.util.Random;
-
-public class ZombieMob implements Listener
+public class ZombieMob extends CustomMob
 {
-
-    private SMPItems plugin;
-
-    public ZombieMob(SMPItems plugin)
+    public ZombieMob()
     {
-        this.plugin = plugin;
-    }
-
-    @EventHandler
-    public void zombieSpawnEvent(EntitySpawnEvent event)
-    {
-        Entity entity = event.getEntity();
-
-        if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
-        {
-            if (entity instanceof Zombie)
-            {
-                Random rand = new Random();
-                int spawnChance = rand.nextInt(50);
-                if (spawnChance == 1)
-                {
-                    Zombie zombie = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Zombie.class);
-                    Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + "Tubby Zombie " +
-                            ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + zombie.getLocation().getBlockX() + ", " +
-                                zombie.getLocation().getBlockY() + ", " + zombie.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + zombie.getWorld().getName() + ChatColor.YELLOW + "!");
-                    zombie.setCustomName("Tubby Zombie");
-                    zombie.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_AXE));
-                    zombie.getEquipment().setHelmet(new ItemStack(Material.IRON_HELMET));
-                    zombie.getEquipment().setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
-                    zombie.getEquipment().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
-                    zombie.getEquipment().setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
-                    zombie.setMetadata("Tubby Zombie", new FixedMetadataValue(plugin, "Tubby Zombie"));
-                }
-            }
-        }
+        super(EntityType.ZOMBIE, "Tubby Zombie");
+        super.setHoldableItem(new Axe());
+        super.setHelmet(new ItemStack(Material.IRON_HELMET));
+        super.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
+        super.setLeggings(new ItemStack(Material.IRON_LEGGINGS));
+        super.setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
     }
 }
