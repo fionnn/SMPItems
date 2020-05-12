@@ -56,7 +56,8 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().hasMetadata("Tubby Zombie"))
         {
-            for (int i = 0; i < 2; i++){
+            for (int i = 0; i < 2; i++)
+            {
                 RandomCollection<CustomItem> items = new RandomCollection<>();
                 items.add(40, new Axe());
                 items.add(60, new BoneSword());
@@ -70,12 +71,13 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().hasMetadata("Tubby Skeleton"))
         {
-                for (int i = 0; i < 2; i++){
-                    RandomCollection<CustomItem> items = new RandomCollection<>();
-                    items.add(20, new Axe());
-                    items.add(80, new BoneSword());
-                    CustomItem item = items.next();
-                    e.getDrops().add(item.getStack());
+            for (int i = 0; i < 2; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(20, new Axe());
+                items.add(80, new BoneSword());
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
                 }
         }
     }
@@ -84,7 +86,9 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().hasMetadata("Tubby Wither Skeleton"))
         {
-            for (int i = 0; i < 2; i++){
+            // issue dropping, doesn't drop
+            for (int i = 0; i < 2; i++)
+            {
                 RandomCollection<CustomItem> items = new RandomCollection<>();
                 items.add(5, new WitherAxe());
                 items.add(95, new BoneSword());
@@ -108,10 +112,5 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
-    }
-
-    private boolean gotRandom(int chance)
-    {
-        return r.nextInt(chance) == 1;
     }
 }
