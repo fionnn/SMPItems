@@ -8,9 +8,9 @@ public class Axe extends CustomItem
 {
     public Axe()
     {
-        super(ChatColor.GRAY + "Axe!", Material.IRON_AXE, Rarity.COMMON);
-        super.addLoreLine("+100% speed");
-        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.0);
+        super(ChatColor.GRAY + "Axe!", Material.IRON_AXE, Rarity.RARE);
+        super.addLoreLine("&f+150% Speed");
+        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.5);
         super.applyMetaToStack();
     }
 }

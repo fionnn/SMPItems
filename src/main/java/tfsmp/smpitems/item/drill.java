@@ -4,12 +4,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 
-public class WitherAxe extends CustomItem
+public class drill extends CustomItem
 {
-    public WitherAxe()
+    public drill()
     {
-        super("Wither Axe", Material.DIAMOND_AXE, Rarity.LEGENDARY);
-        super.addLoreLine('&c"The tip withers..."');
+        super("Drill", Material.DIAMOND_PICKAXE, Rarity.LEGENDARY);
+        super.addLoreLine('&c"dril go BRRR"')
         super.addLoreLine("&f10 Efficiency")
         super.addEnchant(Enchantment.DIG_SPEED, 10);
         super.applyMetaToStack();
