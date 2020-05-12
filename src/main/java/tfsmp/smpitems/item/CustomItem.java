@@ -6,6 +6,10 @@ import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import tfsmp.smpitems.util.SUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomItem
 {
@@ -15,10 +19,14 @@ public class CustomItem
     // the stack's meta
     private ItemMeta meta;
 
+    // the stack's lore
+    private List<String> lore;
+
     public CustomItem(String name, Material type)
     {
         this.stack = new ItemStack(type);
         this.meta = stack.getItemMeta();
+        this.lore = new ArrayList<>();
         this.setName(name);
         this.applyMetaToStack();
     }
@@ -30,6 +38,7 @@ public class CustomItem
 
     public void applyMetaToStack()
     {
+        meta.setLore(lore);
         stack.setItemMeta(meta);
     }
 
@@ -46,6 +55,11 @@ public class CustomItem
     public void addEnchant(Enchantment enchantment, int level)
     {
         meta.addEnchant(enchantment, level, true);
+    }
+
+    public void addLoreLine(String s)
+    {
+        lore.add(SUtil.color(s));
     }
 
     public ItemStack getStack()
