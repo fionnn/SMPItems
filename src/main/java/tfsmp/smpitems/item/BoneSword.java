@@ -8,7 +8,7 @@ public class BoneSword extends CustomItem
 {
     public BoneSword()
     {
-        super(ChatColor.GRAY + "Bone Sword", Material.IRON_SWORD);
+        super(ChatColor.GRAY + "Bone Sword", Material.IRON_SWORD, Rarity.COMMON);
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5.0);
         super.applyMetaToStack();
     }

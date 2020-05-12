@@ -99,15 +99,15 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().hasMetadata("Tubby Loot Midget"))
         {
-            if (gotRandom(5))
-                for (int i = 0; i < 5; i++){
-                    RandomCollection<CustomItem> items = new RandomCollection<>();
-                    items.add(50, new Axe());
-                    items.add(10, new BoneSword());
-                    items.add(40, new FleshSword());
-                    CustomItem item = items.next();
-                    e.getDrops().add(item.getStack());
-                }
+            for (int i = 0; i < 5; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(50, new Axe());
+                items.add(10, new BoneSword());
+                items.add(40, new FleshSword());
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
+            }
         }
     }
 

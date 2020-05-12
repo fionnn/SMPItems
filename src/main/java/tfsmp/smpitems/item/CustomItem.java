@@ -23,12 +23,17 @@ public class CustomItem
     // the stack's lore
     private List<String> lore;
 
-    public CustomItem(String name, Material type)
+    // rarity
+    private Rarity rarity;
+
+    public CustomItem(String name, Material type, Rarity rarity)
     {
         this.stack = new ItemStack(type);
         this.meta = stack.getItemMeta();
         this.lore = new ArrayList<>();
+        this.rarity = rarity;
         this.setName(name);
+        this.addLoreLine(rarity.getDisplay());
         this.applyMetaToStack();
     }
 
@@ -56,7 +61,7 @@ public class CustomItem
 
     public void addEnchant(Enchantment enchantment, int level)
     {
-        meta.addEnchant(enchantment, level, true);
+        stack.addEnchantment(enchantment, level);
     }
 
     public void addLoreLine(String s)
