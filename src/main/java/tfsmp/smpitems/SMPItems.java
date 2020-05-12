@@ -26,11 +26,10 @@ public final class SMPItems extends JavaPlugin
         PluginManager manager = this.getServer().getPluginManager();
 
         manager.registerEvents(new MidgetMob(this), this);
+        manager.registerEvents(new MobDrop(this), this);
         manager.registerEvents(new SkeletonMob(this), this);
         manager.registerEvents(new WitherSkeletonMob(this), this);
         manager.registerEvents(new ZombieMob(this), this);
-        manager.registerEvents(new MobDrop(this), this);
-
     }
 
     @Override

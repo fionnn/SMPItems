@@ -36,7 +36,7 @@ public class SkeletonMob implements Listener
             if (entity instanceof Skeleton)
             {
                 Random rand = new Random();
-                int spawnChance = rand.nextInt(50);
+                int spawnChance = rand.nextInt(60);
                 if (spawnChance == 1)
                 {
                     Skeleton skeleton = entity.getLocation().getWorld().spawn(entity.getLocation().add(0.5, 0, 0.5), Skeleton.class);

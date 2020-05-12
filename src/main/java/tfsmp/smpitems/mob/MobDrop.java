@@ -3,12 +3,14 @@ package tfsmp.smpitems.mob;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
+import org.bukkit.entity.ZombieVillager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.Axe;
 import tfsmp.smpitems.item.BoneSword;
+import tfsmp.smpitems.item.FleshSword;
 import tfsmp.smpitems.item.WitherAxe;
 
 import java.util.Random;
@@ -44,6 +46,12 @@ public class MobDrop implements Listener
             witherskeleton(e);
             return;
         }
+
+        if (e.getEntity() instanceof ZombieVillager)
+        {
+            midgetmob(e);
+            return;
+        }
     }
 
     private void zombie(EntityDeathEvent e)
@@ -55,14 +63,7 @@ public class MobDrop implements Listener
                 e.getDrops().clear();
                 e.getDrops().add(new Axe().getStack());
             }
-        }   else if (e.getEntity().hasMetadata("Tubby Loot Midget"))
-            {
-                if (gotRandom(5))
-                {
-                    e.getDrops().clear();
-                    e.getDrops().add(new Axe().getStack());
-                }
-            }
+        }
     }
 
     private void skeleton(EntityDeathEvent e)
@@ -85,6 +86,18 @@ public class MobDrop implements Listener
             {
                 e.getDrops().clear();
                 e.getDrops().add(new WitherAxe().getStack());
+            }
+        }
+    }
+
+    private void midgetmob(EntityDeathEvent e)
+    {
+        if (e.getEntity().hasMetadata("Tubby Loot Midget"))
+        {
+            if (gotRandom(5))
+            {
+                e.getDrops().clear();
+                e.getDrops().add(new FleshSword().getStack());
             }
         }
     }
