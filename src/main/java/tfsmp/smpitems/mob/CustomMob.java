@@ -66,13 +66,12 @@ public class CustomMob
     public void spawn(Entity entity, boolean bc)
     {
         LivingEntity spawning = (LivingEntity) entity.getLocation().getWorld().spawnEntity(entity.getLocation().add(0.5, 0, 0.5), type);
-        Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
+        if (bc)
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
                 ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + spawning.getLocation().getBlockX() + ", " +
                 spawning.getLocation().getBlockY() + ", " + spawning.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + spawning.getWorld().getName() + ChatColor.YELLOW + "!");
         if (this.isBaby() && (spawning instanceof Zombie))
-        {
             ((Zombie) spawning).setBaby(true);
-        }
         spawning.setCustomName(name);
         spawning.getEquipment().setItemInMainHand(holdableItem.getStack());
         spawning.getEquipment().setHelmet(helmet);
