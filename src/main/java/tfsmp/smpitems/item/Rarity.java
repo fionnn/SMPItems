@@ -8,7 +8,9 @@ public enum Rarity
     UNCOMMON(ChatColor.GREEN),
     RARE(ChatColor.BLUE),
     EPIC(ChatColor.DARK_PURPLE),
-    LEGENDARY(ChatColor.GOLD);
+    LEGENDARY(ChatColor.GOLD),
+    PEARLESCENT(ChatColor.AQUA),
+    SPECIAL(ChatColor.YELLOW);
 
     private final ChatColor color;
 
