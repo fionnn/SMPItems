@@ -82,6 +82,5 @@ public class CustomMob
         {
             spawning.addPotionEffect(effect);
         }
-        spawning.setMetadata(name, new FixedMetadataValue(plugin, name));
     }
 }

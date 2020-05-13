@@ -1,5 +1,6 @@
 package tfsmp.smpitems.mob;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
@@ -9,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.*;
+import tfsmp.smpitems.util.SLog;
 
 
 import java.util.Random;
@@ -27,6 +29,9 @@ public class MobDrop implements Listener
     @EventHandler
     public void onEntityDeath(EntityDeathEvent e)
     {
+        if (e.getEntity().getCustomName() == null)
+            return;
+
         if (e.getEntity() instanceof Zombie)
         {
             zombie(e);
@@ -38,23 +43,11 @@ public class MobDrop implements Listener
             skeleton(e);
             return;
         }
-
-        if (e.getEntity() instanceof WitherSkeleton)
-        {
-            witherskeleton(e);
-            return;
-        }
-
-        if (e.getEntity() instanceof ZombieVillager)
-        {
-            midgetmob(e);
-            return;
-        }
     }
 
     private void zombie(EntityDeathEvent e)
     {
-        if (e.getEntity().hasMetadata("Tubby Zombie"))
+        if (e.getEntity().getCustomName().contains("Tubby Zombie"))
         {
             for (int i = 0; i < 2; i++)
             {
@@ -65,11 +58,23 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+        if (e.getEntity().getCustomName().contains("Tubby Loot Midget"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(50, new Axe());
+                items.add(10, new BoneSword());
+                items.add(40, new FleshSword());
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
+            }
+        }
     }
 
     private void skeleton(EntityDeathEvent e)
     {
-        if (e.getEntity().hasMetadata("Tubby Skeleton"))
+        if (e.getEntity().getCustomName().contains("Tubby Skeleton"))
         {
             for (int i = 0; i < 2; i++)
             {
@@ -80,11 +85,7 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
                 }
         }
-    }
-
-    private void witherskeleton(EntityDeathEvent e)
-    {
-        if (e.getEntity().hasMetadata("Tubby Wither Skeleton"))
+        if (e.getEntity().getCustomName().contains("Tubby Wither Skeleton"))
         {
             // issue dropping, doesn't drop
             for (int i = 0; i < 2; i++)
@@ -92,22 +93,6 @@ public class MobDrop implements Listener
                 RandomCollection<CustomItem> items = new RandomCollection<>();
                 items.add(5, new WitherAxe());
                 items.add(95, new BoneSword());
-                CustomItem item = items.next();
-                e.getDrops().add(item.getStack());
-            }
-        }
-    }
-
-    private void midgetmob(EntityDeathEvent e)
-    {
-        if (e.getEntity().hasMetadata("Tubby Loot Midget"))
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                RandomCollection<CustomItem> items = new RandomCollection<>();
-                items.add(50, new Axe());
-                items.add(10, new BoneSword());
-                items.add(40, new FleshSword());
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
