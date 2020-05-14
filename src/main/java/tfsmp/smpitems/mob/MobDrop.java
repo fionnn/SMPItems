@@ -212,7 +212,7 @@ public class MobDrop implements Listener
             for (int i = 0; i < 2; i++)
             {
                 RandomCollection<CustomItem> items = new RandomCollection<>();
-                items.add(3, new End());
+                items.add(3, new end());
                 items.add(7, new ObsidianPick());
                 items.add(10, new WitherAxe());
                 items.add(30, new BoneSword());
