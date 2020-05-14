@@ -1,17 +1,13 @@
 package tfsmp.smpitems.mob;
 
-import org.bukkit.ChatColor;
+import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Skeleton;
-import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zombie;
-import org.bukkit.entity.ZombieVillager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.*;
-import tfsmp.smpitems.util.SLog;
-
 
 import java.util.Random;
 
@@ -41,6 +37,12 @@ public class MobDrop implements Listener
         if (e.getEntity() instanceof Skeleton)
         {
             skeleton(e);
+            return;
+        }
+
+        if (e.getEntity() instanceof Enderman)
+        {
+            enderman(e);
             return;
         }
     }
@@ -87,7 +89,7 @@ public class MobDrop implements Listener
         }
         if (e.getEntity().getCustomName().contains("Tubby Loot Midget"))
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 2; i++)
             {
                 RandomCollection<CustomItem> items = new RandomCollection<>();
                 items.add(40, new LongBow());
@@ -161,11 +163,10 @@ public class MobDrop implements Listener
                 items.add(2, new Square());
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
-                }
+            }
         }
         if (e.getEntity().getCustomName().contains("Tubby Wither Skeleton"))
         {
-            // issue dropping, doesn't drop
             for (int i = 0; i < 2; i++)
             {
                 RandomCollection<CustomItem> items = new RandomCollection<>();
@@ -198,6 +199,24 @@ public class MobDrop implements Listener
                 items.add(2, new Super());
                 items.add(2, new Ron());
                 items.add(2, new Square());
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
+            }
+        }
+    }
+
+    private void enderman(EntityDeathEvent e)
+    {
+        if (e.getEntity().getCustomName().contains("Tubby Enderman"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(3, new End());
+                items.add(7, new ObsidianPick());
+                items.add(10, new WitherAxe());
+                items.add(30, new BoneSword());
+                items.add(50, new Axe());
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
             }
