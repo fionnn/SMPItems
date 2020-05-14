@@ -3,13 +3,13 @@ package tfsmp.smpitems.item;
 import org.bukkit.enchantments.Enchantment;
 import tfsmp.smpitems.util.Groups;
 
-public class drill extends CustomItem
+public class Drill extends CustomItem
 {
-    public drill()
+    public Drill()
     {
         super("Drill", Groups.VANILLA_PICKAXES, Rarity.LEGENDARY, ItemType.TOOLS);
         super.addLoreLine("&cdrill go BRRR");
-        super.addLoreLine("&f10 Efficiency");
+        super.addLoreLine("&eEfficiency 10");
         super.addEnchant(Enchantment.DIG_SPEED, 10);
         super.applyMetaToStack();
     }

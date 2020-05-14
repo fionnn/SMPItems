@@ -9,7 +9,7 @@ public class POWbow extends CustomItem
     {
         super("POW! Bow", Material.BOW, Rarity.LEGENDARY, ItemType.RANGED);
         super.addLoreLine("&cBOOM!");
-        super.addLoreLine("&f20 Punch");
+        super.addLoreLine("&ePunch 20");
         super.addEnchant(Enchantment.ARROW_KNOCKBACK, 20);
         super.applyMetaToStack();
     }

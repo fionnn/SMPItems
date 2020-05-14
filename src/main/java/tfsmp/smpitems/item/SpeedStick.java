@@ -8,7 +8,7 @@ public class SpeedStick extends CustomItem
     public SpeedStick()
     {
         super("speed stick!!!", Material.STICK, Rarity.EPIC, ItemType.OTHER);
-        super.addLoreLine("&f+500% Speed");
+        super.addLoreLine("&d+500% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 5);
         super.applyMetaToStack();
     }

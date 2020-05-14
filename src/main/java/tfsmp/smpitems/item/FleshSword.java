@@ -8,7 +8,7 @@ public class FleshSword extends CustomItem
     public FleshSword()
     {
         super("Flesh Sword", Groups.VANILLA_SWORDS, Rarity.RARE, ItemType.MELEE);
-        super.addLoreLine("&fKnockback 5");
+        super.addLoreLine("&bKnockback 5");
         super.addEnchant(Enchantment.KNOCKBACK, 5);
         super.applyMetaToStack();
     }

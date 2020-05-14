@@ -9,6 +9,7 @@ public class Speed extends CustomItem
     {
         super("speedn", Material.COOKED_COD, Rarity.SPECIAL, ItemType.OTHER);
         super.addLoreLine("&csepeed");
+        super.addLoreLine("&e&oKnockback 10");
         super.addEnchant(Enchantment.KNOCKBACK, 10);
         super.applyMetaToStack();
     }

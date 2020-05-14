@@ -103,6 +103,7 @@ public class CustomItem
     public void addEnchant(Enchantment enchantment, int level)
     {
         meta.addEnchant(enchantment, level, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     }
 
     public void addLoreLine(String s)

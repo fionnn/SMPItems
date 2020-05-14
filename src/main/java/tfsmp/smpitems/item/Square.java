@@ -9,6 +9,7 @@ public class Square extends CustomItem
     {
         super("shape", Material.QUARTZ_BLOCK, Rarity.SPECIAL, ItemType.OTHER);
         super.addLoreLine("&cthis is a cube not a square");
+        super.addLoreLine("&e&oKnockback 10");
         super.addEnchant(Enchantment.KNOCKBACK, 10);
         super.applyMetaToStack();
     }

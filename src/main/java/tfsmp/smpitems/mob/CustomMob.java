@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.CustomItem;
