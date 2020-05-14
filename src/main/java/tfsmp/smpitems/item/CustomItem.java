@@ -1,6 +1,7 @@
 package tfsmp.smpitems.item;
 
 import lombok.Getter;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -8,6 +9,10 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import tfsmp.smpitems.item.variant.CompactAttribute;
+import tfsmp.smpitems.item.variant.CompactEnchantment;
+import tfsmp.smpitems.item.variant.Variant;
+import tfsmp.smpitems.util.Groups;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
@@ -29,20 +34,45 @@ public class CustomItem
     // rarity
     private Rarity rarity;
 
-    public CustomItem(String name, Material type, Rarity rarity)
+    // item type
+    private ItemType itemType;
+
+    // variant
+    private Variant variant;
+
+    // color of the name
+    @Getter
+    private ChatColor color;
+
+    public CustomItem(String name, Material type, Rarity rarity, ItemType itemType)
     {
         this.stack = new ItemStack(type);
         this.meta = stack.getItemMeta();
         this.lore = new ArrayList<>();
         this.rarity = rarity;
+        this.itemType = itemType;
+        switch (itemType)
+        {
+            case MELEE: variant = getRandomVariant(Groups.MELEE_VARIANTS); break;
+        }
         this.setName(name);
+        if (variant != null)
+        {
+            this.setName(variant.getName() + " " + name);
+            for (CompactEnchantment enchantment : variant.getEnchantments())
+                this.addEnchant(enchantment.getEnchantment(), enchantment.getLevel());
+            for (CompactAttribute attribute : variant.getAttributes())
+                this.addAttribute(attribute.getAttribute(), attribute.getAmount());
+            if (variant.isUnbreakable())
+                meta.setUnbreakable(true);
+        }
         this.addLoreLine(rarity.getDisplay());
         this.applyMetaToStack();
     }
 
-    public CustomItem(String name, List<Material> types, Rarity rarity)
+    public CustomItem(String name, List<Material> types, Rarity rarity, ItemType itemType)
     {
-        this(name, types.get(new Random().nextInt(types.size())), rarity);
+        this(name, types.get(new Random().nextInt(types.size())), rarity, itemType);
     }
 
     public void setName(String name)
@@ -50,15 +80,28 @@ public class CustomItem
         meta.setDisplayName(name);
     }
 
+    public String getName()
+    {
+        return meta.getDisplayName();
+    }
+
+    public void setColor(ChatColor color)
+    {
+        this.color = color;
+        this.setName(color + getName());
+    }
+
     public void applyMetaToStack()
     {
+        lore.remove(rarity.getDisplay());
+        lore.add(rarity.getDisplay());
         meta.setLore(lore);
         stack.setItemMeta(meta);
     }
 
     public void addAttribute(Attribute attr, double amount, AttributeModifier.Operation operation)
     {
-        meta.addAttributeModifier(attr, new AttributeModifier(getStringAttribute(attr), amount, operation));
+        meta.addAttributeModifier(attr, new AttributeModifier(SUtil.getStringAttribute(attr), amount, operation));
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
     }
 
@@ -77,23 +120,8 @@ public class CustomItem
         lore.add(SUtil.color(s));
     }
 
-    private static String getStringAttribute(Attribute attr)
+    public Variant getRandomVariant(List<Variant> variants)
     {
-        switch (attr)
-        {
-            case GENERIC_MAX_HEALTH: return "generic.maxHealth";
-            case GENERIC_MOVEMENT_SPEED: return "generic.movementSpeed";
-            case GENERIC_ATTACK_DAMAGE: return "generic.attackDamage";
-            case GENERIC_LUCK: return "generic.luck";
-            case GENERIC_FOLLOW_RANGE: return "generic.followRange";
-            case GENERIC_ARMOR: return "generic.armor";
-            case HORSE_JUMP_STRENGTH: return "horse.jumpStrength";
-            case GENERIC_ATTACK_SPEED: return "generic.attackSpeed";
-            case GENERIC_FLYING_SPEED: return "generic.flyingSpeed";
-            case GENERIC_ARMOR_TOUGHNESS: return "generic.armorToughness";
-            case ZOMBIE_SPAWN_REINFORCEMENTS: return "zombie.spawnReinforcements";
-            case GENERIC_KNOCKBACK_RESISTANCE: return "generic.knockbackResistance";
-            default: return "";
-        }
+        return variants.get(new Random().nextInt(variants.size()));
     }
 }

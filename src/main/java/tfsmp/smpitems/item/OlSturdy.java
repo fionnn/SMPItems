@@ -7,7 +7,7 @@ public class OlSturdy extends CustomItem
 {
     public OlSturdy()
     {
-        super("Ol' Sturdy", Material.BOW, Rarity.UNCOMMON);
+        super("Ol' Sturdy", Material.BOW, Rarity.UNCOMMON, ItemType.RANGED);
         super.addLoreLine("&f5 Unbreaking");
         super.addEnchant(Enchantment.DURABILITY, 5);
         super.applyMetaToStack();

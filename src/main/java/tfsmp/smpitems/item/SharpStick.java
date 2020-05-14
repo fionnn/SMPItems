@@ -7,7 +7,7 @@ public class SharpStick extends CustomItem
 {
     public SharpStick()
     {
-        super("sharp stick!!!", Material.STICK, Rarity.EPIC);
+        super("sharp stick!!!", Material.STICK, Rarity.EPIC, ItemType.MELEE);
         super.addLoreLine("&f10 Sharpness");
         super.addEnchant(Enchantment.DAMAGE_ALL, 10);
         super.applyMetaToStack();

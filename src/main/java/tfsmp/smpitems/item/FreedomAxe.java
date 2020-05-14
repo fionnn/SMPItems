@@ -7,7 +7,7 @@ public class FreedomAxe extends CustomItem
 {
     public FreedomAxe()
     {
-        super("Freedom Axe", Groups.VANILLA_AXES, Rarity.RARE);
+        super("Freedom Axe", Groups.VANILLA_AXES, Rarity.RARE, ItemType.MELEE);
         super.addLoreLine("+200% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 2.0);
         super.applyMetaToStack();

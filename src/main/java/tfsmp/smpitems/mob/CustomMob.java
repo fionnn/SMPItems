@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.CustomItem;
@@ -72,11 +73,16 @@ public class CustomMob
         if (this.isBaby() && (spawning instanceof Zombie))
             ((Zombie) spawning).setBaby(true);
         spawning.setCustomName(name);
-        spawning.getEquipment().setItemInMainHand(holdableItem.getStack());
-        spawning.getEquipment().setHelmet(helmet);
-        spawning.getEquipment().setChestplate(chestplate);
-        spawning.getEquipment().setLeggings(leggings);
-        spawning.getEquipment().setBoots(boots);
+        if (holdableItem != null)
+            spawning.getEquipment().setItemInMainHand(holdableItem.getStack());
+        if (helmet != null)
+            spawning.getEquipment().setHelmet(helmet);
+        if (chestplate != null)
+            spawning.getEquipment().setChestplate(chestplate);
+        if (leggings != null)
+            spawning.getEquipment().setLeggings(leggings);
+        if (boots != null)
+            spawning.getEquipment().setBoots(boots);
         for (PotionEffect effect : potionEffects)
         {
             spawning.addPotionEffect(effect);
