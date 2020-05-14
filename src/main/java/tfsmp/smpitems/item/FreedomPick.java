@@ -8,7 +8,7 @@ public class FreedomPick extends CustomItem
     public FreedomPick()
     {
         super("Freedom Pickaxe", Groups.VANILLA_PICKAXES, Rarity.RARE);
-        super.addLoreLine("+200% Speed");
+        super.addLoreLine("&f+200% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 2.0);
         super.applyMetaToStack();
     }
