@@ -22,25 +22,31 @@ public class MobSpawn implements Listener
     {
         Entity entity = event.getEntity();
 
+        int midgetSpawnRate = plugin.config.getInt("server.mobs.spawnrate.midget");
+        int zombieSpawnRate = plugin.config.getInt("server.mobs.spawnrate.zombie");
+        int skeletonSpawnRate = plugin.config.getInt("server.mobs.spawnrate.skeleton");
+        int endermanSpawnRate = plugin.config.getInt("server.mobs.spawnrate.enderman");
+        int witherskeletonSpawnRate = plugin.config.getInt("server.mobs.spawnrate.witherskeleton");
+
         // Mobs that are able to spawn in the overworld
         if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
         {
-            if (entity instanceof ZombieVillager && SUtil.gotRandom(5))
+            if (entity instanceof ZombieVillager && SUtil.gotRandom(midgetSpawnRate))
             {
                 new MidgetMob().spawn(entity, true);
                 return;
             }
-            if (entity instanceof Zombie && SUtil.gotRandom(50))
+            if (entity instanceof Zombie && SUtil.gotRandom(zombieSpawnRate))
             {
                 new ZombieMob().spawn(entity, true);
                 return;
             }
-            if (entity instanceof Skeleton && SUtil.gotRandom(60))
+            if (entity instanceof Skeleton && SUtil.gotRandom(skeletonSpawnRate))
             {
                 new SkeletonMob().spawn(entity, true);
                 return;
             }
-            if (entity instanceof Enderman && SUtil.gotRandom(5))
+            if (entity instanceof Enderman && SUtil.gotRandom(endermanSpawnRate))
             {
                 new EndermanMob().spawn(entity, true);
                 return;
@@ -50,11 +56,11 @@ public class MobSpawn implements Listener
         // Mobs that are able to spawn in the Nether
         if (entity.getWorld().getEnvironment().equals(World.Environment.NETHER))
         {
-            if (entity instanceof WitherSkeleton && SUtil.gotRandom(5))
+            if (entity instanceof WitherSkeleton && SUtil.gotRandom(witherskeletonSpawnRate))
             {
                 new WitherSkeletonMob().spawn(entity, true);
             }
-            if (entity instanceof Enderman && SUtil.gotRandom(5))
+            if (entity instanceof Enderman && SUtil.gotRandom(endermanSpawnRate))
             {
                 new EndermanMob().spawn(entity, true);
             }
