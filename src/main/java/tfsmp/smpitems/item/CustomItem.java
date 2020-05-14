@@ -12,6 +12,7 @@ import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class CustomItem
 {
@@ -37,6 +38,11 @@ public class CustomItem
         this.setName(name);
         this.addLoreLine(rarity.getDisplay());
         this.applyMetaToStack();
+    }
+
+    public CustomItem(String name, List<Material> types, Rarity rarity)
+    {
+        this(name, types.get(new Random().nextInt(types.size())), rarity);
     }
 
     public void setName(String name)
