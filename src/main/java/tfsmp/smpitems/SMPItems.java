@@ -2,6 +2,7 @@ package tfsmp.smpitems;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import tfsmp.smpitems.command.Command_smpspawnmob;
 import tfsmp.smpitems.config.Config;
 import tfsmp.smpitems.mob.MobDrop;
 import tfsmp.smpitems.mob.MobSpawn;
@@ -18,6 +19,7 @@ public final class SMPItems extends JavaPlugin
         plugin = this;
         config = new Config(plugin, "config.yml");
         enableListeners();
+        enableCommands();
         SLog.info("Enabled.");
     }
 
@@ -26,6 +28,11 @@ public final class SMPItems extends JavaPlugin
         PluginManager manager = this.getServer().getPluginManager();
         manager.registerEvents(new MobDrop(this), this);
         manager.registerEvents(new MobSpawn(this), this);
+    }
+
+    private void enableCommands()
+    {
+        this.getCommand("smpspawnmob").setExecutor(new Command_smpspawnmob());
     }
 
     @Override

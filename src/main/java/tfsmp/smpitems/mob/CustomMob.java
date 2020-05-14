@@ -21,6 +21,7 @@ public class CustomMob
     private EntityType type;
 
     // name of the mob
+    @Getter
     private String name;
 
     // item that they hold
