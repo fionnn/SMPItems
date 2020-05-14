@@ -25,21 +25,25 @@ public class MobSpawn implements Listener
         // Mobs that are able to spawn in the overworld
         if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
         {
-            if (entity instanceof Skeleton && SUtil.gotRandom(60))
+            if (entity instanceof ZombieVillager && SUtil.gotRandom(5))
             {
-                new SkeletonMob().spawn(entity, true);
+                new MidgetMob().spawn(entity, true);
+                return;
             }
             if (entity instanceof Zombie && SUtil.gotRandom(50))
             {
                 new ZombieMob().spawn(entity, true);
+                return;
             }
-            if (entity instanceof ZombieVillager && SUtil.gotRandom(5))
+            if (entity instanceof Skeleton && SUtil.gotRandom(60))
             {
-                new MidgetMob().spawn(entity, true);
+                new SkeletonMob().spawn(entity, true);
+                return;
             }
             if (entity instanceof Enderman && SUtil.gotRandom(5))
             {
                 new EndermanMob().spawn(entity, true);
+                return;
             }
         }
 

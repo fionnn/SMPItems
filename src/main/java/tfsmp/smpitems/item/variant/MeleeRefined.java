@@ -2,9 +2,9 @@ package tfsmp.smpitems.item.variant;
 
 import org.bukkit.attribute.Attribute;
 
-public class Refined extends Variant
+public class MeleeRefined extends Variant
 {
-    public Refined()
+    public MeleeRefined()
     {
         super("Refined");
         super.addAttribute(Attribute.GENERIC_ATTACK_SPEED, 0.5);

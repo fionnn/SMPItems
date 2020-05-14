@@ -51,6 +51,9 @@ public class CustomItem
         {
             case MELEE: variant = getRandomVariant(Groups.MELEE_VARIANTS); break;
             case RANGED: variant = getRandomVariant(Groups.RANGED_VARIANTS); break;
+            case ARMOR: variant = getRandomVariant(Groups.ARMOR_VARIANTS); break;
+            case SHIELD: variant = getRandomVariant(Groups.SHIELD_VARIANTS); break;
+            case TOOLS: variant = getRandomVariant(Groups.TOOLS_VARIANTS); break;
         }
         this.setName(rarity.getColor() + name);
         if (variant != null)
@@ -89,6 +92,7 @@ public class CustomItem
     {
         meta.addAttributeModifier(attr, new AttributeModifier(SUtil.getStringAttribute(attr), amount, operation));
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     }
 
     public void addAttribute(Attribute attr, double amount)
