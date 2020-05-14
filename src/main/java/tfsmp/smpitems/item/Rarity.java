@@ -1,5 +1,6 @@
 package tfsmp.smpitems.item;
 
+import lombok.Getter;
 import org.bukkit.ChatColor;
 
 public enum Rarity
@@ -12,6 +13,7 @@ public enum Rarity
     PEARLESCENT(ChatColor.AQUA),
     SPECIAL(ChatColor.YELLOW);
 
+    @Getter
     private final ChatColor color;
 
     Rarity(ChatColor color)

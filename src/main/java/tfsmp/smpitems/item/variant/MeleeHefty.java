@@ -3,9 +3,9 @@ package tfsmp.smpitems.item.variant;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.Enchantment;
 
-public class Hefty extends Variant
+public class MeleeHefty extends Variant
 {
-    public Hefty()
+    public MeleeHefty()
     {
         super("Hefty");
         super.addAttribute(Attribute.GENERIC_ATTACK_SPEED, -0.5);

@@ -2,11 +2,11 @@ package tfsmp.smpitems.item.variant;
 
 import org.bukkit.enchantments.Enchantment;
 
-public class Sharp extends Variant
+public class RangedSharp extends Variant
 {
-    public Sharp()
+    public RangedSharp()
     {
         super("Sharp");
-        super.addEnchant(Enchantment.DAMAGE_ALL, 2);
+        super.addEnchant(Enchantment.ARROW_DAMAGE, 3);
     }
 }

@@ -40,10 +40,6 @@ public class CustomItem
     // variant
     private Variant variant;
 
-    // color of the name
-    @Getter
-    private ChatColor color;
-
     public CustomItem(String name, Material type, Rarity rarity, ItemType itemType)
     {
         this.stack = new ItemStack(type);
@@ -54,11 +50,12 @@ public class CustomItem
         switch (itemType)
         {
             case MELEE: variant = getRandomVariant(Groups.MELEE_VARIANTS); break;
+            case RANGED: variant = getRandomVariant(Groups.RANGED_VARIANTS); break;
         }
-        this.setName(name);
+        this.setName(rarity.getColor() + name);
         if (variant != null)
         {
-            this.setName(variant.getName() + " " + name);
+            this.setName(rarity.getColor() + variant.getName() + " " + name);
             for (CompactEnchantment enchantment : variant.getEnchantments())
                 this.addEnchant(enchantment.getEnchantment(), enchantment.getLevel());
             for (CompactAttribute attribute : variant.getAttributes())
@@ -78,17 +75,6 @@ public class CustomItem
     public void setName(String name)
     {
         meta.setDisplayName(name);
-    }
-
-    public String getName()
-    {
-        return meta.getDisplayName();
-    }
-
-    public void setColor(ChatColor color)
-    {
-        this.color = color;
-        this.setName(color + getName());
     }
 
     public void applyMetaToStack()
