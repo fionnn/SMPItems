@@ -8,8 +8,8 @@ public class BoneSword extends CustomItem
     public BoneSword()
     {
         super("Bone Sword", Groups.VANILLA_SWORDS, Rarity.COMMON, ItemType.MELEE);
-        super.addLoreLine("&f+200% Damage");
-        super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 2.0);
+        super.addLoreLine("&f+300% Damage");
+        super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 3.0);
         super.applyMetaToStack();
     }
 }

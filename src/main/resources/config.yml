@@ -1,0 +1,20 @@
+#
+# SMPItems Configuration File
+# Example: zombie: 50
+# This has a 1 / 50 chance of spawning a Tubby Zombie
+#
+# DEFAULT VALUES
+# midget: 30
+# witherskeleton: 40
+# zombie: 50
+# skeleton: 60
+# enderman: 100
+
+server:
+  mobs:
+    spawnrate:
+      midget: 30
+      witherskeleton: 40
+      zombie: 50
+      skeleton: 60
+      enderman: 100

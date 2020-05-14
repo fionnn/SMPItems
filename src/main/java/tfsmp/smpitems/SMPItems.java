@@ -2,6 +2,7 @@ package tfsmp.smpitems;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import tfsmp.smpitems.config.Config;
 import tfsmp.smpitems.mob.MobDrop;
 import tfsmp.smpitems.mob.MobSpawn;
 import tfsmp.smpitems.util.SLog;
@@ -9,11 +10,13 @@ import tfsmp.smpitems.util.SLog;
 public final class SMPItems extends JavaPlugin
 {
     public static SMPItems plugin;
+    public Config config;
 
     @Override
     public void onEnable()
     {
         plugin = this;
+        config = new Config(plugin, "config.yml");
         enableListeners();
         SLog.info("Enabled.");
     }
@@ -21,7 +24,6 @@ public final class SMPItems extends JavaPlugin
     private void enableListeners()
     {
         PluginManager manager = this.getServer().getPluginManager();
-
         manager.registerEvents(new MobDrop(this), this);
         manager.registerEvents(new MobSpawn(this), this);
     }
@@ -29,6 +31,7 @@ public final class SMPItems extends JavaPlugin
     @Override
     public void onDisable()
     {
+        config.save();
         SLog.info("Disabled.");
     }
 }
