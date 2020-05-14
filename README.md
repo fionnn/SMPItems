@@ -1,3 +1,3 @@
 # Seth gay
 // It's true
-He is also gay.
+# He is also gay.
