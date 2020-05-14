@@ -22,6 +22,7 @@ public class MobSpawn implements Listener
     {
         Entity entity = event.getEntity();
 
+        // Mobs that are able to spawn in the overworld
         if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
         {
             if (entity instanceof Skeleton && SUtil.gotRandom(60))
@@ -36,12 +37,22 @@ public class MobSpawn implements Listener
             {
                 new MidgetMob().spawn(entity, true);
             }
+            if (entity instanceof Enderman && SUtil.gotRandom(5))
+            {
+                new EndermanMob().spawn(entity, true);
+            }
         }
+
+        // Mobs that are able to spawn in the Nether
         if (entity.getWorld().getEnvironment().equals(World.Environment.NETHER))
         {
             if (entity instanceof WitherSkeleton && SUtil.gotRandom(5))
             {
                 new WitherSkeletonMob().spawn(entity, true);
+            }
+            if (entity instanceof Enderman && SUtil.gotRandom(5))
+            {
+                new EndermanMob().spawn(entity, true);
             }
         }
     }

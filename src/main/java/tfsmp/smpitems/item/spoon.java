@@ -1,6 +1,5 @@
 package tfsmp.smpitems.item;
 
-import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import tfsmp.smpitems.util.Groups;
 

@@ -69,7 +69,7 @@ public class CustomItem
 
     public void addEnchant(Enchantment enchantment, int level)
     {
-        stack.addUnsafeEnchantment(enchantment, level);
+        meta.addEnchant(enchantment, level, true);
     }
 
     public void addLoreLine(String s)
