@@ -1,6 +1,7 @@
 package tfsmp.smpitems.util;
 
 import org.bukkit.Material;
+import tfsmp.smpitems.item.variant.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,4 +13,6 @@ public class Groups
     public static List<Material> VANILLA_PICKAXES = Arrays.asList(Material.WOODEN_PICKAXE, Material.STONE_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.DIAMOND_PICKAXE);
     public static List<Material> VANILLA_SHOVELS = Arrays.asList(Material.WOODEN_SHOVEL, Material.STONE_SHOVEL, Material.IRON_SHOVEL, Material.GOLDEN_SHOVEL, Material.DIAMOND_SHOVEL);
     public static List<Material> VANILLA_HOES = Arrays.asList(Material.WOODEN_HOE, Material.STONE_HOE, Material.IRON_HOE, Material.GOLDEN_HOE, Material.DIAMOND_HOE);
+
+    public static List<Variant> MELEE_VARIANTS = Arrays.asList(new Swift(), new Hefty(), new Light(), new Sharp(), new Lucky(), new Refined(), new Unbreakable());
 }

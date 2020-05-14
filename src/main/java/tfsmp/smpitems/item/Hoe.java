@@ -8,7 +8,8 @@ public class Hoe extends CustomItem
 {
     public Hoe()
     {
-        super(ChatColor.WHITE + "hoe", Groups.VANILLA_HOES, Rarity.COMMON);
+        super("hoe", Groups.VANILLA_HOES, Rarity.COMMON, ItemType.TOOLS);
+        super.setColor(ChatColor.WHITE);
         super.addLoreLine("&f2 Efficiency");
         super.addEnchant(Enchantment.DIG_SPEED, 2);
         super.applyMetaToStack();

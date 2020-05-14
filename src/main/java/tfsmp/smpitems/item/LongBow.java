@@ -8,7 +8,8 @@ public class LongBow extends CustomItem
 {
     public LongBow()
     {
-        super(ChatColor.WHITE + "Long Bow", Material.BOW, Rarity.COMMON);
+        super("Long Bow", Material.BOW, Rarity.COMMON, ItemType.RANGED);
+        super.setColor(ChatColor.BLUE);
         super.addLoreLine("&f5 Power");
         super.addEnchant(Enchantment.ARROW_DAMAGE, 5);
         super.applyMetaToStack();

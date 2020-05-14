@@ -8,7 +8,8 @@ public class SpeedStick extends CustomItem
 {
     public SpeedStick()
     {
-        super(ChatColor.DARK_PURPLE + "speed stick!!!", Material.STICK, Rarity.EPIC);
+        super("speed stick!!!", Material.STICK, Rarity.EPIC, ItemType.OTHER);
+        super.setColor(ChatColor.DARK_PURPLE);
         super.addLoreLine("&f+500% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 5);
         super.applyMetaToStack();

@@ -8,7 +8,8 @@ public class Shovel extends CustomItem
 {
     public Shovel()
     {
-        super(ChatColor.WHITE + "Shovel", Groups.VANILLA_SHOVELS, Rarity.COMMON);
+        super("Shovel", Groups.VANILLA_SHOVELS, Rarity.COMMON, ItemType.TOOLS);
+        super.setColor(ChatColor.WHITE);
         super.addLoreLine("&f2 Unbreaking");
         super.addEnchant(Enchantment.DURABILITY, 2);
         super.applyMetaToStack();

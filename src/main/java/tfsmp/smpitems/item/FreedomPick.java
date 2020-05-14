@@ -8,7 +8,8 @@ public class FreedomPick extends CustomItem
 {
     public FreedomPick()
     {
-        super(ChatColor.BLUE + "Freedom Pickaxe", Groups.VANILLA_PICKAXES, Rarity.RARE);
+        super("Freedom Pickaxe", Groups.VANILLA_PICKAXES, Rarity.RARE, ItemType.TOOLS);
+        super.setColor(ChatColor.BLUE);
         super.addLoreLine("&f+200% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 2.0);
         super.applyMetaToStack();

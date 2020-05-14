@@ -8,7 +8,9 @@ public class drill extends CustomItem
 {
     public drill()
     {
-        super(ChatColor.GOLD + "Drill", Groups.VANILLA_PICKAXES, Rarity.LEGENDARY);
+
+        super("Drill", Groups.VANILLA_PICKAXES, Rarity.LEGENDARY, ItemType.TOOLS);
+        super.setColor(ChatColor.GOLD);
         super.addLoreLine("&cdrill go BRRR");
         super.addLoreLine("&f10 Efficiency");
         super.addEnchant(Enchantment.DIG_SPEED, 10);

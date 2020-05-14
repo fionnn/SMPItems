@@ -8,7 +8,8 @@ public class FreedomBow extends CustomItem
 {
     public FreedomBow()
     {
-        super(ChatColor.BLUE + "Freedom Bow", Material.BOW, Rarity.RARE);
+        super("Freedom Bow", Material.BOW, Rarity.RARE, ItemType.RANGED);
+        super.setColor(ChatColor.BLUE);
         super.addLoreLine("&f+200% Speed");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 2.0);
         super.applyMetaToStack();

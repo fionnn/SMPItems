@@ -9,7 +9,8 @@ public class Ron extends CustomItem
 {
     public Ron()
     {
-        super(ChatColor.YELLOW + "pencil", Material.STICK, Rarity.SPECIAL);
+        super("pencil", Material.STICK, Rarity.SPECIAL, ItemType.OTHER);
+        super.setColor(ChatColor.GOLD);
         super.addLoreLine("&cron honey");
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 0.0);
         super.applyMetaToStack();

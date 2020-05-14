@@ -9,7 +9,8 @@ public class Super extends CustomItem
 {
     public Super()
     {
-        super(ChatColor.YELLOW + "clown", Material.TROPICAL_FISH, Rarity.SPECIAL);
+        super("clown", Material.TROPICAL_FISH, Rarity.SPECIAL, ItemType.OTHER);
+        super.setColor(ChatColor.YELLOW);
         super.addLoreLine("&cmy asshole BURNS");
         super.addEnchant(Enchantment.KNOCKBACK, 10);
         super.applyMetaToStack();

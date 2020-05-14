@@ -8,7 +8,8 @@ public class ObsidianPick extends CustomItem
 {
     public ObsidianPick()
     {
-        super(ChatColor.DARK_PURPLE + "Obsidian Pick", Groups.VANILLA_PICKAXES, Rarity.EPIC);
+        super("Obsidian Pick", Groups.VANILLA_PICKAXES, Rarity.EPIC, ItemType.TOOLS);
+        super.setColor(ChatColor.DARK_PURPLE);
         super.addLoreLine("&fUnbreaking 10");
         super.addLoreLine("&fEfficiency 6");
         super.addEnchant(Enchantment.DURABILITY, 10);

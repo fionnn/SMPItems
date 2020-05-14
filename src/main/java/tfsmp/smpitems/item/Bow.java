@@ -8,7 +8,9 @@ public class Bow extends CustomItem
 {
     public Bow()
     {
-        super(ChatColor.WHITE + "Bow", Material.BOW, Rarity.COMMON);
+
+        super("Bow", Material.BOW, Rarity.COMMON, ItemType.RANGED);
+        super.setColor(ChatColor.WHITE);
         super.addLoreLine("&fPunch 3");
         super.addEnchant(Enchantment.ARROW_KNOCKBACK, 3);
         super.applyMetaToStack();

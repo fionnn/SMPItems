@@ -8,7 +8,8 @@ public class OlSturdy extends CustomItem
 {
     public OlSturdy()
     {
-        super(ChatColor.GREEN + "Ol' Sturdy", Material.BOW, Rarity.UNCOMMON);
+        super("Ol' Sturdy", Material.BOW, Rarity.UNCOMMON, ItemType.RANGED);
+        super.setColor(ChatColor.GREEN);
         super.addLoreLine("&f5 Unbreaking");
         super.addEnchant(Enchantment.DURABILITY, 5);
         super.applyMetaToStack();

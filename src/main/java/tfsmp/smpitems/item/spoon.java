@@ -8,8 +8,9 @@ public class spoon extends CustomItem
 {
     public spoon()
     {
-        super(ChatColor.GOLD + "spoon", Groups.VANILLA_SHOVELS, Rarity.LEGENDARY);
-        super.addLoreLine("&cwait this is not a spoon?");
+        super("spoon", Groups.VANILLA_SHOVELS, Rarity.LEGENDARY, ItemType.TOOLS);
+        super.setColor(ChatColor.GOLD);
+        super.addLoreLine("&cwait this isn't a spoon?");
         super.addLoreLine("&f20 Efficiency");
         super.addLoreLine("&f10 Unbreaking");
         super.addEnchant(Enchantment.DURABILITY, 10);

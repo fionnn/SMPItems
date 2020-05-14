@@ -8,7 +8,8 @@ public class POWbow extends CustomItem
 {
     public POWbow()
     {
-        super(ChatColor.GOLD + "POW! Bow", Material.BOW, Rarity.LEGENDARY);
+        super("POW! Bow", Material.BOW, Rarity.LEGENDARY, ItemType.RANGED);
+        super.setColor(ChatColor.GOLD);
         super.addLoreLine("&cBOOM!");
         super.addLoreLine("&f20 Punch");
         super.addEnchant(Enchantment.ARROW_KNOCKBACK, 20);
