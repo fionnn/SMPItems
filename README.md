@@ -1,2 +1,2 @@
 # Seth gay
-/ It's true
+// It's true
