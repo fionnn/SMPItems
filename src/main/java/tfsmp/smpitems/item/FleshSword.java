@@ -9,7 +9,7 @@ public class FleshSword extends CustomItem
 {
     public FleshSword()
     {
-        super(ChatColor.GREEN + "Flesh Sword", Groups.VANILLA_SWORDS, Rarity.UNCOMMON);
+        super(ChatColor.GREEN + "Flesh Sword", Groups.VANILLA_SWORDS, Rarity.RARE);
         super.addLoreLine("&f+500% Knockback");
         super.addEnchant(Enchantment.KNOCKBACK, 5);
         super.applyMetaToStack();
