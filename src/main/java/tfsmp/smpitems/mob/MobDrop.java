@@ -367,7 +367,29 @@ public class MobDrop implements Listener
     public void wither(EntityDeathEvent e)
     {
         RandomCollection<CustomItem> items = new RandomCollection<>();
+        items.add(35, new BoneSword());
+        items.add(20, new Axe());
+        items.add(20, new FreedomAxe());
+        items.add(20, new FreedomBow());
+        items.add(20, new FreedomSword());
+        items.add(20, new FreedomPick());
+        items.add(20, new PickL());
+        items.add(20, new ShovelL());
+        items.add(10, new SpeedStick());
+        items.add(10, new SharpStick());
+        items.add(10, new ObsidianPick());
+        items.add(5, new Spoon());
+        items.add(10, new WitherAxe());
+        items.add(5, new Drill());
+        items.add(2, new LuckyPick());
         items.add(10, new Flux());
         items.add(10, new POWbow());
+        items.add(5, new UltimatiumBoots());
+        items.add(5, new UltimatiumLeggings());
+        items.add(5, new UltimatiumChest());
+        items.add(5, new UltimatiumHelmet());
+        items.add(5, new Bee());
+        items.add(5, new TurtleShield());
+
     }
 }
