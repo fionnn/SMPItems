@@ -2,7 +2,6 @@ package tfsmp.smpitems.item;
 
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.enchantments.Enchantment;
 
 public class ArmnourLeggings extends CustomItem
 {
