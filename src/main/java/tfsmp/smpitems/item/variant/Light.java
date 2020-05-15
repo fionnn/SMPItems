@@ -7,6 +7,6 @@ public class Light extends Variant
     public Light()
     {
         super("Light");
-        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1);
+        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.3);
     }
 }

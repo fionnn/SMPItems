@@ -8,7 +8,7 @@ public class ShieldHefty extends Variant
     public ShieldHefty()
     {
         super("Hefty");
-        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, -0.5);
+        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, -0.2);
         super.addAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS, 3);
     }
 }

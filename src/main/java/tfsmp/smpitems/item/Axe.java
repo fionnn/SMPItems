@@ -1,6 +1,7 @@
 package tfsmp.smpitems.item;
 
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import tfsmp.smpitems.util.Groups;
 
 public class Axe extends CustomItem
@@ -9,7 +10,7 @@ public class Axe extends CustomItem
     {
         super( "Axe!", Groups.VANILLA_AXES, Rarity.RARE, ItemType.MELEE);
         super.addLoreLine("&b+150% Speed");
-        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1.5);
+        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.5, AttributeModifier.Operation.ADD_SCALAR);
         super.applyMetaToStack();
     }
 }

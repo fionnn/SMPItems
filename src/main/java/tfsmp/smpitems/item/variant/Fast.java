@@ -7,6 +7,6 @@ public class Fast extends Variant
     public Fast()
     {
         super("Fast");
-        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 1);
+        super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.4);
     }
 }

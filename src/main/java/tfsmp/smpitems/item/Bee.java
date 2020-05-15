@@ -2,6 +2,7 @@ package tfsmp.smpitems.item;
 
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 
 public class Bee extends CustomItem
@@ -13,7 +14,7 @@ public class Bee extends CustomItem
         super.addLoreLine("&b+500% Damage");
         super.addLoreLine("&a+5 Health");
         super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 5);
-        super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5);
+        super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5, AttributeModifier.Operation.ADD_SCALAR);
         super.applyMetaToStack();
     }
 }

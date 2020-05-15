@@ -2,6 +2,7 @@ package tfsmp.smpitems.item;
 
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 
 public class TurtleShield extends CustomItem
@@ -13,7 +14,7 @@ public class TurtleShield extends CustomItem
         super.addLoreLine("&b+25% Knockback Resistance");
         super.addLoreLine("&a+20 Health");
         super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 20);
-        super.addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.25);
+        super.addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_SCALAR);
         super.applyMetaToStack();
     }
 }
