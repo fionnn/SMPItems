@@ -6,10 +6,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import tfsmp.smpitems.item.CustomItem;
+import tfsmp.smpitems.item.CustomItemType;
 import tfsmp.smpitems.mob.CustomMob;
 import tfsmp.smpitems.mob.CustomMobType;
 
-public class Command_smpspawnmob implements CommandExecutor
+public class Command_smpgiveitem implements CommandExecutor
 {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String c, String[] args)
@@ -29,17 +31,17 @@ public class Command_smpspawnmob implements CommandExecutor
             return false;
         }
         Player player = (Player) sender;
-        CustomMobType mobType = CustomMobType.findMobType(args[0]);
-        if (mobType == null)
+        CustomItemType customItemType = CustomItemType.findItemType(args[0]);
+        if (customItemType == null)
         {
-            sender.sendMessage(ChatColor.GRAY + "Failed to find that mob.");
+            sender.sendMessage(ChatColor.GRAY + "Failed to find that item.");
             return true;
         }
         try
         {
-            CustomMob mob = mobType.getCustomMobClass().newInstance();
-            mob.spawn(player, false);
-            sender.sendMessage(ChatColor.GRAY + "Spawned a(n) " + mob.getName() + ChatColor.GRAY + ".");
+            CustomItem item = customItemType.getCustomItemClass().newInstance();
+            player.getInventory().setItem(player.getInventory().firstEmpty(), item.getStack());
+            sender.sendMessage(ChatColor.GRAY + "Gave you a(n) " + item.getName() + ChatColor.GRAY + ".");
         }
         catch (InstantiationException e) {}
         catch (IllegalAccessException e) {}

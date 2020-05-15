@@ -2,6 +2,7 @@ package tfsmp.smpitems;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import tfsmp.smpitems.command.Command_smpgiveitem;
 import tfsmp.smpitems.command.Command_smpspawnmob;
 import tfsmp.smpitems.config.Config;
 import tfsmp.smpitems.listener.*;
@@ -38,6 +39,7 @@ public final class SMPItems extends JavaPlugin
     private void enableCommands()
     {
         this.getCommand("smpspawnmob").setExecutor(new Command_smpspawnmob());
+        this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
     }
 
     @Override

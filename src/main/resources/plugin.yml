@@ -9,3 +9,7 @@ commands:
     description: Spawn a mob from the SMPItems plugin.
     usage: /<command> <mob>
     aliases: [ssm, spawntubby]
+  smpgiveitem:
+    description: Give yourself an item from the SMPItems plugin.
+    usage: /<command> <item>
+    aliases: [sgi, smpgive]
