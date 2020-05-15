@@ -8,9 +8,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.item.FleshSword;
 
-public class MidgetMob extends CustomMob
+public class TubbyLootMidget extends CustomMob
 {
-    public MidgetMob()
+    public TubbyLootMidget()
     {
         super(EntityType.ZOMBIE_VILLAGER, ChatColor.LIGHT_PURPLE + "Tubby Loot Midget");
         super.setBaby(true);

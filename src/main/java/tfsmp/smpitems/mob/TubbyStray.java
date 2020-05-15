@@ -8,9 +8,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.item.FreedomSword;
 
-public class StrayMob extends CustomMob
+public class TubbyStray extends CustomMob
 {
-    public StrayMob()
+    public TubbyStray()
     {
         super(EntityType.STRAY, ChatColor.LIGHT_PURPLE + "Tubby Stray");
         super.setHoldableItem(new FreedomSword());

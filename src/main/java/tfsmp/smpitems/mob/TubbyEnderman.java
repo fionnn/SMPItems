@@ -5,9 +5,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class EndermanMob extends CustomMob
+public class TubbyEnderman extends CustomMob
 {
-    public EndermanMob()
+    public TubbyEnderman()
     {
         super(EntityType.ENDERMAN, ChatColor.RED + "Tubby Enderman");
         super.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 3));

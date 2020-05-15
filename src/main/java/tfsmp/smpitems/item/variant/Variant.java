@@ -3,6 +3,7 @@ package tfsmp.smpitems.item.variant;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 
 import java.util.ArrayList;
@@ -29,6 +30,11 @@ public class Variant
         this.attributes = new ArrayList<>();
         this.enchantments = new ArrayList<>();
         this.unbreakable = false;
+    }
+
+    public void addAttribute(Attribute attr, double amount, AttributeModifier.Operation operation)
+    {
+        attributes.add(new CompactAttribute(attr, amount, operation));
     }
 
     public void addAttribute(Attribute attr, double amount)

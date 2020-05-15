@@ -7,9 +7,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.item.BoneSword;
 
-public class SkeletonMob extends CustomMob
+public class TubbySkeleton extends CustomMob
 {
-    public SkeletonMob()
+    public TubbySkeleton()
     {
         super(EntityType.SKELETON, "Tubby Skeleton");
         super.setHoldableItem(new BoneSword());

@@ -3,9 +3,9 @@ package tfsmp.smpitems.item;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 
-public class ArmnourLeggings extends CustomItem
+public class Leggingns extends CustomItem
 {
-    public ArmnourLeggings()
+    public Leggingns()
     {
         super("Leggingns", Material.IRON_LEGGINGS, Rarity.UNCOMMON, ItemType.ARMOR);
         super.addLoreLine("&a+5 Health");
