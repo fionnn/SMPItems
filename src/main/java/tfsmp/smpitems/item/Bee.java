@@ -5,6 +5,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 
+
 public class Bee extends CustomItem
 {
     public Bee()
