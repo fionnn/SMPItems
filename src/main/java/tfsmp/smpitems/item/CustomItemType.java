@@ -33,6 +33,7 @@ public enum CustomItemType
     PICKL(PickL.class),
     POW_BOW(POWbow.class),
     PROTECTOR(Protector.class),
+    RESPIRATOR(Respirator.class),
     RON(Ron.class),
     SHARP_STICK(SharpStick.class),
     SHIELD(Shield.class),

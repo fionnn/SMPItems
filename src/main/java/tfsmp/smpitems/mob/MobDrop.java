@@ -94,6 +94,7 @@ public class MobDrop implements Listener
                 items.add(20, new FreedomPick());
                 items.add(20, new PickL());
                 items.add(20, new ShovelL());
+                items.add(10, new Respirator());
                 items.add(10, new SpeedStick());
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
@@ -140,6 +141,7 @@ public class MobDrop implements Listener
                 items.add(25, new FreedomAxe());
                 items.add(25, new FreedomBow());
                 items.add(25, new FreedomSword());
+                items.add(10, new Respirator());
                 items.add(25, new FreedomPick());
                 items.add(25, new PickL());
                 items.add(25, new ShovelL());
@@ -191,6 +193,7 @@ public class MobDrop implements Listener
                 items.add(35, new BoneSword());
                 items.add(20, new Axe());
                 items.add(20, new FreedomAxe());
+                items.add(10, new Respirator());
                 items.add(20, new FreedomBow());
                 items.add(20, new FreedomSword());
                 items.add(20, new FreedomPick());
@@ -229,6 +232,7 @@ public class MobDrop implements Listener
                 items.add(5, new TurtleShield());
                 items.add(20, new Boots());
                 items.add(20, new Jeans());
+                items.add(10, new Respirator());
                 items.add(20, new Shirt());
                 items.add(20, new Hat());
                 items.add(30, new Protector());
@@ -288,6 +292,7 @@ public class MobDrop implements Listener
                 items.add(30, new DaHoe());
                 items.add(20, new FleshSword());
                 items.add(35, new BoneSword());
+                items.add(10, new Respirator());
                 items.add(20, new Axe());
                 items.add(20, new FreedomAxe());
                 items.add(20, new FreedomBow());
@@ -342,6 +347,7 @@ public class MobDrop implements Listener
                 items.add(30, new DaHoe());
                 items.add(20, new FleshSword());
                 items.add(35, new BoneSword());
+                items.add(10, new Respirator());
                 items.add(20, new Axe());
                 items.add(20, new FreedomAxe());
                 items.add(20, new FreedomBow());
@@ -377,6 +383,7 @@ public class MobDrop implements Listener
         items.add(20, new ShovelL());
         items.add(10, new SpeedStick());
         items.add(10, new SharpStick());
+        items.add(10, new Respirator());
         items.add(10, new ObsidianPick());
         items.add(5, new Spoon());
         items.add(10, new WitherAxe());
