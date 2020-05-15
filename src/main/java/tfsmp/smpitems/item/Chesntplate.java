@@ -3,9 +3,9 @@ package tfsmp.smpitems.item;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 
-public class ArmnourChest extends CustomItem
+public class Chesntplate extends CustomItem
 {
-    public ArmnourChest()
+    public Chesntplate()
     {
         super("Chesntplate", Material.IRON_CHESTPLATE, Rarity.UNCOMMON, ItemType.ARMOR);
         super.addLoreLine("&a+5 Health");

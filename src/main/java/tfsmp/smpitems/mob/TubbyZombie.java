@@ -5,9 +5,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import tfsmp.smpitems.item.Axe;
 
-public class ZombieMob extends CustomMob
+public class TubbyZombie extends CustomMob
 {
-    public ZombieMob()
+    public TubbyZombie()
     {
         super(EntityType.ZOMBIE, "Tubby Zombie");
         super.setHoldableItem(new Axe());

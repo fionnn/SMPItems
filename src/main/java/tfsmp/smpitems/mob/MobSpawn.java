@@ -34,27 +34,27 @@ public class MobSpawn implements Listener
         {
             if (entity instanceof ZombieVillager && SUtil.gotRandom(midgetSpawnRate))
             {
-                new MidgetMob().spawn(entity, true);
+                new TubbyLootMidget().spawn(entity, true);
                 return;
             }
             if (entity instanceof Zombie && SUtil.gotRandom(zombieSpawnRate))
             {
-                new ZombieMob().spawn(entity, true);
+                new TubbyZombie().spawn(entity, true);
                 return;
             }
             if (entity instanceof Skeleton && SUtil.gotRandom(skeletonSpawnRate))
             {
-                new SkeletonMob().spawn(entity, true);
+                new TubbySkeleton().spawn(entity, true);
                 return;
             }
             if (entity instanceof Enderman && SUtil.gotRandom(endermanSpawnRate))
             {
-                new EndermanMob().spawn(entity, true);
+                new TubbyEnderman().spawn(entity, true);
                 return;
             }
             if (entity instanceof Stray && SUtil.gotRandom(straySpawnRate))
             {
-                new StrayMob().spawn(entity, true);
+                new TubbyStray().spawn(entity, true);
                 return;
             }
         }
@@ -64,11 +64,11 @@ public class MobSpawn implements Listener
         {
             if (entity instanceof WitherSkeleton && SUtil.gotRandom(witherskeletonSpawnRate))
             {
-                new WitherSkeletonMob().spawn(entity, true);
+                new TubbyWitherSkeleton().spawn(entity, true);
             }
             if (entity instanceof Enderman && SUtil.gotRandom(endermanSpawnRate))
             {
-                new EndermanMob().spawn(entity, true);
+                new TubbyEnderman().spawn(entity, true);
             }
         }
     }

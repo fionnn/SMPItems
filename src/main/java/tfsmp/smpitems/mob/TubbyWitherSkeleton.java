@@ -6,9 +6,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import tfsmp.smpitems.item.WitherAxe;
 
-public class WitherSkeletonMob extends CustomMob
+public class TubbyWitherSkeleton extends CustomMob
 {
-    public WitherSkeletonMob()
+    public TubbyWitherSkeleton()
     {
         super(EntityType.WITHER_SKELETON, ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton");
         super.setHoldableItem(new WitherAxe());
