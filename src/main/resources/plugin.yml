@@ -8,4 +8,4 @@ commands:
   smpspawnmob:
     description: Spawn a mob from the SMPItems plugin.
     usage: /<command> <mob>
-    aliases: [ssm]
+    aliases: [ssm, spawntubby]
