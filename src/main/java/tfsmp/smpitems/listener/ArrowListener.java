@@ -11,7 +11,6 @@ import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
 import tfsmp.smpitems.SMPItems;
-import tfsmp.smpitems.util.SLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +18,7 @@ import java.util.List;
 public class ArrowListener implements Listener
 {
     private SMPItems plugin;
+
     public ArrowListener(SMPItems plugin)
     {
         this.plugin = plugin;
@@ -33,9 +33,7 @@ public class ArrowListener implements Listener
         if (!(proj instanceof Arrow))
             return;
         ItemStack bow = e.getBow();
-        if (!bow.hasItemMeta())
-            return;
-        if (!bow.getItemMeta().hasDisplayName())
+        if (!bow.hasItemMeta() || !bow.getItemMeta().hasDisplayName())
             return;
         if (!bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && !bow.getItemMeta().getDisplayName().endsWith("POW! Bow"))
             return;

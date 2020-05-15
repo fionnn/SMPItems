@@ -1,13 +1,13 @@
 package tfsmp.smpitems.mob;
 
-
 public enum CustomMobType
 {
     TUBBY_ZOMBIE(ZombieMob.class),
     TUBBY_SKELETON(SkeletonMob.class),
     TUBBY_WITHER_SKELETON(WitherSkeletonMob.class),
     TUBBY_LOOT_MIDGET(MidgetMob.class),
-    TUBBY_ENDERMAN(EndermanMob.class);
+    TUBBY_ENDERMAN(EndermanMob.class),
+    TUBBY_STRAY(StrayMob.class);
 
     private final Class<? extends CustomMob> clazz;
 

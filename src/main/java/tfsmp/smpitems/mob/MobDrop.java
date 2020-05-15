@@ -270,6 +270,61 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+        if (e.getEntity().getCustomName().contains("Tubby Stray"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(40, new LongBow());
+                items.add(40, new Bow());
+                items.add(40, new Sword());
+                items.add(40, new Shovel());
+                items.add(40, new Hoe());
+                items.add(30, new ArmnourBoots());
+                items.add(30, new ArmnourLeggings());
+                items.add(30, new ArmnourChest());
+                items.add(30, new ArmnourHelmet());
+                items.add(5, new UltimatiumBoots());
+                items.add(5, new UltimatiumLeggings());
+                items.add(5, new UltimatiumChest());
+                items.add(5, new UltimatiumHelmet());
+                items.add(5, new Bee());
+                items.add(5, new TurtleShield());
+                items.add(20, new Boots());
+                items.add(20, new Jeans());
+                items.add(20, new Shirt());
+                items.add(20, new Hat());
+                items.add(30, new Protector());
+                items.add(40, new Shield());
+                items.add(30, new OlSturdy());
+                items.add(30, new Pick());
+                items.add(30, new DaHoe());
+                items.add(20, new FleshSword());
+                items.add(35, new BoneSword());
+                items.add(20, new Axe());
+                items.add(20, new FreedomAxe());
+                items.add(20, new FreedomBow());
+                items.add(30, new FreedomSword());
+                items.add(20, new FreedomPick());
+                items.add(15, new PickL());
+                items.add(20, new ShovelL());
+                items.add(5, new SpeedStick());
+                items.add(10, new SharpStick());
+                items.add(5, new Spoon());
+                items.add(5, new WitherAxe());
+                items.add(5, new Drill());
+                items.add(5, new POWbow());
+                items.add(2, new LuckyPick());
+                items.add(2, new Fionn());
+                items.add(2, new Speed());
+                items.add(2, new Super());
+                items.add(2, new Ron());
+                items.add(2, new Square());
+
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
+            }
+        }
     }
 
     private void enderman(EntityDeathEvent e)
