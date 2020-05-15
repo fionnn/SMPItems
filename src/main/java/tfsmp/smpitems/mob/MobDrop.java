@@ -355,8 +355,8 @@ public class MobDrop implements Listener
                 items.add(5, new Spoon());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
-                items.add(5, new End());
                 items.add(2, new LuckyPick());
+                items.add(1, new End());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());

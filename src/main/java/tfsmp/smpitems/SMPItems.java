@@ -34,6 +34,8 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new ArrowListener(this), this);
         manager.registerEvents(new BlockListener(this), this);
         manager.registerEvents(new InteractListener(this), this);
+        manager.registerEvents(new InventoryListener(this), this);
+        manager.registerEvents(new DamageListener(this), this);
     }
 
     private void enableCommands()

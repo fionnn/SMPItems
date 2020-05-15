@@ -40,6 +40,11 @@ public class Command_smpgiveitem implements CommandExecutor
         try
         {
             CustomItem item = customItemType.getCustomItemClass().newInstance();
+            if (player.getInventory().firstEmpty() == -1)
+            {
+                sender.sendMessage(ChatColor.GRAY + "No space in inventory for item.");
+                return true;
+            }
             player.getInventory().setItem(player.getInventory().firstEmpty(), item.getStack());
             sender.sendMessage(ChatColor.GRAY + "Gave you a(n) " + item.getName() + ChatColor.GRAY + ".");
         }

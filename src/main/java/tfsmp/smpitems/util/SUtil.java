@@ -39,4 +39,15 @@ public class SUtil
             default: return "";
         }
     }
+
+    public static boolean isItemValid(ItemStack check, CustomItem compare)
+    {
+        if (!check.hasItemMeta())
+            return false;
+        if (!check.getItemMeta().hasDisplayName())
+            return false;
+        if (!check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") && !check.getItemMeta().getDisplayName().endsWith(compare.getRawName()))
+            return false;
+        return true;
+    }
 }

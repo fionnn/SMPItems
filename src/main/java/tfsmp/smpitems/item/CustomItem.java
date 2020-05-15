@@ -1,6 +1,7 @@
 package tfsmp.smpitems.item;
 
 import lombok.Getter;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -30,6 +31,10 @@ public class CustomItem
     // the stack's lore
     private List<String> lore;
 
+    // raw name
+    @Getter
+    private String rawName;
+
     // rarity
     private Rarity rarity;
 
@@ -39,11 +44,16 @@ public class CustomItem
     // variant
     private Variant variant;
 
+    // color
+    @Getter
+    private ChatColor color;
+
     public CustomItem(String name, Material type, Rarity rarity, ItemType itemType)
     {
         this.stack = new ItemStack(type);
         this.meta = stack.getItemMeta();
         this.lore = new ArrayList<>();
+        this.rawName = name;
         this.rarity = rarity;
         this.itemType = itemType;
         switch (itemType)
@@ -65,6 +75,7 @@ public class CustomItem
             if (variant.isUnbreakable())
                 meta.setUnbreakable(true);
         }
+        this.color = rarity.getColor();
         this.addLoreLine(rarity.getDisplay());
         this.applyMetaToStack();
     }
