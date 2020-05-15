@@ -7,6 +7,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
@@ -58,6 +59,27 @@ public class ArrowListener implements Listener
                     return;
                 block.getWorld().strikeLightning(block.getLocation());
                 block.getWorld().createExplosion(block.getLocation(), 4f);
+                arrows.remove(a);
+                a.remove();
+                return;
+            }
+        }
+    }
+
+    @EventHandler
+    public void onEntityDamage(EntityDamageByEntityEvent e)
+    {
+        Entity damager = e.getDamager();
+        if (!(damager instanceof Arrow))
+            return;
+        Arrow arrow = (Arrow) damager;
+        for (Arrow a : arrows)
+        {
+            if (arrow == a)
+            {
+                Entity damaged = e.getEntity();
+                damaged.getWorld().strikeLightning(damaged.getLocation());
+                damaged.getWorld().createExplosion(damaged.getLocation(), 4f);
                 arrows.remove(a);
                 return;
             }

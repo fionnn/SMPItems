@@ -102,15 +102,6 @@ public class CustomItem
     public void addAttribute(Attribute attr, double amount)
     {
         addAttribute(attr, amount, AttributeModifier.Operation.ADD_NUMBER);
-        /*
-        net.minecraft.server.v1_15_R1.ItemStack nms = CraftItemStack.asNMSCopy(this.stack);
-        NBTTagList modifier = new NBTTagList();
-        NBTTagCompound compound = nms.getOrCreateTag();
-        compound.setString("Name", SUtil.getStringAttribute(attr));
-        compound.setString("AttributeName", SUtil.getStringAttribute(attr));
-        compound.setDouble("Amount", amount);
-        compound.setInt("Operation", -1);
-        */
     }
 
     public void addEnchant(Enchantment enchantment, int level)
