@@ -12,6 +12,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,18 +51,18 @@ public class InteractListener implements Listener
                     e.setCancelled(true);
                     if (fluxCooldown.contains(player))
                     {
-                        player.sendMessage(ChatColor.GRAY + "Your flux is currently on cooldown.");
+                        player.sendMessage(SUtil.color("&b&lFLUX &bCurrently on cooldown."));
                         return;
                     }
                     player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 200, 3));
-                    for (Entity entity : player.getNearbyEntities(10, 10, 10))
+                    for (Entity entity : player.getNearbyEntities(5, 5, 5))
                     {
                         if (entity instanceof Player)
                         {
-                            ((Player) entity).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 10, 3));
+                            ((Player) entity).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 200, 3));
                         }
                     }
-                    player.sendMessage(ChatColor.LIGHT_PURPLE + "You have used your flux's power to give you and others around you a temporary healing effect!");
+                    player.sendMessage(SUtil.color("&b&lFLUX &bYou and others around you have been graced with health!"));
                     fluxCooldown.add(player);
                     new BukkitRunnable()
                     {
@@ -69,7 +70,7 @@ public class InteractListener implements Listener
                         public void run()
                         {
                             fluxCooldown.remove(player);
-                            player.sendMessage(ChatColor.GRAY + "You may now use your flux again.");
+                            player.sendMessage(SUtil.color("&b&lFLUX &bYour ability is ready!"));
                         }
                     }.runTaskLater(plugin, 60 * 20);
                 }
