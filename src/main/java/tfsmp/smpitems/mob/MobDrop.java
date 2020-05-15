@@ -2,6 +2,7 @@ package tfsmp.smpitems.mob;
 
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.Wither;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,6 +28,12 @@ public class MobDrop implements Listener
     {
         if (e.getEntity().getCustomName() == null)
             return;
+
+        if (e.getEntity() instanceof Wither)
+        {
+            wither(e);
+            return;
+        }
 
         if (e.getEntity() instanceof Zombie)
         {
@@ -348,7 +355,6 @@ public class MobDrop implements Listener
                 items.add(5, new Spoon());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
-                items.add(5, new POWbow());
                 items.add(5, new End());
                 items.add(2, new LuckyPick());
 
@@ -356,5 +362,12 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+    }
+
+    public void wither(EntityDeathEvent e)
+    {
+        RandomCollection<CustomItem> items = new RandomCollection<>();
+        items.add(10, new Flux());
+        items.add(10, new POWbow());
     }
 }

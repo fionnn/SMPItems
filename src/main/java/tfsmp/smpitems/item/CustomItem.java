@@ -61,7 +61,7 @@ public class CustomItem
             for (CompactEnchantment enchantment : variant.getEnchantments())
                 this.addEnchant(enchantment.getEnchantment(), enchantment.getLevel());
             for (CompactAttribute attribute : variant.getAttributes())
-                this.addAttribute(attribute.getAttribute(), attribute.getAmount());
+                this.addAttribute(attribute.getAttribute(), attribute.getAmount(), attribute.getOperation());
             if (variant.isUnbreakable())
                 meta.setUnbreakable(true);
         }
