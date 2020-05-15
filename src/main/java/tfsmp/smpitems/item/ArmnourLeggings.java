@@ -10,7 +10,7 @@ public class ArmnourLeggings extends CustomItem
     {
         super("Leggingns", Material.IRON_LEGGINGS, Rarity.UNCOMMON, ItemType.ARMOR);
         super.addLoreLine("&a+5 Health");
-        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 25);
+        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 5);
         super.applyMetaToStack();
     }
 }

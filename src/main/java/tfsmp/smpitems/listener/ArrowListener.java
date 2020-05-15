@@ -18,7 +18,6 @@ import java.util.List;
 public class ArrowListener implements Listener
 {
     private SMPItems plugin;
-
     public ArrowListener(SMPItems plugin)
     {
         this.plugin = plugin;
@@ -33,11 +32,14 @@ public class ArrowListener implements Listener
         if (!(proj instanceof Arrow))
             return;
         ItemStack bow = e.getBow();
-        if (!bow.hasItemMeta() || !bow.getItemMeta().hasDisplayName())
+        if (bow == null)
             return;
-        if (!bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && !bow.getItemMeta().getDisplayName().endsWith("POW! Bow"))
+        if (!bow.hasItemMeta())
             return;
-        arrows.add((Arrow) proj);
+        if (!bow.getItemMeta().hasDisplayName())
+            return;
+        if (bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && bow.getItemMeta().getDisplayName().endsWith("POW! Bow"))
+            arrows.add((Arrow) proj);
     }
 
     @EventHandler

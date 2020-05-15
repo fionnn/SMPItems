@@ -12,7 +12,7 @@ public class TurtleShield extends CustomItem
         super.addLoreLine("&cThe strength of a turtle, the speed of a hare.");
         super.addLoreLine("&b+25% Knockback Resistance");
         super.addLoreLine("&a+20 Health");
-        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 40);
+        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 20);
         super.addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.25);
         super.applyMetaToStack();
     }

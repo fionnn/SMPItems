@@ -1,10 +1,14 @@
 package tfsmp.smpitems.item;
 
 import lombok.Getter;
-import org.bukkit.ChatColor;
+import net.minecraft.server.v1_15_R1.NBTTagCompound;
+import net.minecraft.server.v1_15_R1.NBTTagFloat;
+import net.minecraft.server.v1_15_R1.NBTTagList;
+import net.minecraft.server.v1_15_R1.NBTTagString;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.craftbukkit.v1_15_R1.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -80,6 +84,11 @@ public class CustomItem
         meta.setDisplayName(name);
     }
 
+    public String getName()
+    {
+        return meta.getDisplayName();
+    }
+
     public void applyMetaToStack()
     {
         lore.remove(rarity.getDisplay());
@@ -97,7 +106,16 @@ public class CustomItem
 
     public void addAttribute(Attribute attr, double amount)
     {
-        addAttribute(attr, amount, AttributeModifier.Operation.MULTIPLY_SCALAR_1);
+        addAttribute(attr, amount, AttributeModifier.Operation.ADD_NUMBER);
+        /*
+        net.minecraft.server.v1_15_R1.ItemStack nms = CraftItemStack.asNMSCopy(this.stack);
+        NBTTagList modifier = new NBTTagList();
+        NBTTagCompound compound = nms.getOrCreateTag();
+        compound.setString("Name", SUtil.getStringAttribute(attr));
+        compound.setString("AttributeName", SUtil.getStringAttribute(attr));
+        compound.setDouble("Amount", amount);
+        compound.setInt("Operation", -1);
+        */
     }
 
     public void addEnchant(Enchantment enchantment, int level)

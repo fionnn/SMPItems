@@ -4,7 +4,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tfsmp.smpitems.command.Command_smpspawnmob;
 import tfsmp.smpitems.config.Config;
-import tfsmp.smpitems.listener.ArrowListener;
+import tfsmp.smpitems.listener.*;
 import tfsmp.smpitems.mob.MobDrop;
 import tfsmp.smpitems.mob.MobSpawn;
 import tfsmp.smpitems.util.SLog;
@@ -31,6 +31,8 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new MobSpawn(this), this);
 
         manager.registerEvents(new ArrowListener(this), this);
+        manager.registerEvents(new BlockListener(this), this);
+        manager.registerEvents(new InteractListener(this), this);
     }
 
     private void enableCommands()

@@ -12,7 +12,7 @@ public class Bee extends CustomItem
         super.addLoreLine("&cFloat like a butterfly...");
         super.addLoreLine("&b+500% Damage");
         super.addLoreLine("&a+5 Health");
-        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 25);
+        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 5);
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5);
         super.applyMetaToStack();
     }

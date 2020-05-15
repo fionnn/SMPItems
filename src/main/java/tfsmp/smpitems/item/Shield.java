@@ -10,7 +10,7 @@ public class Shield extends CustomItem
     {
         super("Shield", Material.SHIELD, Rarity.COMMON, ItemType.SHIELD);
         super.addLoreLine("&a+3 Health");
-        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 23);
+        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 3);
         super.applyMetaToStack();
     }
 }

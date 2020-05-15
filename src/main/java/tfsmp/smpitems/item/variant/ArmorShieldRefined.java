@@ -9,6 +9,6 @@ public class ArmorShieldRefined extends Variant
         super("Refined");
         super.addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.5);
         super.addAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS, 1);
-        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 22);
+        super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 2);
     }
 }

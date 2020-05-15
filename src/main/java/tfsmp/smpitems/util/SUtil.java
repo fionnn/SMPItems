@@ -2,6 +2,9 @@ package tfsmp.smpitems.util;
 
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import tfsmp.smpitems.item.CustomItem;
 
 import java.util.Random;
 
