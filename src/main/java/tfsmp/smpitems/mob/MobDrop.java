@@ -390,6 +390,7 @@ public class MobDrop implements Listener
         items.add(5, new UltimatiumHelmet());
         items.add(5, new Bee());
         items.add(5, new TurtleShield());
-
+        CustomItem item = items.next();
+        e.getDrops().add(item.getStack());
     }
 }
