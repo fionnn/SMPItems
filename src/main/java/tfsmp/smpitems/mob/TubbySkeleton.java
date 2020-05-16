@@ -12,7 +12,7 @@ public class TubbySkeleton extends CustomMob
 {
     public TubbySkeleton()
     {
-        super(EntityType.SKELETON, ChatColor.DARK_AQUA + "Tubby Skeleton");
+        super(EntityType.SKELETON, ChatColor.GOLD + "Tubby Skeleton");
         super.setHoldableItem(new BoneSword());
         super.setHelmet(new ItemStack(Material.IRON_HELMET));
         super.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));

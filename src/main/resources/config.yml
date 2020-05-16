@@ -8,6 +8,7 @@
 # witherskeleton: 40
 # zombie: 50
 # skeleton: 60
+# spider: 65
 # stray: 80
 # enderman: 100
 # creeper: 130
@@ -19,6 +20,7 @@ server:
       witherskeleton: 40
       zombie: 50
       skeleton: 60
+      spider: 65
       stray: 80
       enderman: 100
       creeper: 130

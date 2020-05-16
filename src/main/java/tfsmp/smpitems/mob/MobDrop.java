@@ -63,11 +63,17 @@ public class MobDrop implements Listener
             creeper(e);
             return;
         }
+
+        if (e.getEntity() instanceof Spider)
+        {
+            spider(e);
+            return;
+        }
     }
 
     private void zombie(EntityDeathEvent e)
     {
-        if (e.getEntity().getCustomName().equals(ChatColor.DARK_AQUA + "Tubby Zombie"))
+        if (e.getEntity().getCustomName().equals(ChatColor.GOLD + "Tubby Zombie"))
         {
             for (int i = 0; i < 2; i++)
             {
@@ -173,7 +179,7 @@ public class MobDrop implements Listener
 
     private void skeleton(EntityDeathEvent e)
     {
-        if (e.getEntity().getCustomName().equals(ChatColor.DARK_AQUA + "Tubby Skeleton"))
+        if (e.getEntity().getCustomName().equals(ChatColor.GOLD + "Tubby Skeleton"))
         {
             for (int i = 0; i < 2; i++)
             {
@@ -439,7 +445,61 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+    }
 
+    private void spider(EntityDeathEvent e)
+    {
+        if (e.getEntity().getCustomName().equals(ChatColor.GOLD + "Tubby Spider"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(40, new LongBow());
+                items.add(40, new Bow());
+                items.add(40, new Sword());
+                items.add(40, new Shovel());
+                items.add(40, new Hoe());
+                items.add(30, new Bootns());
+                items.add(30, new Leggingns());
+                items.add(30, new Chesntplate());
+                items.add(30, new Helmnet());
+                items.add(5, new UltimatiumBoots());
+                items.add(5, new UltimatiumLeggings());
+                items.add(5, new UltimatiumChest());
+                items.add(5, new UltimatiumHelmet());
+                items.add(5, new Bee());
+                items.add(5, new TurtleShield());
+                items.add(20, new Boots());
+                items.add(20, new Jeans());
+                items.add(20, new Shirt());
+                items.add(20, new Hat());
+                items.add(30, new Protector());
+                items.add(40, new Shield());
+                items.add(30, new OlSturdy());
+                items.add(30, new Pick());
+                items.add(30, new DaHoe());
+                items.add(20, new FleshSword());
+                items.add(35, new BoneSword());
+                items.add(20, new Axe());
+                items.add(20, new FreedomAxe());
+                items.add(10, new Respirator());
+                items.add(20, new FreedomBow());
+                items.add(20, new FreedomSword());
+                items.add(20, new FreedomPick());
+                items.add(20, new PickL());
+                items.add(20, new ShovelL());
+                items.add(10, new SpeedStick());
+                items.add(10, new SharpStick());
+                items.add(5, new Spoon());
+                items.add(5, new SuperFood());
+                items.add(5, new Drill());
+                items.add(0.2, new POWbow());
+                items.add(2, new LuckyPick());
+
+                CustomItem item = items.next();
+                e.getDrops().add(item.getStack());
+            }
+        }
     }
 
     public void wither(EntityDeathEvent e)
