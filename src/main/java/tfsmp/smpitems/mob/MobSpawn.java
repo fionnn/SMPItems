@@ -168,9 +168,10 @@ public class MobSpawn implements Listener
                 return;
             if (!(block.getBlockData() instanceof EndPortalFrame))
                 return;
-            e.setCancelled(true);
             EndPortalFrame frame = (EndPortalFrame) block.getBlockData();
             int frameID = getFrameID(block.getLocation());
+            if (frameID != -1)
+                e.setCancelled(true);
             int occupied = SUtil.getFrameOccupiedCount();
             if (frame.hasEye() && frameID != -1)
             {
