@@ -3,8 +3,6 @@ package tfsmp.smpitems.item;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
-import org.bukkit.enchantments.Enchantment;
-
 
 public class Bee extends CustomItem
 {
