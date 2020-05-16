@@ -103,6 +103,7 @@ public class MobDrop implements Listener
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
                 items.add(5, new Drill());
+                items.add(5, new Superfood());
                 items.add(5, new POWbow());
                 items.add(2, new LuckyPick());
 
@@ -152,6 +153,7 @@ public class MobDrop implements Listener
                 items.add(15, new SpeedStick());
                 items.add(15, new SharpStick());
                 items.add(7, new Spoon());
+                items.add(7, new Superfood());
                 items.add(7, new Drill());
                 items.add(2, new POWbow());
                 items.add(7, new LuckyPick());
@@ -206,6 +208,7 @@ public class MobDrop implements Listener
                 items.add(10, new SpeedStick());
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
+                items.add(5, new Superfood());
                 items.add(5, new Drill());
                 items.add(2, new POWbow());
                 items.add(2, new LuckyPick());
@@ -256,6 +259,7 @@ public class MobDrop implements Listener
                 items.add(10, new SpeedStick());
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
+                items.add(5, new Superfood());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
                 items.add(5, new POWbow());
@@ -307,6 +311,7 @@ public class MobDrop implements Listener
                 items.add(5, new SpeedStick());
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
+                items.add(5, new Superfood());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
                 items.add(2, new POWbow());
@@ -363,6 +368,7 @@ public class MobDrop implements Listener
                 items.add(10, new SharpStick());
                 items.add(10, new ObsidianPick());
                 items.add(5, new Spoon());
+                items.add(5, new Superfood());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
@@ -420,6 +426,7 @@ public class MobDrop implements Listener
                 items.add(10, new SharpStick());
                 items.add(10, new ObsidianPick());
                 items.add(5, new Spoon());
+                items.add(5, new Superfood());
                 items.add(5, new WitherAxe());
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
@@ -458,6 +465,7 @@ public class MobDrop implements Listener
         items.add(5, new UltimatiumChest());
         items.add(5, new UltimatiumHelmet());
         items.add(5, new Bee());
+        items.add(5, new Superfood());
         items.add(5, new TurtleShield());
 
         CustomItem item = items.next();
