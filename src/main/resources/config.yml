@@ -46,3 +46,4 @@ server:
       y: 0
       z: 0
       occupied: false
+  flare_radius: 20.0

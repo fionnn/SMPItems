@@ -529,6 +529,7 @@ public class MobDrop implements Listener
             items.add(20, new UltimatiumChest());
             items.add(20, new UltimatiumLeggings());
             items.add(10, new End());
+            items.add(20, new Flare());
 
             CustomItem item = items.next();
             e.getDrops().add(item.getStack());

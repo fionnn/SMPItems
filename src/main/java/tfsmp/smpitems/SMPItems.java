@@ -8,6 +8,7 @@ import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Entity;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import tfsmp.smpitems.command.Command_smpcredits;
 import tfsmp.smpitems.command.Command_smpgiveitem;
 import tfsmp.smpitems.command.Command_smpsetframe;
 import tfsmp.smpitems.command.Command_smpspawnmob;
@@ -53,6 +54,7 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new InventoryListener(this), this);
         manager.registerEvents(new DamageListener(this), this);
         manager.registerEvents(new EnderDragonListener(this), this);
+        manager.registerEvents(new FlareListener(this), this);
     }
 
     private void enableCommands()
@@ -60,25 +62,26 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpspawnmob").setExecutor(new Command_smpspawnmob());
         this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
         this.getCommand("smpsetframe").setExecutor(new Command_smpsetframe());
+        this.getCommand("smpcredits").setExecutor(new Command_smpcredits());
     }
 
     private void handleDragon()
     {
         if (MobSpawn.activeDragon != null || SUtil.getFrameOccupiedCount() == 4)
         {
-            World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+            World endWorld = Bukkit.getWorld(config.getString("server.ender_dragon.end_world"));
             MobSpawn.dragonSpawned = false;
             MobSpawn.activeDragon.getTitle().remove();
             MobSpawn.activeDragon.getHealth().remove();
             MobSpawn.activeDragon = null;
             for (int i = 1; i < 5; i++)
             {
-                plugin.config.set("server.ender_dragon.frame" + i + ".occupier", null);
-                plugin.config.set("server.ender_dragon.frame" + i + ".occupied", false);
-                plugin.config.save();
-                Block f = endWorld.getBlockAt(plugin.config.getInt("server.ender_dragon.frame" + i + ".x"),
-                        plugin.config.getInt("server.ender_dragon.frame" + i + ".y"),
-                        plugin.config.getInt("server.ender_dragon.frame" + i + ".z"));
+                config.set("server.ender_dragon.frame" + i + ".occupier", null);
+                config.set("server.ender_dragon.frame" + i + ".occupied", false);
+                config.save();
+                Block f = endWorld.getBlockAt(config.getInt("server.ender_dragon.frame" + i + ".x"),
+                        config.getInt("server.ender_dragon.frame" + i + ".y"),
+                        config.getInt("server.ender_dragon.frame" + i + ".z"));
                 f.setType(Material.END_PORTAL_FRAME);
             }
             for (Entity entity : endWorld.getEntities())

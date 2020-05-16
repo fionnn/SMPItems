@@ -13,6 +13,7 @@ public enum CustomItemType
     DRILL(Drill.class),
     END(End.class),
     FIONN(Fionn.class),
+    FLARE(Flare.class),
     FLESH_SWORD(FleshSword.class),
     FLUX(Flux.class),
     FREEDOM_AXE(FreedomAxe.class),
