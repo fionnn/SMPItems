@@ -51,6 +51,11 @@ public class CustomMob
     @Setter
     private boolean baby;
 
+    // powered?
+    @Getter
+    @Setter
+    private boolean powered;
+
     public CustomMob(EntityType type, String name)
     {
         this.type = type;
@@ -70,8 +75,13 @@ public class CustomMob
             Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
                 ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + spawning.getLocation().getBlockX() + ", " +
                 spawning.getLocation().getBlockY() + ", " + spawning.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + spawning.getWorld().getName() + ChatColor.YELLOW + "!");
+
         if (this.isBaby() && (spawning instanceof Zombie))
             ((Zombie) spawning).setBaby(true);
+
+        if (this.isPowered() && spawning instanceof Creeper)
+            ((Creeper) spawning).setPowered(true);
+
         spawning.setCustomName(name);
         if (holdableItem != null)
             spawning.getEquipment().setItemInMainHand(holdableItem.getStack());

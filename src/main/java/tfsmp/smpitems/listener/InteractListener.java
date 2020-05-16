@@ -1,6 +1,5 @@
 package tfsmp.smpitems.listener;
 
-import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;

@@ -28,6 +28,7 @@ public class MobSpawn implements Listener
         int endermanSpawnRate = plugin.config.getInt("server.mobs.spawnrate.enderman");
         int witherskeletonSpawnRate = plugin.config.getInt("server.mobs.spawnrate.witherskeleton");
         int straySpawnRate = plugin.config.getInt("server.mobs.spawnrate.stray");
+        int creeperSpawnRate = plugin.config.getInt("server.mobs.spawnrate.creeper");
 
         // Mobs that are able to spawn in the overworld
         if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
@@ -56,6 +57,10 @@ public class MobSpawn implements Listener
             {
                 new TubbyStray().spawn(entity, true);
                 return;
+            }
+            if (entity instanceof Creeper && SUtil.gotRandom(creeperSpawnRate))
+            {
+                new TubbyCreeper().spawn(entity, true);
             }
         }
 

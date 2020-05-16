@@ -10,6 +10,7 @@
 # skeleton: 60
 # stray: 80
 # enderman: 100
+# creeper: 130
 
 server:
   mobs:
@@ -20,3 +21,4 @@ server:
       skeleton: 60
       stray: 80
       enderman: 100
+      creeper: 130
