@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -17,8 +19,12 @@ public class CustomMob
 {
     private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);
 
-    // our actual mob
+    // the mob type
     private EntityType type;
+
+    // the actual mob
+    @Getter
+    private LivingEntity entity;
 
     // name of the mob
     @Getter
@@ -56,6 +62,11 @@ public class CustomMob
     @Setter
     private boolean powered;
 
+    // phase on spawn (ender dragons only)
+    @Getter
+    @Setter
+    private EnderDragon.Phase phase;
+
     public CustomMob(EntityType type, String name)
     {
         this.type = type;
@@ -68,34 +79,52 @@ public class CustomMob
         potionEffects.add(potionEffect);
     }
 
-    public void spawn(Entity entity, boolean bc)
+    public void spawn(Location location, boolean bc)
     {
-        LivingEntity spawning = (LivingEntity) entity.getLocation().getWorld().spawnEntity(entity.getLocation().add(0.5, 0, 0.5), type);
+        this.entity = (LivingEntity) location.getWorld().spawnEntity(location.add(0.5, 0, 0.5), type);
         if (bc)
             Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
-                ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + spawning.getLocation().getBlockX() + ", " +
-                spawning.getLocation().getBlockY() + ", " + spawning.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + spawning.getWorld().getName() + ChatColor.YELLOW + "!");
+                ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
+                    entity.getLocation().getBlockY() + ", " + entity.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + entity.getWorld().getName() + ChatColor.YELLOW + "!");
 
-        if (this.isBaby() && (spawning instanceof Zombie))
-            ((Zombie) spawning).setBaby(true);
+        if (this.isBaby() && (entity instanceof Zombie))
+            ((Zombie) entity).setBaby(true);
 
-        if (this.isPowered() && spawning instanceof Creeper)
-            ((Creeper) spawning).setPowered(true);
+        if (this.isPowered() && entity instanceof Creeper)
+            ((Creeper) entity).setPowered(true);
 
-        spawning.setCustomName(name);
+        if (entity instanceof EnderDragon)
+        {
+            if (phase != null)
+                ((EnderDragon) entity).setPhase(phase);
+            for (Player player : Bukkit.getOnlinePlayers())
+            {
+                if (player.getWorld().getEnvironment().equals(World.Environment.THE_END))
+                {
+                    ((EnderDragon) entity).getBossBar().addPlayer(player);
+                }
+            }
+        }
+
+        entity.setCustomName(name);
         if (holdableItem != null)
-            spawning.getEquipment().setItemInMainHand(holdableItem.getStack());
+            entity.getEquipment().setItemInMainHand(holdableItem.getStack());
         if (helmet != null)
-            spawning.getEquipment().setHelmet(helmet);
+            entity.getEquipment().setHelmet(helmet);
         if (chestplate != null)
-            spawning.getEquipment().setChestplate(chestplate);
+            entity.getEquipment().setChestplate(chestplate);
         if (leggings != null)
-            spawning.getEquipment().setLeggings(leggings);
+            entity.getEquipment().setLeggings(leggings);
         if (boots != null)
-            spawning.getEquipment().setBoots(boots);
+            entity.getEquipment().setBoots(boots);
         for (PotionEffect effect : potionEffects)
         {
-            spawning.addPotionEffect(effect);
+            entity.addPotionEffect(effect);
         }
+    }
+
+    public void spawn(Entity entity, boolean bc)
+    {
+        spawn(entity.getLocation(), bc);
     }
 }

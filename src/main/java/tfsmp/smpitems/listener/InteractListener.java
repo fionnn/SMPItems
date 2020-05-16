@@ -13,7 +13,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.End;
 import tfsmp.smpitems.item.Flux;
-import tfsmp.smpitems.item.Superfood;
+import tfsmp.smpitems.item.SuperFood;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
@@ -73,16 +73,16 @@ public class InteractListener implements Listener
                         }
                     }.runTaskLater(plugin, 60 * 20);
                 }
-                if (SUtil.isItemValid(stack, new Superfood()))
+                if (SUtil.isItemValid(stack, new SuperFood()))
                 {
                     if (superfoodCooldown.contains(player))
                     {
-                        player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Currently on cooldown."));
+                        player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Currently on cooldown."));
                         return;
                     }
                     player.setFoodLevel(20);
                     player.setSaturation(player.getSaturation() + 12.8f);
-                    player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Your hunger has been fully restored!"));
+                    player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Your hunger has been fully restored!"));
                     superfoodCooldown.add(player);
                     new BukkitRunnable()
                     {
@@ -90,7 +90,7 @@ public class InteractListener implements Listener
                         public void run()
                         {
                             superfoodCooldown.remove(player);
-                            player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Ready to be eaten again!"));
+                            player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Ready to be eaten again!"));
                         }
                     }.runTaskLater(plugin, 60 * 20);
                 }

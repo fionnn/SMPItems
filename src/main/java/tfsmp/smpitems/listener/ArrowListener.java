@@ -78,6 +78,10 @@ public class ArrowListener implements Listener
             if (arrow == a)
             {
                 Entity damaged = e.getEntity();
+                if (damaged.isDead())
+                {
+                    return;
+                }
                 damaged.getWorld().strikeLightning(damaged.getLocation());
                 damaged.getWorld().createExplosion(damaged.getLocation(), 4f);
                 arrows.remove(a);

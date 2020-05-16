@@ -1,5 +1,6 @@
 package tfsmp.smpitems.mob;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -11,7 +12,7 @@ public class TubbySkeleton extends CustomMob
 {
     public TubbySkeleton()
     {
-        super(EntityType.SKELETON, "Tubby Skeleton");
+        super(EntityType.SKELETON, ChatColor.DARK_AQUA + "Tubby Skeleton");
         super.setHoldableItem(new BoneSword());
         super.setHelmet(new ItemStack(Material.IRON_HELMET));
         super.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));

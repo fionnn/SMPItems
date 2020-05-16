@@ -1,15 +1,23 @@
 package tfsmp.smpitems.util;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.CustomItem;
 
 import java.util.Random;
 
 public class SUtil
 {
+    private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);
+
+    private static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+
     public static String color(String s)
     {
         return ChatColor.translateAlternateColorCodes('&', s);
@@ -47,5 +55,25 @@ public class SUtil
         if (!check.getItemMeta().hasDisplayName())
             return false;
         return check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") && check.getItemMeta().getDisplayName().endsWith(compare.getRawName());
+    }
+
+    public static int getFrameOccupiedCount()
+    {
+        int count = 0;
+        for (int i = 1; i < 5; i++)
+        {
+            if (plugin.config.getBoolean("server.ender_dragon.frame" + i + ".occupied"))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static Location getFrameLocation(int frameID)
+    {
+        return new Location(endWorld, plugin.config.getInt("server.ender_dragon.frame" + frameID + ".x"),
+                plugin.config.getInt("server.ender_dragon.frame" + frameID + ".y"),
+                plugin.config.getInt("server.ender_dragon.frame" + frameID + ".z"));
     }
 }

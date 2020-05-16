@@ -22,3 +22,25 @@ server:
       stray: 80
       enderman: 100
       creeper: 130
+  ender_dragon:
+    end_world: world_the_end
+    frame1:
+      x: 0
+      y: 0
+      z: 0
+      occupied: false
+    frame2:
+      x: 0
+      y: 0
+      z: 0
+      occupied: false
+    frame3:
+      x: 0
+      y: 0
+      z: 0
+      occupied: false
+    frame4:
+      x: 0
+      y: 0
+      z: 0
+      occupied: false

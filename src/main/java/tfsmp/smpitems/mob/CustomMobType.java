@@ -8,7 +8,9 @@ public enum CustomMobType
     TUBBY_LOOT_MIDGET(TubbyLootMidget.class),
     TUBBY_ENDERMAN(TubbyEnderman.class),
     TUBBY_STRAY(TubbyStray.class),
-    TUBBY_CREEPER(TubbyCreeper.class);
+    TUBBY_CREEPER(TubbyCreeper.class),
+    TUBBY_WITHER(TubbyWither.class),
+    TUBBY_ENDER_DRAGON(TubbyEnderDragon.class);
 
     private final Class<? extends CustomMob> clazz;
 

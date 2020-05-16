@@ -13,3 +13,7 @@ commands:
     description: Give yourself an item from the SMPItems plugin.
     usage: /<command> <item>
     aliases: [sgi, smpgive]
+  smpsetframe:
+    description: Set the coordinates of a portal frame for the Tubby Ender Dragon.
+    usage: /<command> <frameid> <x> <y> <z>
+    aliases: [ssf, smpframe]

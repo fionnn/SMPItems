@@ -3,9 +3,9 @@ package tfsmp.smpitems.item;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 
-public class Superfood extends CustomItem
+public class SuperFood extends CustomItem
 {
-    public Superfood()
+    public SuperFood()
     {
         super( "Super Food", Material.GLISTERING_MELON_SLICE, Rarity.LEGENDARY, ItemType.OTHER);
         super.addLoreLine("&cInfinity.");
