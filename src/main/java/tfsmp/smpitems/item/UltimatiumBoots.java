@@ -15,6 +15,7 @@ public class UltimatiumBoots extends CustomItem
         super.addLoreLine("&eFull Set Bonus: Flight");
         super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 5);
         super.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
+        super.addEnchant(Enchantment.DURABILITY, 10);
         super.applyMetaToStack();
     }
 }
