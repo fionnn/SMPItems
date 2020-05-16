@@ -23,6 +23,7 @@ public enum CustomItemType
     HELMNET(Helmnet.class),
     HOE(Hoe.class),
     JEANS(Jeans.class),
+    LANDSCAPER(Landscaper.class),
     LEGGINGNS(Leggingns.class),
     LONG_BOW(LongBow.class),
     LUCKY_PICK(LuckyPick.class),

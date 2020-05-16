@@ -2,6 +2,7 @@ package tfsmp.smpitems.listener;
 
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +14,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.End;
 import tfsmp.smpitems.item.Flux;
+import tfsmp.smpitems.item.Landscaper;
 import tfsmp.smpitems.item.SuperFood;
 import tfsmp.smpitems.util.SUtil;
 
@@ -29,7 +31,7 @@ public class InteractListener implements Listener
 
     private List<Player> fluxCooldown = new ArrayList<>();
     private List<Player> superfoodCooldown = new ArrayList<>();
-
+    private List<Player> landscaperCooldown = new ArrayList<>();
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e)
     {
@@ -93,6 +95,26 @@ public class InteractListener implements Listener
                             player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Ready to be eaten again!"));
                         }
                     }.runTaskLater(plugin, 60 * 20);
+                }
+                if (SUtil.isItemValid(stack, new Landscaper()))
+                {
+                    Block block = player.getTargetBlock(null, 30);
+                    if (landscaperCooldown.contains(player))
+                    {
+                        player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Currently on cooldown."));
+                        return;
+                    }
+                    landscaperCooldown.add(player);
+                    block.getWorld().spawnEntity(block.getLocation().add(0, 20, 0), EntityType.PRIMED_TNT);
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            landscaperCooldown.remove(player);
+                            player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Ready to be used again!"));
+                        }
+                    }.runTaskLater(plugin, 60 * 5);
                 }
                 break;
             }
