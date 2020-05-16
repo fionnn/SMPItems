@@ -136,7 +136,9 @@ public class MobSpawn implements Listener
                             loc.getBlockY(),
                             loc.getBlockZ(),
                             loc.getWorld().getName())));
-                    new TubbyWither().spawn(loc, false);
+                    TubbyWither wither = new TubbyWither();
+                    wither.spawn(loc, false);
+                    wither.init();
                 }
                 break;
             }
@@ -268,7 +270,7 @@ public class MobSpawn implements Listener
                         }
                         activeDragon = new TubbyEnderDragon();
                         activeDragon.spawn(spawn, false);
-                        activeDragon.create();
+                        activeDragon.init();
                         Bukkit.broadcastMessage(SUtil.color("&5Tubby Ender Dragon&d: Good luck..."));
                     }
                 }.runTaskLater(plugin, 6 * 20);

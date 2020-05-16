@@ -10,7 +10,12 @@ public class TubbyWither extends CustomMob
     public TubbyWither()
     {
         super(EntityType.WITHER, ChatColor.DARK_RED + "Tubby Wither");
-        super.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 15));
-        super.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 9999999, 20));
+        super.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 25));
+    }
+
+    public void init()
+    {
+        getEntity().setMaxHealth(1000.0);
+        getEntity().setHealth(getEntity().getMaxHealth());
     }
 }

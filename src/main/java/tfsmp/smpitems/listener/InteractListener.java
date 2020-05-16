@@ -4,6 +4,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -98,14 +99,15 @@ public class InteractListener implements Listener
                 }
                 if (SUtil.isItemValid(stack, new Landscaper()))
                 {
-                    Block block = player.getTargetBlock(null, 30);
                     if (landscaperCooldown.contains(player))
                     {
                         player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Currently on cooldown."));
                         return;
                     }
+                    Block block = player.getTargetBlock(null, 30);
                     landscaperCooldown.add(player);
-                    block.getWorld().spawnEntity(block.getLocation().add(0, 20, 0), EntityType.PRIMED_TNT);
+                    TNTPrimed tnt = (TNTPrimed) block.getWorld().spawnEntity(block.getLocation().add(0, 20, 0), EntityType.PRIMED_TNT);
+                    tnt.setYield(20);
                     new BukkitRunnable()
                     {
                         @Override

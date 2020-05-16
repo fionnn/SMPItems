@@ -27,13 +27,14 @@ public class TubbyEnderDragon extends CustomMob
     public TubbyEnderDragon()
     {
         super(EntityType.ENDER_DRAGON, ChatColor.DARK_PURPLE + "Tubby Ender Dragon");
-        super.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 15));
-        super.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 9999999, 20));
+        super.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 30));
         super.setPhase(EnderDragon.Phase.CIRCLING);
     }
 
-    public void create()
+    public void init()
     {
+        getEntity().setMaxHealth(500.0);
+        getEntity().setHealth(getEntity().getMaxHealth());
         title = (ArmorStand) endWorld.spawnEntity(new Location(endWorld, 0.5, 67.1, 0.5), EntityType.ARMOR_STAND);
         title.setCustomName(SUtil.color("&5&lTUBBY ENDER DRAGON"));
         title.setCustomNameVisible(true);
