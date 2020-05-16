@@ -1,9 +1,9 @@
 package tfsmp.smpitems.listener;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.PlayerInventory;
 import tfsmp.smpitems.SMPItems;
@@ -11,7 +11,6 @@ import tfsmp.smpitems.item.UltimatiumBoots;
 import tfsmp.smpitems.item.UltimatiumChest;
 import tfsmp.smpitems.item.UltimatiumHelmet;
 import tfsmp.smpitems.item.UltimatiumLeggings;
-import tfsmp.smpitems.util.SLog;
 import tfsmp.smpitems.util.SUtil;
 
 public class InventoryListener implements Listener
@@ -27,6 +26,11 @@ public class InventoryListener implements Listener
     {
         Player player = (Player) e.getPlayer();
         PlayerInventory inv = player.getInventory();
+        if (player.getGameMode() == GameMode.CREATIVE)
+        {
+            player.setAllowFlight(true);
+            return;
+        }
         if (inv.getHelmet() == null || inv.getChestplate() == null || inv.getLeggings() == null || inv.getBoots() == null)
         {
             player.setAllowFlight(false);

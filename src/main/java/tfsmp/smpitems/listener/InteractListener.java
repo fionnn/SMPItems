@@ -12,6 +12,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.item.End;
+import tfsmp.smpitems.item.Flux;
+import tfsmp.smpitems.item.Superfood;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
@@ -26,6 +29,7 @@ public class InteractListener implements Listener
     }
 
     private List<Player> fluxCooldown = new ArrayList<>();
+    private List<Player> superfoodCooldown = new ArrayList<>();
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e)
@@ -37,16 +41,12 @@ public class InteractListener implements Listener
             {
                 Player player = e.getPlayer();
                 ItemStack stack = player.getInventory().getItemInMainHand();
-                if (!stack.hasItemMeta())
-                    return;
-                if (!stack.getItemMeta().hasDisplayName())
-                    return;
-                if (stack.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && stack.getItemMeta().getDisplayName().endsWith("End?"))
+                if (SUtil.isItemValid(stack, new End()))
                 {
                     Block block = player.getTargetBlock(null, 20);
                     block.getWorld().strikeLightning(block.getLocation());
                 }
-                if (stack.getItemMeta().getDisplayName().startsWith(ChatColor.AQUA + "") && stack.getItemMeta().getDisplayName().endsWith("Flux"))
+                if (SUtil.isItemValid(stack, new Flux()))
                 {
                     e.setCancelled(true);
                     if (fluxCooldown.contains(player))
@@ -71,6 +71,27 @@ public class InteractListener implements Listener
                         {
                             fluxCooldown.remove(player);
                             player.sendMessage(SUtil.color("&b&lFLUX &bYour ability is ready!"));
+                        }
+                    }.runTaskLater(plugin, 60 * 20);
+                }
+                if (SUtil.isItemValid(stack, new Superfood()))
+                {
+                    if (superfoodCooldown.contains(player))
+                    {
+                        player.sendMessage(SUtil.color("&a&lSUPERFOOD &aCurrently on cooldown."));
+                        return;
+                    }
+                    player.setFoodLevel(20);
+                    player.setSaturation(player.getSaturation() + 12.8f);
+                    player.sendMessage(SUtil.color("&a&lSUPERFOOD &aYour hunger has been fully restored!"));
+                    superfoodCooldown.add(player);
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            superfoodCooldown.remove(player);
+                            player.sendMessage(SUtil.color("&a&lSUPERFOOD &aReady to be eaten again!"));
                         }
                     }.runTaskLater(plugin, 60 * 20);
                 }

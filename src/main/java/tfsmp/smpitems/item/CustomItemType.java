@@ -45,6 +45,7 @@ public enum CustomItemType
     SPOON(Spoon.class),
     SQUARE(Square.class),
     SUPER(Super.class),
+    SUPERFOOD(Superfood.class),
     SWORD(Sword.class),
     TURTLE_SHIELD(TurtleShield.class),
     ULTIMATIUM_BOOTS(UltimatiumBoots.class),

@@ -46,8 +46,6 @@ public class SUtil
             return false;
         if (!check.getItemMeta().hasDisplayName())
             return false;
-        if (!check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") && !check.getItemMeta().getDisplayName().endsWith(compare.getRawName()))
-            return false;
-        return true;
+        return check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") && check.getItemMeta().getDisplayName().endsWith(compare.getRawName());
     }
 }
