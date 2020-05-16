@@ -78,12 +78,12 @@ public class InteractListener implements Listener
                 {
                     if (superfoodCooldown.contains(player))
                     {
-                        player.sendMessage(SUtil.color("&a&lSUPERFOOD &aCurrently on cooldown."));
+                        player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Currently on cooldown."));
                         return;
                     }
                     player.setFoodLevel(20);
                     player.setSaturation(player.getSaturation() + 12.8f);
-                    player.sendMessage(SUtil.color("&a&lSUPERFOOD &aYour hunger has been fully restored!"));
+                    player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Your hunger has been fully restored!"));
                     superfoodCooldown.add(player);
                     new BukkitRunnable()
                     {
@@ -91,7 +91,7 @@ public class InteractListener implements Listener
                         public void run()
                         {
                             superfoodCooldown.remove(player);
-                            player.sendMessage(SUtil.color("&a&lSUPERFOOD &aReady to be eaten again!"));
+                            player.sendMessage(SUtil.color("&9&lSUPERFOOD &9Ready to be eaten again!"));
                         }
                     }.runTaskLater(plugin, 60 * 20);
                 }
