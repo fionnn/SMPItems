@@ -122,6 +122,7 @@ public class MobDrop implements Listener
                 items.add(5, new SuperFood());
                 items.add(2, new LuckyPick());
                 items.add(0.2, new POWbow());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -173,6 +174,7 @@ public class MobDrop implements Listener
                 items.add(7, new Drill());
                 items.add(2, new POWbow());
                 items.add(7, new LuckyPick());
+                items.add(0.05, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -228,6 +230,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(0.2, new POWbow());
                 items.add(2, new LuckyPick());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -280,6 +283,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
                 items.add(0.5, new POWbow());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -331,6 +335,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
                 items.add(0.3, new POWbow());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -388,6 +393,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
                 items.add(0.1, new End());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -443,6 +449,7 @@ public class MobDrop implements Listener
                 items.add(5, new SuperFood());
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -498,6 +505,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(0.2, new POWbow());
                 items.add(2, new LuckyPick());
+                items.add(0.01, new Landscaper());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -516,6 +524,7 @@ public class MobDrop implements Listener
             items.add(20, new UltimatiumLeggings());
             items.add(15, new UltimatiumChest());
             items.add(5, new Flux());
+            items.add(0.1, new Landscaper());
 
             CustomItem item = items.next();
             e.getDrops().add(item.getStack());
@@ -540,6 +549,7 @@ public class MobDrop implements Listener
                 items.add(35, new ObsidianPick());
                 items.add(25, new LuckyPick());
                 items.add(20, new PowerEye());
+                items.add(0.1, new Landscaper());
 
                 dropped.add(items.next());
             }

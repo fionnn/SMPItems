@@ -1,4 +1,4 @@
-package tfsmp.smpitems.item.variant;
+package tfsmp.smpitems.util;
 
 import lombok.Getter;
 import org.bukkit.attribute.Attribute;

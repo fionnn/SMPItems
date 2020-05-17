@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
+import tfsmp.smpitems.util.CompactAttribute;
+import tfsmp.smpitems.util.CompactEnchantment;
 
 import java.util.ArrayList;
 import java.util.List;
