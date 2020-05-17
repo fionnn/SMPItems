@@ -46,7 +46,8 @@ public class FlareListener implements Listener
                     !(entity instanceof Player) &&
                     entity instanceof LivingEntity &&
                     !(entity instanceof EnderDragon) &&
-                    !(entity instanceof Wither))
+                    !(entity instanceof Wither) &&
+                    !(entity instanceof ArmorStand))
             {
                 ((LivingEntity) entity).setHealth(0.0);
                 count++;
