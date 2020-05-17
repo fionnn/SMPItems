@@ -5,10 +5,13 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.*;
 import tfsmp.smpitems.item.Bee;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MobDrop implements Listener
@@ -523,16 +526,31 @@ public class MobDrop implements Listener
     {
         if (e.getEntity() == MobSpawn.activeDragon.getEntity())
         {
-            RandomCollection<CustomItem> items = new RandomCollection<>();
-            items.add(25, new UltimatiumBoots());
-            items.add(25, new UltimatiumHelmet());
-            items.add(20, new UltimatiumChest());
-            items.add(20, new UltimatiumLeggings());
-            items.add(10, new End());
-            items.add(20, new Flare());
+            List<CustomItem> dropped = new ArrayList<>();
+            for (int i = 0; i < 2; i++)
+            {
+                RandomCollection<CustomItem> items = new RandomCollection<>();
+                items.add(25, new UltimatiumBoots());
+                items.add(25, new UltimatiumHelmet());
+                items.add(20, new UltimatiumChest());
+                items.add(20, new UltimatiumLeggings());
+                items.add(10, new End());
+                items.add(2, new Flare());
+                items.add(30, new SpeedStick());
+                items.add(35, new ObsidianPick());
+                items.add(25, new LuckyPick());
+                items.add(20, new PowerEye());
 
-            CustomItem item = items.next();
-            e.getDrops().add(item.getStack());
+                dropped.add(items.next());
+            }
+            new BukkitRunnable()
+            {
+                public void run()
+                {
+                    e.getEntity().getWorld().dropItem(e.getEntity().getLocation(), dropped.get(0).getStack());
+                    e.getEntity().getWorld().dropItem(e.getEntity().getLocation(), dropped.get(1).getStack());
+                }
+            }.runTaskLater(plugin, 40);
         }
     }
 }
