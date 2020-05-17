@@ -21,3 +21,7 @@ commands:
     description: Credits for the plugin.
     usage: /<command>
     aliases: [smpc]
+  smpbook:
+    description: Gives yourself a SMPItems Wiki book
+    usage: /<command>
+    aliases: [book]

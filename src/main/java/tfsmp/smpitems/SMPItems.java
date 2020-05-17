@@ -8,10 +8,7 @@ import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Entity;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import tfsmp.smpitems.command.Command_smpcredits;
-import tfsmp.smpitems.command.Command_smpgiveitem;
-import tfsmp.smpitems.command.Command_smpsetframe;
-import tfsmp.smpitems.command.Command_smpspawnmob;
+import tfsmp.smpitems.command.*;
 import tfsmp.smpitems.config.Config;
 import tfsmp.smpitems.listener.*;
 import tfsmp.smpitems.mob.MobDrop;
@@ -65,6 +62,7 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
         this.getCommand("smpsetframe").setExecutor(new Command_smpsetframe());
         this.getCommand("smpcredits").setExecutor(new Command_smpcredits());
+        this.getCommand("smpbook").setExecutor(new Command_smpbook());
     }
 
     private void handleDragon()
