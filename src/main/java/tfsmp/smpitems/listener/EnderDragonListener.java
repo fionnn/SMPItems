@@ -1,13 +1,11 @@
 package tfsmp.smpitems.listener;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.EndPortalFrame;
 import org.bukkit.entity.EnderSignal;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,9 +16,11 @@ import tfsmp.smpitems.item.PowerEye;
 import tfsmp.smpitems.mob.MobSpawn;
 import tfsmp.smpitems.util.SUtil;
 
+@SuppressWarnings("deprecation")
 public class EnderDragonListener implements Listener
 {
     private SMPItems plugin;
+    
     public EnderDragonListener(SMPItems plugin)
     {
         this.plugin = plugin;
