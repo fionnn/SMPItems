@@ -1,8 +1,6 @@
 package tfsmp.smpitems.listener;
 
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -45,7 +43,10 @@ public class FlareListener implements Listener
         for (Entity entity : e.getBlock().getWorld().getEntities())
         {
             if (e.getBlock().getLocation().distance(entity.getLocation()) <= plugin.config.getDouble("server.flare_radius") &&
-                    !(entity instanceof Player) && entity instanceof LivingEntity)
+                    !(entity instanceof Player) &&
+                    entity instanceof LivingEntity &&
+                    !(entity instanceof EnderDragon) &&
+                    !(entity instanceof Wither))
             {
                 ((LivingEntity) entity).setHealth(0.0);
                 count++;
