@@ -26,16 +26,33 @@ public class Command_smpgiveitem implements CommandExecutor
             sender.sendMessage(ChatColor.RED + "You cannot send this command from console.");
             return true;
         }
-        if (args.length != 1)
+        if (args.length > 2)
         {
             return false;
         }
         Player player = (Player) sender;
-        CustomItemType customItemType = CustomItemType.findItemType(args[0]);
-        if (customItemType == null)
+        int amount = 1;
+        CustomItemType customItemType;
+        try
         {
-            sender.sendMessage(ChatColor.GRAY + "Failed to find that item.");
+            customItemType = CustomItemType.findItemType(args[0]);
+        }
+        catch (IllegalArgumentException ex)
+        {
+            sender.sendMessage(ChatColor.GRAY + "That item does not exist.");
             return true;
+        }
+        if (args.length == 2)
+        {
+            try
+            {
+                amount = Integer.parseInt(args[1]);
+            }
+            catch (Exception ex)
+            {
+                sender.sendMessage(ChatColor.GRAY + "Invalid amount.");
+                return true;
+            }
         }
         try
         {
@@ -45,7 +62,9 @@ public class Command_smpgiveitem implements CommandExecutor
                 sender.sendMessage(ChatColor.GRAY + "No space in inventory for item.");
                 return true;
             }
-            player.getInventory().setItem(player.getInventory().firstEmpty(), item.getStack());
+            int empty = player.getInventory().firstEmpty();
+            player.getInventory().setItem(empty, item.getStack());
+            player.getInventory().getItem(empty).setAmount(amount);
             sender.sendMessage(ChatColor.GRAY + "Gave you a(n) " + item.getName() + ChatColor.GRAY + ".");
         }
         catch (InstantiationException e) {}

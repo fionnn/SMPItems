@@ -12,11 +12,9 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.PowerEye;
 import tfsmp.smpitems.item.TubbyWitherSkeletonSkull;
-import tfsmp.smpitems.util.SLog;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
@@ -50,6 +48,7 @@ public class MobSpawn implements Listener
         int witherskeletonSpawnRate = plugin.config.getInt("server.mobs.spawnrate.witherskeleton");
         int straySpawnRate = plugin.config.getInt("server.mobs.spawnrate.stray");
         int creeperSpawnRate = plugin.config.getInt("server.mobs.spawnrate.creeper");
+        int spiderSpawnRate = plugin.config.getInt("server.mobs.spawnrate.spider");
 
         // Mobs that are able to spawn in the overworld
         if (entity.getWorld().getEnvironment().equals(World.Environment.NORMAL))
@@ -82,6 +81,10 @@ public class MobSpawn implements Listener
             if (entity instanceof Creeper && SUtil.gotRandom(creeperSpawnRate))
             {
                 new TubbyCreeper().spawn(entity, true);
+            }
+            if (entity instanceof Spider && SUtil.gotRandom(spiderSpawnRate))
+            {
+                new TubbySpider().spawn(entity, true);
             }
         }
 

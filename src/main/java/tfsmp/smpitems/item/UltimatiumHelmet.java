@@ -10,7 +10,7 @@ public class UltimatiumHelmet extends CustomItem
     {
         super("Ultimatium Helmet", Material.DIAMOND_HELMET, Rarity.LEGENDARY, ItemType.ARMOR);
         super.addLoreLine("&cPower.");
-        super.addLoreLine("&a+5 Health");
+        super.addLoreLine("&e+5 Health");
         super.addLoreLine("&eProtection 10");
         super.addLoreLine("&eFull Set Bonus: Flight");
         super.addAttribute(Attribute.GENERIC_MAX_HEALTH, 5);

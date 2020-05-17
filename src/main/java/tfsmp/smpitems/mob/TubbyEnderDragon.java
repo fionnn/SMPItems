@@ -13,6 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.util.SUtil;
 
+@SuppressWarnings("deprecation")
 public class TubbyEnderDragon extends CustomMob
 {
     private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);

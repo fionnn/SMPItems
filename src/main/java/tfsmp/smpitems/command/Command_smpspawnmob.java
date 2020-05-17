@@ -29,10 +29,14 @@ public class Command_smpspawnmob implements CommandExecutor
             return false;
         }
         Player player = (Player) sender;
-        CustomMobType mobType = CustomMobType.findMobType(args[0]);
-        if (mobType == null)
+        CustomMobType mobType;
+        try
         {
-            sender.sendMessage(ChatColor.GRAY + "Failed to find that mob.");
+            mobType = CustomMobType.findMobType(args[0]);
+        }
+        catch (IllegalArgumentException ex)
+        {
+            sender.sendMessage(ChatColor.GRAY + "That mob does not exist.");
             return true;
         }
         try

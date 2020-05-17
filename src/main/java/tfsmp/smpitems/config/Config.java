@@ -7,7 +7,6 @@ import java.io.File;
 
 public class Config extends YamlConfiguration
 {
-
     private final SMPItems plugin;
     private final File file;
 
