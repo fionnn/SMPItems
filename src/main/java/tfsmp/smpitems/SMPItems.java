@@ -55,6 +55,8 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new DamageListener(this), this);
         manager.registerEvents(new EnderDragonListener(this), this);
         manager.registerEvents(new FlareListener(this), this);
+
+        manager.registerEvents(new PlayerJoinListener(this), this);
     }
 
     private void enableCommands()
