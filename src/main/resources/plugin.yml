@@ -2,8 +2,9 @@ name: SMPItems
 version: ${project.version}
 main: tfsmp.smpitems.SMPItems
 api-version: 1.13
-authors: [lildarke, lildarkee, fionnn]
+authors: [lildarke, lildarkee, fionnn, sguare]
 description: Items for SMP. Based on https://docs.google.com/spreadsheets/d/1CzddRDa38kimHsFf5tJgeP0CZoR2P5yUBMJwnQJ1LIU/edit
+
 commands:
   smpspawnmob:
     description: Spawn a mob from the SMPItems plugin.
@@ -20,7 +21,7 @@ commands:
   smpcredits:
     description: Credits for the plugin.
     usage: /<command>
-    aliases: [smpc]
+    aliases: [smpc, smpitemsinfo, sinfo]
   smpbook:
     description: Gives yourself a SMPItems Wiki book
     usage: /<command>

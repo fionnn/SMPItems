@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class SUtil
 {
-    private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);
+    private static SMPItems plugin = SMPItems.plugin;
 
     private static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
 
@@ -26,8 +26,6 @@ public class SUtil
     {
         return new Random().nextInt(chance) == 1;
     }
-
-    public static final String VERSION = "1.0";
 
     public static String getStringAttribute(Attribute attr)
     {
@@ -75,6 +73,6 @@ public class SUtil
     {
         return new Location(endWorld, plugin.config.getInt("server.ender_dragon.frame" + frameID + ".x"),
                 plugin.config.getInt("server.ender_dragon.frame" + frameID + ".y"),
-                plugin.config.getInt("server.ender_dragon.frame" + frameID + ".z"));
+                    plugin.config.getInt("server.ender_dragon.frame" + frameID + ".z"));
     }
 }

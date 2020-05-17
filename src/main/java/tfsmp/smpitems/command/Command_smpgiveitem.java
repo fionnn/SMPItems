@@ -8,8 +8,6 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import tfsmp.smpitems.item.CustomItem;
 import tfsmp.smpitems.item.CustomItemType;
-import tfsmp.smpitems.mob.CustomMob;
-import tfsmp.smpitems.mob.CustomMobType;
 
 public class Command_smpgiveitem implements CommandExecutor
 {
@@ -21,27 +19,33 @@ public class Command_smpgiveitem implements CommandExecutor
             sender.sendMessage(ChatColor.RED + "No permission.");
             return true;
         }
+
         if (sender instanceof ConsoleCommandSender)
         {
             sender.sendMessage(ChatColor.RED + "You cannot send this command from console.");
             return true;
         }
+
         if (args.length > 2)
         {
             return false;
         }
+
         Player player = (Player) sender;
         int amount = 1;
         CustomItemType customItemType;
+
         try
         {
             customItemType = CustomItemType.findItemType(args[0]);
         }
+
         catch (IllegalArgumentException ex)
         {
             sender.sendMessage(ChatColor.GRAY + "That item does not exist.");
             return true;
         }
+
         if (args.length == 2)
         {
             try
@@ -54,6 +58,7 @@ public class Command_smpgiveitem implements CommandExecutor
                 return true;
             }
         }
+
         try
         {
             CustomItem item = customItemType.getCustomItemClass().newInstance();
@@ -67,8 +72,10 @@ public class Command_smpgiveitem implements CommandExecutor
             player.getInventory().getItem(empty).setAmount(amount);
             sender.sendMessage(ChatColor.GRAY + "Gave you a(n) " + item.getName() + ChatColor.GRAY + ".");
         }
-        catch (InstantiationException e) {}
-        catch (IllegalAccessException e) {}
+        catch (InstantiationException | IllegalAccessException e)
+        {
+            e.fillInStackTrace();
+        }
         return true;
     }
 }

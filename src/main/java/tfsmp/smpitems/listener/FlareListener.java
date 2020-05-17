@@ -8,7 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.Flare;
-import tfsmp.smpitems.util.SLog;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
