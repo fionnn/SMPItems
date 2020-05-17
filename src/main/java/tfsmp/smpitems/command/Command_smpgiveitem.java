@@ -32,7 +32,16 @@ public class Command_smpgiveitem implements CommandExecutor
         }
         Player player = (Player) sender;
         int amount = 1;
-        CustomItemType customItemType = CustomItemType.findItemType(args[0]);
+        CustomItemType customItemType;
+        try
+        {
+            customItemType = CustomItemType.findItemType(args[0]);
+        }
+        catch (IllegalArgumentException ex)
+        {
+            sender.sendMessage(ChatColor.GRAY + "That item does not exist.");
+            return true;
+        }
         if (args.length == 2)
         {
             try
@@ -44,11 +53,6 @@ public class Command_smpgiveitem implements CommandExecutor
                 sender.sendMessage(ChatColor.GRAY + "Invalid amount.");
                 return true;
             }
-        }
-        if (customItemType == null)
-        {
-            sender.sendMessage(ChatColor.GRAY + "Failed to find that item.");
-            return true;
         }
         try
         {
