@@ -3,15 +3,16 @@ package tfsmp.smpitems.mob;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.entity.ArmorStand;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.SMPItems;
-import tfsmp.smpitems.util.SUtil;
 
 @SuppressWarnings("deprecation")
 public class TubbyEnderDragon extends CustomMob
@@ -20,10 +21,7 @@ public class TubbyEnderDragon extends CustomMob
     private static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
 
     @Getter
-    private ArmorStand title;
-
-    @Getter
-    private ArmorStand health;
+    private BossBar bossBar;
 
     public TubbyEnderDragon()
     {
@@ -34,19 +32,15 @@ public class TubbyEnderDragon extends CustomMob
 
     public void init()
     {
-        getEntity().setMaxHealth(500.0);
+        getEntity().setMaxHealth(800.0);
         getEntity().setHealth(getEntity().getMaxHealth());
-        title = (ArmorStand) endWorld.spawnEntity(new Location(endWorld, 0.5, 67.1, 0.5), EntityType.ARMOR_STAND);
-        title.setCustomName(SUtil.color("&5&lTUBBY ENDER DRAGON"));
-        title.setCustomNameVisible(true);
-        title.setInvulnerable(true);
-        title.setVisible(false);
-        title.setGravity(false);
-        health = (ArmorStand) endWorld.spawnEntity(new Location(endWorld, 0.5, 66.75, 0.5), EntityType.ARMOR_STAND);
-        health.setCustomName(SUtil.color("&dHealth: " + (int) getEntity().getHealth() + "/" + (int) getEntity().getMaxHealth()));
-        health.setCustomNameVisible(true);
-        health.setInvulnerable(true);
-        health.setVisible(false);
-        health.setGravity(false);
+        bossBar = Bukkit.createBossBar(getName(), BarColor.PURPLE, BarStyle.SOLID);
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (player.getWorld() == endWorld)
+            {
+                bossBar.addPlayer(player);
+            }
+        }
     }
 }

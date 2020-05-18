@@ -545,8 +545,6 @@ public class MobDrop implements Listener
                 items.add(20, new UltimatiumLeggings());
                 items.add(10, new End());
                 items.add(2, new Flare());
-                items.add(30, new SpeedStick());
-                items.add(35, new ObsidianPick());
                 items.add(25, new LuckyPick());
                 items.add(20, new PowerEye());
                 items.add(0.1, new Landscaper());

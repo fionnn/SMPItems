@@ -10,6 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.PowerEye;
@@ -47,8 +50,7 @@ public class EnderDragonListener implements Listener
         if (dead == MobSpawn.activeDragon.getEntity())
         {
             MobSpawn.dragonSpawned = false;
-            MobSpawn.activeDragon.getTitle().remove();
-            MobSpawn.activeDragon.getHealth().remove();
+            MobSpawn.activeDragon.getBossBar().removeAll();
             MobSpawn.activeDragon = null;
             for (int i = 1; i < 5; i++)
             {
@@ -83,6 +85,34 @@ public class EnderDragonListener implements Listener
         }
     }
 
+    @EventHandler
+    public void onWorldChange(PlayerChangedWorldEvent e)
+    {
+        Player player = e.getPlayer();
+
+        if (player.getWorld() == SUtil.endWorld)
+            MobSpawn.activeDragon.getBossBar().addPlayer(player);
+
+        if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(player) && e.getPlayer().getWorld() != SUtil.endWorld)
+        {
+            MobSpawn.activeDragon.getBossBar().removePlayer(player);
+        }
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e)
+    {
+        if (e.getPlayer().getWorld() == SUtil.endWorld)
+            MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent e)
+    {
+        if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(e.getPlayer()))
+            MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+    }
+
     public void update(EntityEvent e)
     {
         if (MobSpawn.activeDragon == null)
@@ -92,7 +122,7 @@ public class EnderDragonListener implements Listener
         LivingEntity damaged = (LivingEntity) e.getEntity();
         if (damaged == MobSpawn.activeDragon.getEntity())
         {
-            MobSpawn.activeDragon.getHealth().setCustomName(SUtil.color("&dHealth: " + (int) damaged.getHealth() + "/" + (int) damaged.getMaxHealth()));
+            MobSpawn.activeDragon.getBossBar().setProgress(damaged.getHealth() / damaged.getMaxHealth());
         }
     }
 }

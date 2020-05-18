@@ -71,8 +71,7 @@ public final class SMPItems extends JavaPlugin
         {
             World endWorld = Bukkit.getWorld(config.getString("server.ender_dragon.end_world"));
             MobSpawn.dragonSpawned = false;
-            MobSpawn.activeDragon.getTitle().remove();
-            MobSpawn.activeDragon.getHealth().remove();
+            MobSpawn.activeDragon.getBossBar().removeAll();
             MobSpawn.activeDragon = null;
             for (int i = 1; i < 5; i++)
             {

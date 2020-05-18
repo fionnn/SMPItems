@@ -15,7 +15,7 @@ public class SUtil
 {
     private static SMPItems plugin = SMPItems.plugin;
 
-    private static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+    public static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
 
     public static String color(String s)
     {
