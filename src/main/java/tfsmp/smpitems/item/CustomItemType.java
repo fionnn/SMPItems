@@ -30,6 +30,7 @@ public enum CustomItemType
     LEGGINGNS(Leggingns.class),
     LONG_BOW(LongBow.class),
     LUCKY_PICK(LuckyPick.class),
+    MAGICAL_SADDLE(MagicalSaddle.class),
     OBSIDIAN_PICK(ObsidianPick.class),
     OL_STURDY(OlSturdy.class),
     PHASER(Phaser.class),
