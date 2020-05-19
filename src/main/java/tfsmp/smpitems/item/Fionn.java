@@ -7,8 +7,8 @@ public class Fionn extends CustomItem
 {
     public Fionn()
     {
-        super("gay fish", Material.PUFFERFISH, Rarity.SPECIAL, ItemType.OTHER);
-        super.addLoreLine("&chi my name is fionn");
+        super("sexy fish", Material.PUFFERFISH, Rarity.SPECIAL, ItemType.OTHER);
+        super.addLoreLine("&chi my name is fionn, i'm really cool!");
         super.addLoreLine("&e&oKnockback 10");
         super.addEnchant(Enchantment.KNOCKBACK, 10);
         super.applyMetaToStack();
