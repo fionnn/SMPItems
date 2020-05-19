@@ -11,6 +11,7 @@ public class End extends CustomItem
     {
         super("End?", Material.DIAMOND_SWORD, Rarity.LEGENDARY, ItemType.MELEE);
         super.addLoreLine("&cThe End.");
+        super.addLoreLine("&bRight click to summon lightning.");
         super.addLoreLine("&eSharpness 10");
         super.addLoreLine("&f+500% Damage");
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 5, AttributeModifier.Operation.ADD_SCALAR);

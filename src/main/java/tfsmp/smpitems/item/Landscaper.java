@@ -10,8 +10,9 @@ public class Landscaper extends CustomItem
     public Landscaper()
     {
         super("The Landscaper", Material.WOODEN_SWORD, Rarity.LEGENDARY, ItemType.OTHER);
-        super.addLoreLine("&cAbility: Bomb");
+        super.addLoreLine("&cDeath waits above.");
         super.addLoreLine("&eKnockback 20");
+        super.addLoreLine("&bRight click to bomb.");
         super.addLoreLine("&f+200% Damage");
         super.addLoreLine("&f+25% Knockback Resistance");
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 2, AttributeModifier.Operation.ADD_SCALAR);
