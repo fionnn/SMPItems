@@ -1,5 +1,7 @@
 package tfsmp.smpitems.item;
 
+import org.bukkit.entity.EnderDragon;
+
 public enum CustomItemType
 {
     AXE(Axe.class),
@@ -30,6 +32,7 @@ public enum CustomItemType
     LUCKY_PICK(LuckyPick.class),
     OBSIDIAN_PICK(ObsidianPick.class),
     OL_STURDY(OlSturdy.class),
+    PHASER(Phaser.class),
     PICK(Pick.class),
     PICKAXE(Pickaxe.class),
     PICKL(PickL.class),
