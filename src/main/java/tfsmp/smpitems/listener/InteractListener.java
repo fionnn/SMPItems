@@ -1,5 +1,6 @@
 package tfsmp.smpitems.listener;
 
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -13,10 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
-import tfsmp.smpitems.item.End;
-import tfsmp.smpitems.item.Flux;
-import tfsmp.smpitems.item.Landscaper;
-import tfsmp.smpitems.item.SuperFood;
+import tfsmp.smpitems.item.*;
 import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
@@ -33,6 +31,7 @@ public class InteractListener implements Listener
     private List<Player> fluxCooldown = new ArrayList<>();
     private List<Player> superfoodCooldown = new ArrayList<>();
     private List<Player> landscaperCooldown = new ArrayList<>();
+    private List<Player> phaserCooldown = new ArrayList<>();
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e)
     {
@@ -117,6 +116,31 @@ public class InteractListener implements Listener
                             player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Ready to be used again!"));
                         }
                     }.runTaskLater(plugin, 60 * 5);
+                }
+                if (SUtil.isItemValid(stack, new Phaser()))
+                {
+                    if (phaserCooldown.contains(player))
+                    {
+                        player.sendMessage(SUtil.color("&6&lPHASER &6Currently on cooldown."));
+                        return;
+                    }
+                    Block block = player.getTargetBlock(null, 20);
+                    float yaw = player.getLocation().getYaw();
+                    float pitch = player.getLocation().getPitch();
+
+                    Location location = new Location(player.getWorld(), block.getX(), block.getY(), block.getZ(), yaw, pitch);
+                    player.teleport(location);
+                    phaserCooldown.add(player);
+
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            phaserCooldown.remove(player);
+                            player.sendMessage(SUtil.color("&6&lPHASER &6Ready to be used again!"));
+                        }
+                    }.runTaskLater(plugin, 60 * 1);
                 }
                 break;
             }
