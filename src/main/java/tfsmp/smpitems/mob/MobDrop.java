@@ -123,6 +123,7 @@ public class MobDrop implements Listener
                 items.add(2, new LuckyPick());
                 items.add(0.2, new POWbow());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -175,6 +176,7 @@ public class MobDrop implements Listener
                 items.add(2, new POWbow());
                 items.add(7, new LuckyPick());
                 items.add(0.05, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -231,6 +233,7 @@ public class MobDrop implements Listener
                 items.add(0.2, new POWbow());
                 items.add(2, new LuckyPick());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -284,6 +287,7 @@ public class MobDrop implements Listener
                 items.add(2, new LuckyPick());
                 items.add(0.5, new POWbow());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -336,6 +340,7 @@ public class MobDrop implements Listener
                 items.add(2, new LuckyPick());
                 items.add(0.3, new POWbow());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -394,6 +399,7 @@ public class MobDrop implements Listener
                 items.add(2, new LuckyPick());
                 items.add(0.1, new End());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -450,6 +456,7 @@ public class MobDrop implements Listener
                 items.add(5, new Drill());
                 items.add(2, new LuckyPick());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
@@ -506,6 +513,7 @@ public class MobDrop implements Listener
                 items.add(0.2, new POWbow());
                 items.add(2, new LuckyPick());
                 items.add(0.01, new Landscaper());
+                items.add(20, new MagicalSaddle());
 
                 CustomItem item = items.next();
                 e.getDrops().add(item.getStack());
