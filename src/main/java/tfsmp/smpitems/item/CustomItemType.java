@@ -5,6 +5,7 @@ import org.bukkit.entity.EnderDragon;
 public enum CustomItemType
 {
     AXE(Axe.class),
+    BATTERY(Battery.class),
     BEE(Bee.class),
     BONE_SWORD(BoneSword.class),
     BOOTNS(Bootns.class),
@@ -50,6 +51,7 @@ public enum CustomItemType
     SPEED_STICK(SpeedStick.class),
     SPOON(Spoon.class),
     SQUARE(Square.class),
+    SUMMONING_SCYTHE(SummoningScythe.class),
     SUPER(Super.class),
     SUPER_FOOD(SuperFood.class),
     SWORD(Sword.class),

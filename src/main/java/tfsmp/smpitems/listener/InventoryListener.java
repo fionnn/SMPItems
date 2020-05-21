@@ -1,16 +1,16 @@
 package tfsmp.smpitems.listener;
 
+import javafx.scene.paint.Color;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import tfsmp.smpitems.SMPItems;
-import tfsmp.smpitems.item.UltimatiumBoots;
-import tfsmp.smpitems.item.UltimatiumChest;
-import tfsmp.smpitems.item.UltimatiumHelmet;
-import tfsmp.smpitems.item.UltimatiumLeggings;
+import tfsmp.smpitems.item.*;
 import tfsmp.smpitems.util.SUtil;
 
 public class InventoryListener implements Listener
@@ -26,6 +26,7 @@ public class InventoryListener implements Listener
     {
         Player player = (Player) e.getPlayer();
         PlayerInventory inv = player.getInventory();
+
         if (player.getGameMode() == GameMode.CREATIVE)
         {
             player.setAllowFlight(true);
@@ -45,5 +46,14 @@ public class InventoryListener implements Listener
             return;
         }
         player.setAllowFlight(false);
+        player.getInventory().all(Material.DRAGON_BREATH).entrySet().forEach(entry ->
+        {
+            if (SUtil.isItemValid((ItemStack) entry, new Battery())) {
+                player.sendMessage(SUtil.color("&6The battery's power has improved your items."));
+                new BatteryUsage(true, player);
+                return;
+            }
+            new BatteryUsage(false, player);
+        });
     }
 }

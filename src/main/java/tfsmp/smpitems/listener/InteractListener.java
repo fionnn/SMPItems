@@ -1,11 +1,9 @@
 package tfsmp.smpitems.listener;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.TNTPrimed;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -19,6 +17,7 @@ import tfsmp.smpitems.util.SUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InteractListener implements Listener
 {
@@ -32,6 +31,8 @@ public class InteractListener implements Listener
     private List<Player> superfoodCooldown = new ArrayList<>();
     private List<Player> landscaperCooldown = new ArrayList<>();
     private List<Player> phaserCooldown = new ArrayList<>();
+    private List<Player> summonCooldown = new ArrayList<>();
+
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e)
     {
@@ -41,6 +42,7 @@ public class InteractListener implements Listener
             case RIGHT_CLICK_AIR:
             {
                 Player player = e.getPlayer();
+                int ifbattery = BatteryUsage.IfUsage(player);
                 ItemStack stack = player.getInventory().getItemInMainHand();
                 if (SUtil.isItemValid(stack, new End()))
                 {
@@ -73,7 +75,7 @@ public class InteractListener implements Listener
                             fluxCooldown.remove(player);
                             player.sendMessage(SUtil.color("&b&lFLUX &bYour ability is ready!"));
                         }
-                    }.runTaskLater(plugin, 60 * 20);
+                    }.runTaskLater(plugin, (60* 20)/ifbattery);
                 }
                 if (SUtil.isItemValid(stack, new SuperFood()))
                 {
@@ -94,7 +96,7 @@ public class InteractListener implements Listener
                             superfoodCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Ready to be eaten again!"));
                         }
-                    }.runTaskLater(plugin, 60 * 20);
+                    }.runTaskLater(plugin, (60* 20)/ifbattery);
                 }
                 if (SUtil.isItemValid(stack, new Landscaper()))
                 {
@@ -115,7 +117,7 @@ public class InteractListener implements Listener
                             landscaperCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Ready to be used again!"));
                         }
-                    }.runTaskLater(plugin, 60 * 5);
+                    }.runTaskLater(plugin, (60* 5)/ifbattery);
                 }
                 if (SUtil.isItemValid(stack, new Phaser()))
                 {
@@ -140,7 +142,41 @@ public class InteractListener implements Listener
                             phaserCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lPHASER &6Ready to be used again!"));
                         }
-                    }.runTaskLater(plugin, 60 * 1);
+                    }.runTaskLater(plugin, (60* 1)/ifbattery);
+                }
+                if (SUtil.isItemValid(stack, new SummoningScythe()))
+                {
+                    if (summonCooldown.contains(player))
+                    {
+                        player.sendMessage(SUtil.color("&b&lSUMMON &bCurrently on cooldown."));
+                        return;
+                    }
+                    Block block = player.getTargetBlock(null, 20);
+                    for (int i = 0; i < 30; i++) {
+                        new BukkitRunnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                Random random = new Random();
+                                Zombie zombie = block.getLocation().getWorld().spawn(block.getLocation().add(random.nextInt(7), 0, random.nextInt(7)), Zombie.class);
+                                zombie.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 9999999, 5));
+                                zombie.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 2));
+                                zombie.setCustomName(ChatColor.DARK_RED + "Summoned Zombie");
+                            }
+                        }.runTaskLater(plugin, 10 * 1);
+                    }
+                    summonCooldown.add(player);
+
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            summonCooldown.remove(player);
+                            player.sendMessage(SUtil.color("&b&lSUMMON &bReady to be used again!"));
+                        }
+                    }.runTaskLater(plugin, (60* 10)/ifbattery);
                 }
                 break;
             }
