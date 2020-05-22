@@ -2,22 +2,27 @@ package tfsmp.smpitems.listener;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.Vector;
 import tfsmp.smpitems.SMPItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrowListener implements Listener
+public class TBArrowListener implements Listener
 {
     private SMPItems plugin;
-    public ArrowListener(SMPItems plugin)
+
+    public TBArrowListener(SMPItems plugin)
     {
         this.plugin = plugin;
     }
@@ -37,16 +42,19 @@ public class ArrowListener implements Listener
             return;
         if (!bow.getItemMeta().hasDisplayName())
             return;
-        if (bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && bow.getItemMeta().getDisplayName().endsWith("POW! Bow"))
+        if (bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && bow.getItemMeta().getDisplayName().endsWith("Tree Bow"))
             arrows.add((Arrow) proj);
     }
 
     @EventHandler
-    public void onArrowHit(ProjectileHitEvent e)
+    public void onTreeBowArrowHit(ProjectileHitEvent e)
     {
         Projectile proj = e.getEntity();
+        Entity entity = e.getEntity();
+
         if (!(proj instanceof Arrow))
             return;
+
         Arrow arrow = (Arrow) proj;
         for (Arrow a : arrows)
         {
@@ -55,34 +63,17 @@ public class ArrowListener implements Listener
                 Block block = e.getHitBlock();
                 if (block == null)
                     return;
-                block.getWorld().strikeLightning(block.getLocation());
-                block.getWorld().createExplosion(block.getLocation(), 4f);
+
+                Location loc = block.getLocation();
+                block.setType(Material.DIRT);
+                block.getWorld().generateTree(loc, TreeType.TREE);
+                for (Entity ent : entity.getNearbyEntities(10, 0, 10))
+                {
+                    ent.setVelocity(new Vector(0, 2, 0));
+                    ent.playEffect(EntityEffect.HURT);
+                }
                 arrows.remove(a);
                 a.remove();
-                return;
-            }
-        }
-    }
-
-    @EventHandler
-    public void onEntityDamage(EntityDamageByEntityEvent e)
-    {
-        Entity damager = e.getDamager();
-        if (!(damager instanceof Arrow))
-            return;
-        Arrow arrow = (Arrow) damager;
-        for (Arrow a : arrows)
-        {
-            if (arrow == a)
-            {
-                Entity damaged = e.getEntity();
-                if (damaged.isDead())
-                {
-                    return;
-                }
-                damaged.getWorld().strikeLightning(damaged.getLocation());
-                damaged.getWorld().createExplosion(damaged.getLocation(), 4f);
-                arrows.remove(a);
                 return;
             }
         }

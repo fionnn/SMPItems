@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
-import tfsmp.smpitems.util.Groups;
 
 public class VampireFang extends CustomItem
 {
