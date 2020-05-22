@@ -62,6 +62,7 @@ public enum CustomItemType
     ULTIMATIUM_CHESTPLATE(UltimatiumChest.class),
     ULTIMATIUM_HELMET(UltimatiumHelmet.class),
     ULTIMATIUM_LEGGINGS(UltimatiumLeggings.class),
+    VAMPIRE_FANG(VampireFang.class),
     WITHER_AXE(WitherAxe.class);
 
     private final Class<? extends CustomItem> clazz;

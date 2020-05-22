@@ -93,6 +93,9 @@ public class MobDrop implements Listener
                 items.add(5, new UltimatiumBoots());
                 items.add(5, new UltimatiumLeggings());
                 items.add(5, new UltimatiumChest());
+                items.add(5, new VampireFang());
+                items.add(5, new Battery());
+                items.add(1, new SummoningScythe());
                 items.add(5, new UltimatiumHelmet());
                 items.add(5, new Bee());
                 items.add(5, new TurtleShield());

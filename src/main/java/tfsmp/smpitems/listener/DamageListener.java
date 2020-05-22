@@ -7,6 +7,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.item.VampireFang;
 import tfsmp.smpitems.item.WitherAxe;
 import tfsmp.smpitems.util.SUtil;
 
@@ -30,6 +31,10 @@ public class DamageListener implements Listener
         if (SUtil.isItemValid(damager.getEquipment().getItemInMainHand(), new WitherAxe()) && !damaged.hasPotionEffect(PotionEffectType.WITHER))
         {
             damaged.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 2));
+        }
+        if (SUtil.isItemValid(damager.getEquipment().getItemInMainHand(), new VampireFang()))
+        {
+            damager.setHealth(damager.getHealth() + 1);
         }
     }
 }
