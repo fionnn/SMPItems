@@ -19,15 +19,18 @@ public class Command_smpspawnmob implements CommandExecutor
             sender.sendMessage(ChatColor.RED + "No permission.");
             return true;
         }
+
         if (sender instanceof ConsoleCommandSender)
         {
             sender.sendMessage(ChatColor.RED + "You cannot send this command from console.");
             return true;
         }
+
         if (args.length != 1)
         {
             return false;
         }
+
         Player player = (Player) sender;
         CustomMobType mobType;
         try
@@ -45,8 +48,10 @@ public class Command_smpspawnmob implements CommandExecutor
             mob.spawn(player, false);
             sender.sendMessage(ChatColor.GRAY + "Spawned a(n) " + mob.getName() + ChatColor.GRAY + ".");
         }
-        catch (InstantiationException e) {}
-        catch (IllegalAccessException e) {}
+        catch (InstantiationException | IllegalAccessException e)
+        {
+            e.fillInStackTrace();
+        }
         return true;
     }
 }

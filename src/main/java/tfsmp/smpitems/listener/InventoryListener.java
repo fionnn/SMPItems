@@ -1,6 +1,5 @@
 package tfsmp.smpitems.listener;
 
-import javafx.scene.paint.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
