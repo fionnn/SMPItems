@@ -10,6 +10,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tfsmp.smpitems.command.*;
 import tfsmp.smpitems.config.Config;
+import tfsmp.smpitems.item.Radar;
 import tfsmp.smpitems.listener.*;
 import tfsmp.smpitems.mob.MobDrop;
 import tfsmp.smpitems.mob.MobSpawn;
@@ -53,6 +54,7 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new EnderDragonListener(this), this);
         manager.registerEvents(new FlareListener(this), this);
         manager.registerEvents(new TBArrowListener(this), this);
+        manager.registerEvents(new RadarListener(this), this);
 
         manager.registerEvents(new PlayerJoinListener(this), this);
         manager.registerEvents(new EntityInteractListener(this), this);

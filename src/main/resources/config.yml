@@ -47,3 +47,4 @@ server:
       z: 0
       occupied: false
   flare_radius: 20.0
+  radar_radius: 50.0

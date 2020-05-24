@@ -39,6 +39,7 @@ public enum CustomItemType
     POW_BOW(POWbow.class),
     POWER_EYE(PowerEye.class),
     PROTECTOR(Protector.class),
+    RADAR(Radar.class),
     RESPIRATOR(Respirator.class),
     RON(Ron.class),
     SHARP_STICK(SharpStick.class),
