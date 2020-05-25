@@ -10,7 +10,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tfsmp.smpitems.command.*;
 import tfsmp.smpitems.config.Config;
-import tfsmp.smpitems.item.Radar;
 import tfsmp.smpitems.listener.*;
 import tfsmp.smpitems.mob.MobDrop;
 import tfsmp.smpitems.mob.MobSpawn;
@@ -65,7 +64,7 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpspawnmob").setExecutor(new Command_smpspawnmob());
         this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
         this.getCommand("smpsetframe").setExecutor(new Command_smpsetframe());
-        this.getCommand("smpcredits").setExecutor(new Command_smpcredits());
+        this.getCommand("smpitems").setExecutor(new Command_smpitems());
         this.getCommand("smpbook").setExecutor(new Command_smpbook());
     }
 

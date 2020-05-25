@@ -18,10 +18,10 @@ commands:
     description: Set the coordinates of a portal frame for the Tubby Ender Dragon.
     usage: /<command> <frameid> <x> <y> <z>
     aliases: [ssf, smpframe]
-  smpcredits:
-    description: Credits for the plugin.
-    usage: /<command>
-    aliases: [smpc, smpitemsinfo, sinfo]
+  smpitems:
+    description: Provides information about SMPItems, or optionally reloads the config file.
+    usage: /<command> <reload>
+    aliases: [sinfo]
   smpbook:
     description: Gives yourself a SMPItems Wiki book
     usage: /<command>
