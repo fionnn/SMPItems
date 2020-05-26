@@ -12,9 +12,9 @@ public class Landscaper extends CustomItem
         super("The Landscaper", Material.WOODEN_SWORD, Rarity.LEGENDARY, ItemType.OTHER);
         super.addLoreLine("&cDeath waits above.");
         super.addLoreLine("&eKnockback 20");
-        super.addLoreLine("&bRight click to bomb.");
-        super.addLoreLine("&f+200% Damage");
-        super.addLoreLine("&f+25% Knockback Resistance");
+        super.addLoreLine("&eRight click to bomb.");
+        super.addLoreLine("&e+200% Damage");
+        super.addLoreLine("&e+25% Knockback Resistance");
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 2, AttributeModifier.Operation.ADD_SCALAR);
         super.addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_SCALAR);
         super.addEnchant(Enchantment.KNOCKBACK, 20);

@@ -11,8 +11,8 @@ public class VampireFang extends CustomItem
     {
         super("Vampire Fang", Material.GHAST_TEAR, Rarity.LEGENDARY, ItemType.MELEE);
         super.addLoreLine("&cThe blood of your prey powers you.");
-        super.addLoreLine("&fSharpness 10");
-        super.addLoreLine("&f+300% Damage");
+        super.addLoreLine("&eSharpness 10");
+        super.addLoreLine("&e+300% Damage");
         super.addEnchant(Enchantment.DAMAGE_ALL, 10);
         super.addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 3, AttributeModifier.Operation.ADD_SCALAR);
         super.applyMetaToStack();
