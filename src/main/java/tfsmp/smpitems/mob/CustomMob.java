@@ -9,16 +9,14 @@ import org.bukkit.World;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
-import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.SBase;
 import tfsmp.smpitems.item.CustomItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomMob
+public class CustomMob extends SBase
 {
-    private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);
-
     // the mob type
     private EntityType type;
 

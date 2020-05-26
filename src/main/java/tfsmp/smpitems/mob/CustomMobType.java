@@ -6,6 +6,7 @@ public enum CustomMobType
     TUBBY_ENDER_DRAGON(TubbyEnderDragon.class),
     TUBBY_ENDERMAN(TubbyEnderman.class),
     TUBBY_LOOT_MIDGET(TubbyLootMidget.class),
+    TUBBY_PILLAGER(TubbyPillager.class),
     TUBBY_SKELETON(TubbySkeleton.class),
     TUBBY_SPIDER(TubbySpider.class),
     TUBBY_STRAY(TubbyStray.class),
