@@ -45,14 +45,14 @@ public class RadarListener implements Listener
             if (e.getBlock().getLocation().distance(entity.getLocation()) <= plugin.config.getDouble("server.radar_radius") &&
                     !(entity instanceof Player) &&
                     entity instanceof LivingEntity &&
-                    entity.getCustomName().equals(ChatColor.RED + "Tubby Creeper") ||
+                    (entity.getCustomName().equals(ChatColor.RED + "Tubby Creeper") ||
                     entity.getCustomName().equals(ChatColor.RED + "Tubby Enderman") ||
                     entity.getCustomName().equals(ChatColor.GOLD + "Tubby Skeleton") ||
                     entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Loot Midget") ||
                     entity.getCustomName().equals(ChatColor.GOLD + "Tubby Spider") ||
                     entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Stray") ||
                     entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton") ||
-                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Zombie")
+                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Zombie"))
 
             );
             {
