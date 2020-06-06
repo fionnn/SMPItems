@@ -22,7 +22,3 @@ commands:
     description: Provides information about SMPItems, or optionally reloads the config file.
     usage: /<command> <reload>
     aliases: [sinfo]
-  smpbook:
-    description: Gives yourself a SMPItems Wiki book
-    usage: /<command>
-    aliases: [book]

@@ -65,7 +65,6 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
         this.getCommand("smpsetframe").setExecutor(new Command_smpsetframe());
         this.getCommand("smpitems").setExecutor(new Command_smpitems());
-        this.getCommand("smpbook").setExecutor(new Command_smpbook());
     }
 
     private void handleDragon()
