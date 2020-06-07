@@ -24,17 +24,18 @@ public class MobSpawn implements Listener
 {
     private SMPItems plugin;
 
-    public MobSpawn(SMPItems plugin)
-    {
-        this.plugin = plugin;
-    }
-
     private static List<Location> tubbyWitherSkullLocations = new ArrayList<>();
 
     private static List<Player> doubleClickPrevent = new ArrayList<>();
 
     public static TubbyEnderDragon activeDragon;
+
     public static boolean dragonSpawned;
+
+    public MobSpawn(SMPItems plugin)
+    {
+        this.plugin = plugin;
+    }
 
     @EventHandler
     public void onEntitySpawn(EntitySpawnEvent event)
@@ -117,8 +118,12 @@ public class MobSpawn implements Listener
             {
                 Location loc = block.getLocation();
                 World world = loc.getWorld();
+
                 if (world == null)
+                {
                     return;
+                }
+
                 loc.add(0, 0, 0);
                 Block rightOb = loc.add(1, 0, 0).getBlock();
                 Block leftOb = loc.subtract(2, 0, 0).getBlock();
@@ -171,26 +176,47 @@ public class MobSpawn implements Listener
                 doubleClickPrevent.remove(e.getPlayer());
                 return;
             }
+
             Block block = e.getClickedBlock();
             ItemStack hand = e.getPlayer().getInventory().getItemInMainHand();
-            World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+            World endWorld = SUtil.endWorld;
+
             if (block == null)
+            {
                 return;
+            }
+
             if (!(block.getBlockData() instanceof EndPortalFrame))
+            {
                 return;
+            }
+
             EndPortalFrame frame = (EndPortalFrame) block.getBlockData();
             int frameID = getFrameID(block.getLocation());
+
             if (frameID != -1)
+            {
                 e.setCancelled(true);
+            }
+
             int occupied = SUtil.getFrameOccupiedCount();
+
             if (frame.hasEye() && frameID != -1)
             {
                 if (hand.getType() != Material.AIR)
+                {
                     return;
+                }
+
                 String playerName = plugin.config.getString("server.ender_dragon.frame" + frameID + ".occupier");
+
                 if (playerName == null)
+                {
                     return;
+                }
+
                 Player player = Bukkit.getPlayer(playerName);
+
                 if (player == e.getPlayer())
                 {
                     if (dragonSpawned)
@@ -199,31 +225,42 @@ public class MobSpawn implements Listener
                         doubleClickPrevent.add(e.getPlayer());
                         return;
                     }
+
                     if (SUtil.isItemValid(hand, new PowerEye()))
+                    {
                         hand.setAmount(hand.getAmount() + 1);
+                    }
                     else
+                    {
                         e.getPlayer().getInventory().setItemInMainHand(new PowerEye().getStack());
-                    plugin.config.set("server.ender_dragon.frame" + frameID + ".occupier", null);
-                    plugin.config.set("server.ender_dragon.frame" + frameID + ".occupied", false);
-                    plugin.config.save();
-                    e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "You have retrieved your Power Eye!");
-                    Bukkit.broadcastMessage(SUtil.color("&d&lTUBBY ENDER DRAGON &dCurrent Eye Count: &5" + (occupied - 1) + "/&54"));
-                    frame.setEye(false);
-                    block.setBlockData(frame);
-                    doubleClickPrevent.add(e.getPlayer());
-                    return;
+                        plugin.config.set("server.ender_dragon.frame" + frameID + ".occupier", null);
+                        plugin.config.set("server.ender_dragon.frame" + frameID + ".occupied", false);
+                        plugin.config.save();
+                        e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "You have retrieved your Power Eye!");
+                        Bukkit.broadcastMessage(SUtil.color("&d&lTUBBY ENDER DRAGON &dCurrent Eye Count: &5" + (occupied - 1) + "/&54"));
+                        frame.setEye(false);
+                        block.setBlockData(frame);
+                        doubleClickPrevent.add(e.getPlayer());
+                        return;
+                    }
                 }
                 e.getPlayer().sendMessage(ChatColor.RED + "This is not your Power Eye!");
                 return;
             }
+
             if (!SUtil.isItemValid(hand, new PowerEye()))
+            {
                 return;
+            }
+
             hand.setAmount(hand.getAmount() - 1);
             frame.setEye(true);
             block.setBlockData(frame);
             Bukkit.broadcastMessage(SUtil.color("&d&lTUBBY ENDER DRAGON &dCurrent Eye Count: &5" + (occupied + 1) + "/4"));
+
             plugin.config.set("server.ender_dragon.frame" + frameID + ".occupier", e.getPlayer().getName());
             plugin.config.set("server.ender_dragon.frame" + frameID + ".occupied", true);
+
             if (occupied + 1 == 4)
             {
                 dragonSpawned = true;
@@ -293,7 +330,7 @@ public class MobSpawn implements Listener
         {
             if (plugin.config.getInt("server.ender_dragon.frame" + i + ".x") == loc.getX() &&
                     plugin.config.getInt("server.ender_dragon.frame" + i + ".y") == loc.getY() &&
-                    plugin.config.getInt("server.ender_dragon.frame" + i + ".z") == loc.getZ())
+                        plugin.config.getInt("server.ender_dragon.frame" + i + ".z") == loc.getZ())
             {
                 return i;
             }

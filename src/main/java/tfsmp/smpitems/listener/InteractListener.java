@@ -22,16 +22,21 @@ import java.util.Random;
 public class InteractListener implements Listener
 {
     private SMPItems plugin;
+
+    private List<Player> fluxCooldown = new ArrayList<>();
+
+    private List<Player> superfoodCooldown = new ArrayList<>();
+
+    private List<Player> landscaperCooldown = new ArrayList<>();
+
+    private List<Player> phaserCooldown = new ArrayList<>();
+
+    private List<Player> summonCooldown = new ArrayList<>();
+
     public InteractListener(SMPItems plugin)
     {
         this.plugin = plugin;
     }
-
-    private List<Player> fluxCooldown = new ArrayList<>();
-    private List<Player> superfoodCooldown = new ArrayList<>();
-    private List<Player> landscaperCooldown = new ArrayList<>();
-    private List<Player> phaserCooldown = new ArrayList<>();
-    private List<Player> summonCooldown = new ArrayList<>();
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e)
@@ -44,20 +49,25 @@ public class InteractListener implements Listener
                 Player player = e.getPlayer();
                 int ifbattery = BatteryUsage.IfUsage(player);
                 ItemStack stack = player.getInventory().getItemInMainHand();
+
                 if (SUtil.isItemValid(stack, new End()))
                 {
                     Block block = player.getTargetBlock(null, 20);
                     block.getWorld().strikeLightning(block.getLocation());
                 }
+
                 if (SUtil.isItemValid(stack, new Flux()))
                 {
                     e.setCancelled(true);
+
                     if (fluxCooldown.contains(player))
                     {
                         player.sendMessage(SUtil.color("&b&lFLUX &bCurrently on cooldown."));
                         return;
                     }
+
                     player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 200, 3));
+
                     for (Entity entity : player.getNearbyEntities(5, 5, 5))
                     {
                         if (entity instanceof Player)
@@ -65,6 +75,7 @@ public class InteractListener implements Listener
                             ((Player) entity).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 200, 3));
                         }
                     }
+
                     player.sendMessage(SUtil.color("&b&lFLUX &bYou and others around you have been graced with health!"));
                     fluxCooldown.add(player);
                     new BukkitRunnable()
@@ -77,6 +88,7 @@ public class InteractListener implements Listener
                         }
                     }.runTaskLater(plugin, (60* 20)/ifbattery);
                 }
+
                 if (SUtil.isItemValid(stack, new SuperFood()))
                 {
                     if (superfoodCooldown.contains(player))
@@ -84,6 +96,7 @@ public class InteractListener implements Listener
                         player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Currently on cooldown."));
                         return;
                     }
+
                     player.setFoodLevel(20);
                     player.setSaturation(player.getSaturation() + 12.8f);
                     player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Your hunger has been fully restored!"));
@@ -98,6 +111,7 @@ public class InteractListener implements Listener
                         }
                     }.runTaskLater(plugin, (60* 20)/ifbattery);
                 }
+
                 if (SUtil.isItemValid(stack, new Landscaper()))
                 {
                     if (landscaperCooldown.contains(player))
@@ -105,6 +119,7 @@ public class InteractListener implements Listener
                         player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Currently on cooldown."));
                         return;
                     }
+
                     Block block = player.getTargetBlock(null, 30);
                     landscaperCooldown.add(player);
                     TNTPrimed tnt = (TNTPrimed) block.getWorld().spawnEntity(block.getLocation().add(0, 20, 0), EntityType.PRIMED_TNT);
@@ -119,6 +134,7 @@ public class InteractListener implements Listener
                         }
                     }.runTaskLater(plugin, (60* 5)/ifbattery);
                 }
+
                 if (SUtil.isItemValid(stack, new Phaser()))
                 {
                     if (phaserCooldown.contains(player))
@@ -126,6 +142,7 @@ public class InteractListener implements Listener
                         player.sendMessage(SUtil.color("&6&lPHASER &6Currently on cooldown."));
                         return;
                     }
+
                     Block block = player.getTargetBlock(null, 20);
                     float yaw = player.getLocation().getYaw();
                     float pitch = player.getLocation().getPitch();
@@ -144,6 +161,7 @@ public class InteractListener implements Listener
                         }
                     }.runTaskLater(plugin, (60* 1)/ifbattery);
                 }
+
                 if (SUtil.isItemValid(stack, new SummoningScythe()))
                 {
                     if (summonCooldown.contains(player))
@@ -151,8 +169,10 @@ public class InteractListener implements Listener
                         player.sendMessage(SUtil.color("&b&lSUMMON &bCurrently on cooldown."));
                         return;
                     }
+
                     Block block = player.getTargetBlock(null, 20);
-                    for (int i = 0; i < 30; i++) {
+                    for (int i = 0; i < 30; i++)
+                    {
                         new BukkitRunnable()
                         {
                             @Override

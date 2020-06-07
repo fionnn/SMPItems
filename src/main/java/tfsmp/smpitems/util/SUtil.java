@@ -50,10 +50,16 @@ public class SUtil
     public static boolean isItemValid(ItemStack check, CustomItem compare)
     {
         if (!check.hasItemMeta())
+        {
             return false;
+        }
+
         if (!check.getItemMeta().hasDisplayName())
+        {
             return false;
-        return check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") && check.getItemMeta().getDisplayName().endsWith(compare.getRawName());
+        }
+        return check.getItemMeta().getDisplayName().startsWith(compare.getColor() + "") &&
+                check.getItemMeta().getDisplayName().endsWith(compare.getRawName());
     }
 
     public static int getFrameOccupiedCount()

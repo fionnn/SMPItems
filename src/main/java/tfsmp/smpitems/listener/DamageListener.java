@@ -23,15 +23,23 @@ public class DamageListener implements Listener
     public void onEntityDamage(EntityDamageByEntityEvent e)
     {
         if (!(e.getDamager() instanceof LivingEntity) || !(e.getEntity() instanceof LivingEntity))
+        {
             return;
+        }
+
         LivingEntity damager = (LivingEntity) e.getDamager();
         LivingEntity damaged = (LivingEntity) e.getEntity();
+
         if (damager.getEquipment() == null)
+        {
             return;
+        }
+
         if (SUtil.isItemValid(damager.getEquipment().getItemInMainHand(), new WitherAxe()) && !damaged.hasPotionEffect(PotionEffectType.WITHER))
         {
             damaged.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 2));
         }
+
         if (SUtil.isItemValid(damager.getEquipment().getItemInMainHand(), new VampireFang()))
         {
             damager.setHealth(damager.getHealth() + 1);

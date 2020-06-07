@@ -32,11 +32,13 @@ public class FlareListener implements Listener
         if (!SUtil.isItemValid(hand, new Flare()) && !SUtil.isItemValid(offhand, new Flare()))
             return;
         e.setCancelled(true);
+
         if (flareCooldown.contains(player))
         {
             player.sendMessage(SUtil.color("&b&lFLARE &bCurrently on cooldown."));
             return;
         }
+
         e.getBlock().getWorld().createExplosion(e.getBlock().getLocation(), 2F, false, false);
         int count = 0;
         for (Entity entity : e.getBlock().getWorld().getEntities())

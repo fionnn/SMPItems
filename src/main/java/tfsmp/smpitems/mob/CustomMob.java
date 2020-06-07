@@ -80,21 +80,30 @@ public class CustomMob extends SBase
     public void spawn(Location location, boolean bc)
     {
         this.entity = (LivingEntity) location.getWorld().spawnEntity(location.add(0.5, 0, 0.5), type);
+
         if (bc)
+        {
             Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
-                ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
+                    ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
                     entity.getLocation().getBlockY() + ", " + entity.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + entity.getWorld().getName() + ChatColor.YELLOW + "!");
+        }
 
         if (this.isBaby() && (entity instanceof Zombie))
+        {
             ((Zombie) entity).setBaby(true);
+        }
 
         if (this.isPowered() && entity instanceof Creeper)
+        {
             ((Creeper) entity).setPowered(true);
+        }
 
         if (entity instanceof EnderDragon)
         {
             if (phase != null)
+            {
                 ((EnderDragon) entity).setPhase(phase);
+            }
             for (Player player : Bukkit.getOnlinePlayers())
             {
                 if (player.getWorld().getEnvironment().equals(World.Environment.THE_END))
@@ -106,15 +115,29 @@ public class CustomMob extends SBase
 
         entity.setCustomName(name);
         if (holdableItem != null)
+        {
             entity.getEquipment().setItemInMainHand(holdableItem.getStack());
+        }
+
         if (helmet != null)
+        {
             entity.getEquipment().setHelmet(helmet);
+        }
+
         if (chestplate != null)
+        {
             entity.getEquipment().setChestplate(chestplate);
+        }
+
         if (leggings != null)
+        {
             entity.getEquipment().setLeggings(leggings);
+        }
         if (boots != null)
+        {
             entity.getEquipment().setBoots(boots);
+        }
+
         for (PotionEffect effect : potionEffects)
         {
             entity.addPotionEffect(effect);

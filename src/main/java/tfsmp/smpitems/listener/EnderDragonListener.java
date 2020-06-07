@@ -45,8 +45,12 @@ public class EnderDragonListener implements Listener
     public void onEnderDragonDeath(EntityDeathEvent e)
     {
         if (MobSpawn.activeDragon == null)
+        {
             return;
+        }
+
         LivingEntity dead = e.getEntity();
+
         if (dead == MobSpawn.activeDragon.getEntity())
         {
             MobSpawn.dragonSpawned = false;
@@ -73,12 +77,19 @@ public class EnderDragonListener implements Listener
     public void onEyeLaunch(ProjectileLaunchEvent e)
     {
         if (!(e.getEntity() instanceof EnderSignal))
+        {
             return;
+        }
+
         if (!(e.getEntity().getShooter() instanceof Player))
+        {
             return;
+        }
+
         Player player = (Player) e.getEntity().getShooter();
         ItemStack mainhand = player.getInventory().getItemInMainHand();
         ItemStack offhand = player.getInventory().getItemInOffHand();
+
         if (SUtil.isItemValid(mainhand, new PowerEye()) || SUtil.isItemValid(offhand, new PowerEye()))
         {
             e.setCancelled(true);
@@ -91,7 +102,9 @@ public class EnderDragonListener implements Listener
         Player player = e.getPlayer();
 
         if (player.getWorld() == SUtil.endWorld)
+        {
             MobSpawn.activeDragon.getBossBar().addPlayer(player);
+        }
 
         if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(player) && e.getPlayer().getWorld() != SUtil.endWorld)
         {
@@ -116,10 +129,17 @@ public class EnderDragonListener implements Listener
     public void update(EntityEvent e)
     {
         if (MobSpawn.activeDragon == null)
+        {
             return;
+        }
+
         if (!(e.getEntity() instanceof LivingEntity))
+        {
             return;
+        }
+
         LivingEntity damaged = (LivingEntity) e.getEntity();
+
         if (damaged == MobSpawn.activeDragon.getEntity())
         {
             MobSpawn.activeDragon.getBossBar().setProgress(damaged.getHealth() / damaged.getMaxHealth());

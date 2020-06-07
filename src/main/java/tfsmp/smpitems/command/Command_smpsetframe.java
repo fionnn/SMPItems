@@ -44,7 +44,7 @@ public class Command_smpsetframe extends SBase implements CommandExecutor
             return true;
         }
 
-        World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+        World endWorld = SUtil.endWorld;
 
         if (endWorld == null)
         {

@@ -31,11 +31,13 @@ public class InventoryListener implements Listener
             player.setAllowFlight(true);
             return;
         }
+
         if (inv.getHelmet() == null || inv.getChestplate() == null || inv.getLeggings() == null || inv.getBoots() == null)
         {
             player.setAllowFlight(false);
             return;
         }
+
         if (SUtil.isItemValid(inv.getHelmet(), new UltimatiumHelmet()) &&
                 SUtil.isItemValid(inv.getChestplate(), new UltimatiumChest()) &&
                 SUtil.isItemValid(inv.getLeggings(), new UltimatiumLeggings()) &&
@@ -47,7 +49,8 @@ public class InventoryListener implements Listener
         player.setAllowFlight(false);
         player.getInventory().all(Material.DRAGON_BREATH).entrySet().forEach(entry ->
         {
-            if (SUtil.isItemValid((ItemStack) entry, new Battery())) {
+            if (SUtil.isItemValid((ItemStack) entry, new Battery()))
+            {
                 player.sendMessage(SUtil.color("&6The battery's power has improved your items."));
                 new BatteryUsage(true, player);
                 return;

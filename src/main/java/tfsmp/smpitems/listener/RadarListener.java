@@ -34,11 +34,13 @@ public class RadarListener implements Listener
         if (!SUtil.isItemValid(hand, new Radar()) && !SUtil.isItemValid(offhand, new Radar()))
             return;
         e.setCancelled(true);
+
         if (radarCooldown.contains(player))
         {
             player.sendMessage(SUtil.color("&6&lRADAR &6Currently on cooldown."));
             return;
         }
+
         int count = 0;
         for (Entity entity : e.getBlock().getWorld().getEntities())
         {
@@ -52,9 +54,7 @@ public class RadarListener implements Listener
                     entity.getCustomName().equals(ChatColor.GOLD + "Tubby Spider") ||
                     entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Stray") ||
                     entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton") ||
-                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Zombie"))
-
-            );
+                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Zombie")))
             {
                 ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 500, 1));
                 ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 5));

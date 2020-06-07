@@ -137,6 +137,7 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+
         if (e.getEntity().getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Loot Midget"))
         {
             for (int i = 0; i < 2; i++)
@@ -248,6 +249,7 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+
         if (e.getEntity().getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton"))
         {
             for (int i = 0; i < 2; i++)
@@ -303,6 +305,7 @@ public class MobDrop implements Listener
                 e.getDrops().add(item.getStack());
             }
         }
+
         if (e.getEntity().getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Stray"))
         {
             for (int i = 0; i < 2; i++)

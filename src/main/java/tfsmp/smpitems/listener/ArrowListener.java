@@ -29,16 +29,31 @@ public class ArrowListener implements Listener
     {
         Entity proj = e.getProjectile();
         if (!(proj instanceof Arrow))
+        {
             return;
+        }
+
         ItemStack bow = e.getBow();
+
         if (bow == null)
+        {
             return;
+        }
+
         if (!bow.hasItemMeta())
+        {
             return;
+        }
+
         if (!bow.getItemMeta().hasDisplayName())
+        {
             return;
+        }
+
         if (bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && bow.getItemMeta().getDisplayName().endsWith("POW! Bow"))
+        {
             arrows.add((Arrow) proj);
+        }
     }
 
     @EventHandler
@@ -46,15 +61,23 @@ public class ArrowListener implements Listener
     {
         Projectile proj = e.getEntity();
         if (!(proj instanceof Arrow))
+        {
             return;
+        }
+
         Arrow arrow = (Arrow) proj;
+
         for (Arrow a : arrows)
         {
             if (arrow == a)
             {
                 Block block = e.getHitBlock();
+
                 if (block == null)
+                {
                     return;
+                }
+
                 block.getWorld().strikeLightning(block.getLocation());
                 block.getWorld().createExplosion(block.getLocation(), 4f);
                 arrows.remove(a);
@@ -69,7 +92,10 @@ public class ArrowListener implements Listener
     {
         Entity damager = e.getDamager();
         if (!(damager instanceof Arrow))
+        {
             return;
+        }
+
         Arrow arrow = (Arrow) damager;
         for (Arrow a : arrows)
         {
@@ -80,6 +106,7 @@ public class ArrowListener implements Listener
                 {
                     return;
                 }
+
                 damaged.getWorld().strikeLightning(damaged.getLocation());
                 damaged.getWorld().createExplosion(damaged.getLocation(), 4f);
                 arrows.remove(a);

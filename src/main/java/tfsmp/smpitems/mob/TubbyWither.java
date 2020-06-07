@@ -5,6 +5,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+@SuppressWarnings("deprecation")
 public class TubbyWither extends CustomMob
 {
     public TubbyWither()

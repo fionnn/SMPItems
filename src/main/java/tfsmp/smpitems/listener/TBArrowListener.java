@@ -4,11 +4,9 @@ import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
@@ -33,17 +31,32 @@ public class TBArrowListener implements Listener
     public void onArrowShoot(EntityShootBowEvent e)
     {
         Entity proj = e.getProjectile();
-        if (!(proj instanceof Arrow))
-            return;
         ItemStack bow = e.getBow();
+
+        if (!(proj instanceof Arrow))
+        {
+            return;
+        }
+
         if (bow == null)
+        {
             return;
+        }
+
         if (!bow.hasItemMeta())
+        {
             return;
+        }
+
         if (!bow.getItemMeta().hasDisplayName())
+        {
             return;
+        }
+
         if (bow.getItemMeta().getDisplayName().startsWith(ChatColor.GOLD + "") && bow.getItemMeta().getDisplayName().endsWith("Tree Bow"))
+        {
             arrows.add((Arrow) proj);
+        }
     }
 
     @EventHandler
@@ -53,7 +66,9 @@ public class TBArrowListener implements Listener
         Entity entity = e.getEntity();
 
         if (!(proj instanceof Arrow))
+        {
             return;
+        }
 
         Arrow arrow = (Arrow) proj;
         for (Arrow a : arrows)
@@ -62,8 +77,9 @@ public class TBArrowListener implements Listener
             {
                 Block block = e.getHitBlock();
                 if (block == null)
+                {
                     return;
-
+                }
                 Location loc = block.getLocation();
                 block.setType(Material.DIRT);
                 block.getWorld().generateTree(loc, TreeType.TREE);
