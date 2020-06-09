@@ -22,7 +22,7 @@ public class PlayerJoinListener implements Listener
 
         if (!player.hasPlayedBefore())
         {
-            player.sendMessage(SUtil.color("&6SMPItems » &eFor more information about SMPItems, you can visit the wiki: https://smp-items.fandom.com/wiki/SMP_Items_Wiki"));
+            player.sendMessage(SUtil.color("&6SMPItems » &eFor more information about SMPItems, you can visit the wiki: https://smp.totalfreedom.me/w/index.php?title=Main_Page"));
         }
     }
 }
