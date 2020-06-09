@@ -1,10 +1,9 @@
 name: SMPItems
 version: ${project.version}
 main: tfsmp.smpitems.SMPItems
-api-version: 1.13
+api-version: 1.15
 authors: [lildarke, lildarkee, fionnn, sguare]
 description: Items for SMP. Based on https://docs.google.com/spreadsheets/d/1CzddRDa38kimHsFf5tJgeP0CZoR2P5yUBMJwnQJ1LIU/edit
-
 commands:
   smpspawnmob:
     description: Spawn a mob from the SMPItems plugin.
