@@ -12,8 +12,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 import tfsmp.smpitems.SMPItems;
 import tfsmp.smpitems.item.Radar;
 import tfsmp.smpitems.util.SUtil;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class RadarListener implements Listener
 {
@@ -45,16 +47,15 @@ public class RadarListener implements Listener
         for (Entity entity : e.getBlock().getWorld().getEntities())
         {
             if (e.getBlock().getLocation().distance(entity.getLocation()) <= plugin.config.getDouble("server.radar_radius") &&
-                    !(entity instanceof Player) &&
-                    entity instanceof LivingEntity &&
-                    (entity.getCustomName().equals(ChatColor.RED + "Tubby Creeper") ||
-                    entity.getCustomName().equals(ChatColor.RED + "Tubby Enderman") ||
-                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Skeleton") ||
-                    entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Loot Midget") ||
-                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Spider") ||
-                    entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Stray") ||
-                    entity.getCustomName().equals(ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton") ||
-                    entity.getCustomName().equals(ChatColor.GOLD + "Tubby Zombie")))
+                    !(entity instanceof Player) && entity instanceof LivingEntity &&
+                    (Objects.equals(entity.getCustomName(), ChatColor.RED + "Tubby Creeper") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.RED + "Tubby Enderman") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.GOLD + "Tubby Skeleton") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.LIGHT_PURPLE + "Tubby Loot Midget") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.GOLD + "Tubby Spider") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.LIGHT_PURPLE + "Tubby Stray") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.LIGHT_PURPLE + "Tubby Wither Skeleton") ||
+                    Objects.equals(entity.getCustomName(), ChatColor.GOLD + "Tubby Zombie")))
             {
                 ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 500, 1));
                 ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 5));
