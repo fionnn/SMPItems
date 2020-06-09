@@ -25,4 +25,4 @@ commands:
   smpwiki:
     description: In-depth guide for SMPItems.
     usage: /<command>
-    aliases: [smpitemswiki, siwiki]
+    aliases: [smpitemswiki, siwiki, wiki]

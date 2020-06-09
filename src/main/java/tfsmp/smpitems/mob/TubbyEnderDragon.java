@@ -13,12 +13,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import tfsmp.smpitems.SMPItems;
+import tfsmp.smpitems.util.SUtil;
 
 @SuppressWarnings("deprecation")
 public class TubbyEnderDragon extends CustomMob
 {
     private static SMPItems plugin = SMPItems.getPlugin(SMPItems.class);
-    private static World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+    private static World endWorld = SUtil.endWorld;
 
     @Getter
     private BossBar bossBar;

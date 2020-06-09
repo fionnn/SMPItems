@@ -47,7 +47,6 @@ public class InteractListener implements Listener
             case RIGHT_CLICK_AIR:
             {
                 Player player = e.getPlayer();
-                int ifbattery = BatteryUsage.IfUsage(player);
                 ItemStack stack = player.getInventory().getItemInMainHand();
 
                 if (SUtil.isItemValid(stack, new End()))
@@ -86,7 +85,7 @@ public class InteractListener implements Listener
                             fluxCooldown.remove(player);
                             player.sendMessage(SUtil.color("&b&lFLUX &bYour ability is ready!"));
                         }
-                    }.runTaskLater(plugin, (60* 20)/ifbattery);
+                    }.runTaskLater(plugin, 60 * 20);
                 }
 
                 if (SUtil.isItemValid(stack, new SuperFood()))
@@ -109,7 +108,7 @@ public class InteractListener implements Listener
                             superfoodCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lSUPER FOOD &6Ready to be eaten again!"));
                         }
-                    }.runTaskLater(plugin, (60* 20)/ifbattery);
+                    }.runTaskLater(plugin, 60 * 2);
                 }
 
                 if (SUtil.isItemValid(stack, new Landscaper()))
@@ -132,7 +131,7 @@ public class InteractListener implements Listener
                             landscaperCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lLANDSCAPER &6Ready to be used again!"));
                         }
-                    }.runTaskLater(plugin, (60* 5)/ifbattery);
+                    }.runTaskLater(plugin, 60 * 5);
                 }
 
                 if (SUtil.isItemValid(stack, new Phaser()))
@@ -159,7 +158,7 @@ public class InteractListener implements Listener
                             phaserCooldown.remove(player);
                             player.sendMessage(SUtil.color("&6&lPHASER &6Ready to be used again!"));
                         }
-                    }.runTaskLater(plugin, (60* 1)/ifbattery);
+                    }.runTaskLater(plugin, 60);
                 }
 
                 if (SUtil.isItemValid(stack, new SummoningScythe()))
@@ -184,7 +183,7 @@ public class InteractListener implements Listener
                                 zombie.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 2));
                                 zombie.setCustomName(ChatColor.DARK_RED + "Summoned Zombie");
                             }
-                        }.runTaskLater(plugin, 10 * 1);
+                        }.runTaskLater(plugin, 10);
                     }
                     summonCooldown.add(player);
 
@@ -196,7 +195,7 @@ public class InteractListener implements Listener
                             summonCooldown.remove(player);
                             player.sendMessage(SUtil.color("&b&lSUMMON &bReady to be used again!"));
                         }
-                    }.runTaskLater(plugin, (60* 10)/ifbattery);
+                    }.runTaskLater(plugin, 60 * 10);
                 }
                 break;
             }

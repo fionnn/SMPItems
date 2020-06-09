@@ -47,15 +47,5 @@ public class InventoryListener implements Listener
             return;
         }
         player.setAllowFlight(false);
-        inv.all(Material.DRAGON_BREATH).entrySet().forEach(entry ->
-        {
-            if (SUtil.isItemValid((ItemStack) entry, new Battery()))
-            {
-                player.sendMessage(SUtil.color("&6&lBATTERY &6The battery's power has improved your items."));
-                new BatteryUsage(true, player);
-                return;
-            }
-            new BatteryUsage(false, player);
-        });
     }
 }

@@ -3,7 +3,6 @@ package tfsmp.smpitems.item;
 public enum CustomItemType
 {
     AXE(Axe.class),
-    BATTERY(Battery.class),
     BEE(Bee.class),
     BONE_SWORD(BoneSword.class),
     BOOTNS(Bootns.class),
