@@ -10,7 +10,6 @@ import tfsmp.smpitems.util.SUtil;
 public class PlayerJoinListener implements Listener
 {
     private SMPItems plugin;
-
     public PlayerJoinListener(SMPItems plugin)
     {
         this.plugin = plugin;

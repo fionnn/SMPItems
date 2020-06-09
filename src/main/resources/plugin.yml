@@ -22,3 +22,7 @@ commands:
     description: Provides information about SMPItems, or optionally reloads the config file.
     usage: /<command> <reload>
     aliases: [sinfo]
+  smpwiki:
+    description: In-depth guide for SMPItems.
+    usage: /<command>
+    aliases: [smpitemswiki, siwiki]

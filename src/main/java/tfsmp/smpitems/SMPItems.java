@@ -1,6 +1,5 @@
 package tfsmp.smpitems;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -65,16 +64,18 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpgiveitem").setExecutor(new Command_smpgiveitem());
         this.getCommand("smpsetframe").setExecutor(new Command_smpsetframe());
         this.getCommand("smpitems").setExecutor(new Command_smpitems());
+        this.getCommand("smpwiki").setExecutor(new Command_smpwiki());
     }
 
     private void handleDragon()
     {
         if (MobSpawn.activeDragon != null || SUtil.getFrameOccupiedCount() == 4)
         {
-            World endWorld = Bukkit.getWorld(config.getString("server.ender_dragon.end_world"));
+            World endWorld = SUtil.endWorld;
             MobSpawn.dragonSpawned = false;
             MobSpawn.activeDragon.getBossBar().removeAll();
             MobSpawn.activeDragon = null;
+
             for (int i = 1; i < 5; i++)
             {
                 config.set("server.ender_dragon.frame" + i + ".occupier", null);
@@ -85,6 +86,7 @@ public final class SMPItems extends JavaPlugin
                         config.getInt("server.ender_dragon.frame" + i + ".z"));
                 f.setType(Material.END_PORTAL_FRAME);
             }
+
             for (Entity entity : endWorld.getEntities())
             {
                 if (entity instanceof EnderDragon)

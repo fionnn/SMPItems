@@ -19,7 +19,6 @@ import java.util.List;
 public class TBArrowListener implements Listener
 {
     private SMPItems plugin;
-
     public TBArrowListener(SMPItems plugin)
     {
         this.plugin = plugin;
@@ -64,6 +63,7 @@ public class TBArrowListener implements Listener
     {
         Projectile proj = e.getEntity();
         Entity entity = e.getEntity();
+        World spawn = Bukkit.getWorld("spawn");
 
         if (!(proj instanceof Arrow))
         {
@@ -76,21 +76,26 @@ public class TBArrowListener implements Listener
             if (arrow == a)
             {
                 Block block = e.getHitBlock();
+
                 if (block == null)
                 {
                     return;
                 }
-                Location loc = block.getLocation();
-                block.setType(Material.DIRT);
-                block.getWorld().generateTree(loc, TreeType.TREE);
-                for (Entity ent : entity.getNearbyEntities(10, 0, 10))
+
+                if (!(block.getWorld() == spawn))
                 {
-                    ent.setVelocity(new Vector(0, 2, 0));
-                    ent.playEffect(EntityEffect.HURT);
+                    Location loc = block.getLocation();
+                    block.setType(Material.DIRT);
+                    block.getWorld().generateTree(loc, TreeType.TREE);
+                    for (Entity ent : entity.getNearbyEntities(10, 0, 10))
+                    {
+                        ent.setVelocity(new Vector(0, 2, 0));
+                        ent.playEffect(EntityEffect.HURT);
+                    }
+                    arrows.remove(a);
+                    a.remove();
+                    return;
                 }
-                arrows.remove(a);
-                a.remove();
-                return;
             }
         }
     }

@@ -61,7 +61,7 @@ public class EnderDragonListener implements Listener
                 plugin.config.set("server.ender_dragon.frame" + i + ".occupier", null);
                 plugin.config.set("server.ender_dragon.frame" + i + ".occupied", false);
                 plugin.config.save();
-                World endWorld = Bukkit.getWorld(plugin.config.getString("server.ender_dragon.end_world"));
+                World endWorld = SUtil.endWorld;
                 Block b = endWorld.getBlockAt(plugin.config.getInt("server.ender_dragon.frame" + i + ".x"),
                         plugin.config.getInt("server.ender_dragon.frame" + i + ".y"),
                         plugin.config.getInt("server.ender_dragon.frame" + i + ".z"));
@@ -116,14 +116,18 @@ public class EnderDragonListener implements Listener
     public void onPlayerJoin(PlayerJoinEvent e)
     {
         if (e.getPlayer().getWorld() == SUtil.endWorld)
+        {
             MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+        }
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e)
     {
         if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(e.getPlayer()))
+        {
             MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+        }
     }
 
     public void update(EntityEvent e)

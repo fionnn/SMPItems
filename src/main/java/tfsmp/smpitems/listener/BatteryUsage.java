@@ -8,13 +8,12 @@ import java.util.List;
 public class BatteryUsage
 {
     private static List<Player> BatteryList = new ArrayList<>();
-    private static int BatteryEfficiency = 3;
 
     public static int IfUsage(Player player)
     {
         if (BatteryList.contains(player))
         {
-            return BatteryEfficiency;
+            return 3;
         }
         return 1;
     }
@@ -26,7 +25,6 @@ public class BatteryUsage
         {
             BatteryList.remove(player);
         }
-        return;
     }
 }
 

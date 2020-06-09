@@ -14,8 +14,8 @@ public class Command_smpitems extends SBase implements CommandExecutor
     {
         if (args.length == 0)
         {
-            sender.sendMessage(SUtil.color("&b&oSMPItems &3is a plugin which provides custom mobs, items, and effects. It is made for the TotalFreedom SMP Server."));
-            sender.sendMessage(String.format(SUtil.color("&3&oVersion v%s"), plugin.getDescription().getVersion()));
+            sender.sendMessage(SUtil.color("&bSMPItems &3is a plugin which provides custom mobs, items, and effects. It is made for the TotalFreedom SMP Server."));
+            sender.sendMessage(String.format(SUtil.color("&3Version &bv%s"), plugin.getDescription().getVersion()));
             sender.sendMessage(" ");
             sender.sendMessage(SUtil.color("&3Project Director&b: super"));
             sender.sendMessage(SUtil.color("&3Developers&b: square and speed"));
