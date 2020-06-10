@@ -101,32 +101,44 @@ public class EnderDragonListener implements Listener
     {
         Player player = e.getPlayer();
 
-        if (player.getWorld() == SUtil.endWorld)
+        if (MobSpawn.dragonSpawned)
         {
-            MobSpawn.activeDragon.getBossBar().addPlayer(player);
-        }
+            if (player.getWorld() == SUtil.endWorld)
+            {
+                MobSpawn.activeDragon.getBossBar().addPlayer(player);
 
-        if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(player) && e.getPlayer().getWorld() != SUtil.endWorld)
-        {
-            MobSpawn.activeDragon.getBossBar().removePlayer(player);
+                if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(player) && e.getPlayer().getWorld() != SUtil.endWorld)
+                {
+                    MobSpawn.activeDragon.getBossBar().removePlayer(player);
+                }
+            }
         }
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e)
     {
-        if (e.getPlayer().getWorld() == SUtil.endWorld)
+        if (MobSpawn.dragonSpawned)
         {
-            MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+            if (e.getPlayer().getWorld() == SUtil.endWorld)
+            {
+                MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+            }
         }
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e)
     {
-        if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(e.getPlayer()))
+        if (MobSpawn.dragonSpawned)
         {
-            MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+            if (e.getPlayer().getWorld() == SUtil.endWorld)
+            {
+                if (MobSpawn.activeDragon.getBossBar().getPlayers().contains(e.getPlayer()))
+                {
+                    MobSpawn.activeDragon.getBossBar().addPlayer(e.getPlayer());
+                }
+            }
         }
     }
 
