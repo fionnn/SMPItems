@@ -25,3 +25,7 @@ commands:
     description: In-depth guide for SMPItems.
     usage: /<command>
     aliases: [smpitemswiki, siwiki, wiki]
+  smpkilltubbies:
+    description: Kills every tubby mob
+    usage: /<command>
+    aliases: [killtubbies]
