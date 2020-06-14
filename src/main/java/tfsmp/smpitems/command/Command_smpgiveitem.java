@@ -26,13 +26,12 @@ public class Command_smpgiveitem implements CommandExecutor
             return true;
         }
 
-        if (args.length > 2)
+        if (args.length != 1)
         {
             return false;
         }
 
         Player player = (Player) sender;
-        int amount = 1;
         CustomItemType customItemType;
 
         try
@@ -46,19 +45,6 @@ public class Command_smpgiveitem implements CommandExecutor
             return true;
         }
 
-        if (args.length == 2)
-        {
-            try
-            {
-                amount = Integer.parseInt(args[1]);
-            }
-            catch (Exception ex)
-            {
-                sender.sendMessage(ChatColor.GRAY + "Invalid amount.");
-                return true;
-            }
-        }
-
         try
         {
             CustomItem item = customItemType.getCustomItemClass().newInstance();
@@ -69,7 +55,6 @@ public class Command_smpgiveitem implements CommandExecutor
             }
             int empty = player.getInventory().firstEmpty();
             player.getInventory().setItem(empty, item.getStack());
-            player.getInventory().getItem(empty).setAmount(amount);
             sender.sendMessage(ChatColor.GRAY + "Gave you a(n) " + item.getName() + ChatColor.GRAY + ".");
         }
         catch (InstantiationException | IllegalAccessException e)
