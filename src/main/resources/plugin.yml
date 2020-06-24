@@ -1,10 +1,9 @@
 name: SMPItems
 version: ${project.version}
-main: tfsmp.smpitems.SMPItems
-api-version: 1.13
+main: me.totalfreedom.smpitems.SMPItems
+api-version: 1.15
 authors: [lildarke, lildarkee, fionnn, sguare]
 description: Items for SMP. Based on https://docs.google.com/spreadsheets/d/1CzddRDa38kimHsFf5tJgeP0CZoR2P5yUBMJwnQJ1LIU/edit
-
 commands:
   smpspawnmob:
     description: Spawn a mob from the SMPItems plugin.
@@ -18,11 +17,15 @@ commands:
     description: Set the coordinates of a portal frame for the Tubby Ender Dragon.
     usage: /<command> <frameid> <x> <y> <z>
     aliases: [ssf, smpframe]
-  smpcredits:
-    description: Credits for the plugin.
+  smpitems:
+    description: Provides information about SMPItems, or optionally reloads the config file.
+    usage: /<command> <reload>
+    aliases: [sinfo]
+  smpwiki:
+    description: In-depth guide for SMPItems.
     usage: /<command>
-    aliases: [smpc, smpitemsinfo, sinfo]
-  smpbook:
-    description: Gives yourself a SMPItems Wiki book
+    aliases: [smpitemswiki, siwiki, wiki]
+  smpkilltubbies:
+    description: Kills every tubby mob
     usage: /<command>
-    aliases: [book]
+    aliases: [killtubbies]

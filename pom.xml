@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tfsmp</groupId>
+    <groupId>me.totalfreedom</groupId>
     <artifactId>SMPItems</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>SMPItems</name>
@@ -14,9 +14,11 @@
     <description>Items for SMP. Based on
         https://docs.google.com/spreadsheets/d/1CzddRDa38kimHsFf5tJgeP0CZoR2P5yUBMJwnQJ1LIU/edit
     </description>
+
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jar.finalName>${project.name}</jar.finalName>
     </properties>
 
     <build>
@@ -25,7 +27,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -34,7 +36,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.4</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -55,6 +57,7 @@
             </resource>
         </resources>
     </build>
+
     <repositories>
         <repository>
             <id>spigotmc-repo</id>
