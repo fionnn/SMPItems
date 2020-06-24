@@ -1,8 +1,11 @@
 package me.totalfreedom.smpitems.item;
 
+import org.bukkit.entity.Bat;
+
 public enum CustomItemType
 {
     AXE(Axe.class),
+    BATTERY(Battery.class),
     BEE(Bee.class),
     BONE_SWORD(BoneSword.class),
     BOOTNS(Bootns.class),
@@ -41,6 +44,7 @@ public enum CustomItemType
     RADAR(Radar.class),
     RESPIRATOR(Respirator.class),
     RON(Ron.class),
+    SHAM(Sham.class),
     SHARP_STICK(SharpStick.class),
     SHIELD(Shield.class),
     SHIRT(Shirt.class),
