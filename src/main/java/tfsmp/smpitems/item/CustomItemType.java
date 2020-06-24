@@ -42,6 +42,7 @@ public enum CustomItemType
     RADAR(Radar.class),
     RESPIRATOR(Respirator.class),
     RON(Ron.class),
+    THE_SHAM(Sham.class),
     SHARP_STICK(SharpStick.class),
     SHIELD(Shield.class),
     SHIRT(Shirt.class),
