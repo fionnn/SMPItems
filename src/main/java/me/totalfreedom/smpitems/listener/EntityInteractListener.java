@@ -1,5 +1,6 @@
 package me.totalfreedom.smpitems.listener;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -20,6 +21,9 @@ public class EntityInteractListener implements Listener
     {
         if (SUtil.isItemValid(e.getPlayer().getInventory().getItemInMainHand(), new MagicalSaddle()) ||
                 SUtil.isItemValid(e.getPlayer().getInventory().getItemInOffHand(), new MagicalSaddle()))
-            e.getRightClicked().addPassenger(e.getPlayer());
+        {
+            Entity entity = e.getRightClicked();
+            entity.addPassenger(e.getPlayer());
+        }
     }
 }

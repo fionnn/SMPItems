@@ -31,18 +31,18 @@ public class SUtil
     {
         switch (attr)
         {
-            case GENERIC_MAX_HEALTH: return "generic.maxHealth";
-            case GENERIC_MOVEMENT_SPEED: return "generic.movementSpeed";
-            case GENERIC_ATTACK_DAMAGE: return "generic.attackDamage";
+            case GENERIC_MAX_HEALTH: return "generic.max_health";
+            case GENERIC_MOVEMENT_SPEED: return "generic.movement_speed";
+            case GENERIC_ATTACK_DAMAGE: return "generic.attack_damage";
             case GENERIC_LUCK: return "generic.luck";
-            case GENERIC_FOLLOW_RANGE: return "generic.followRange";
+            case GENERIC_FOLLOW_RANGE: return "generic.follow_range";
             case GENERIC_ARMOR: return "generic.armor";
-            case HORSE_JUMP_STRENGTH: return "horse.jumpStrength";
-            case GENERIC_ATTACK_SPEED: return "generic.attackSpeed";
-            case GENERIC_FLYING_SPEED: return "generic.flyingSpeed";
-            case GENERIC_ARMOR_TOUGHNESS: return "generic.armorToughness";
-            case ZOMBIE_SPAWN_REINFORCEMENTS: return "zombie.spawnReinforcements";
-            case GENERIC_KNOCKBACK_RESISTANCE: return "generic.knockbackResistance";
+            case HORSE_JUMP_STRENGTH: return "horse.jump_strength";
+            case GENERIC_ATTACK_SPEED: return "generic.attack_speed";
+            case GENERIC_FLYING_SPEED: return "generic.flying_speed";
+            case GENERIC_ARMOR_TOUGHNESS: return "generic.armor_toughness";
+            case ZOMBIE_SPAWN_REINFORCEMENTS: return "zombie.spawn_reinforcements";
+            case GENERIC_KNOCKBACK_RESISTANCE: return "generic.knockback_resistance";
             default: return "";
         }
     }

@@ -45,7 +45,6 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new MobSpawn(this), this);
 
         manager.registerEvents(new ArrowListener(this), this);
-        manager.registerEvents(new BlockListener(this), this);
         manager.registerEvents(new InteractListener(this), this);
         manager.registerEvents(new InventoryListener(this), this);
         manager.registerEvents(new DamageListener(this), this);
@@ -54,8 +53,8 @@ public final class SMPItems extends JavaPlugin
         manager.registerEvents(new TBArrowListener(this), this);
         manager.registerEvents(new RadarListener(this), this);
 
-        manager.registerEvents(new PlayerJoinListener(this), this);
         manager.registerEvents(new EntityInteractListener(this), this);
+        manager.registerEvents(new PlayerJoinListener(this), this);
     }
 
     private void enableCommands()
