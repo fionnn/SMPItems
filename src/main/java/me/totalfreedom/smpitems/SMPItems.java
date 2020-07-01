@@ -19,12 +19,14 @@ public final class SMPItems extends JavaPlugin
 {
     public static SMPItems plugin;
     public Config config;
+    public Config players;
 
     @Override
     public void onEnable()
     {
         plugin = this;
         config = new Config(plugin, "config.yml");
+        players = new Config(plugin, "players.yml");
         enableListeners();
         enableCommands();
         SLog.info("Enabled.");
@@ -65,6 +67,7 @@ public final class SMPItems extends JavaPlugin
         this.getCommand("smpitems").setExecutor(new Command_smpitems());
         this.getCommand("smpwiki").setExecutor(new Command_smpwiki());
         this.getCommand("smpkilltubbies").setExecutor(new Command_smpkilltubbies());
+        this.getCommand("toggletubby").setExecutor(new Command_toggletubby());
     }
 
     private void handleDragon()

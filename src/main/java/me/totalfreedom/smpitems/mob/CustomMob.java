@@ -83,9 +83,18 @@ public class CustomMob extends SBase
 
         if (bc)
         {
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
-                    ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
-                    entity.getLocation().getBlockY() + ", " + entity.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + entity.getWorld().getName() + ChatColor.YELLOW + "!");
+            for (Player player : Bukkit.getOnlinePlayers())
+            {
+                boolean show = false;
+                if (plugin.players.contains(player.getName().toLowerCase()))
+                    show = plugin.players.getBoolean(player.getName().toLowerCase() + ".tubby");
+                if (show)
+                {
+                    Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
+                            ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
+                            entity.getLocation().getBlockY() + ", " + entity.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + entity.getWorld().getName() + ChatColor.YELLOW + "!");
+                }
+            }
         }
 
         if (this.isBaby() && (entity instanceof Zombie))

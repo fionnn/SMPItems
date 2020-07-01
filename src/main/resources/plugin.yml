@@ -29,3 +29,7 @@ commands:
     description: Kills every tubby mob
     usage: /<command>
     aliases: [killtubbies]
+  toggletubby:
+    description: Toggle the tubby broadcast.
+    usage: /<command>
+    aliases: [tt]
