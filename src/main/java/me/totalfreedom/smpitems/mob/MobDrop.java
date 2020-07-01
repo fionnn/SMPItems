@@ -121,6 +121,7 @@ public class MobDrop implements Listener
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
                 items.add(5, new Drill());
+                items.add(5, new Sham());
                 items.add(5, new SuperFood());
                 items.add(2, new LuckyPick());
                 items.add(0.2, new POWbow());
@@ -176,6 +177,7 @@ public class MobDrop implements Listener
                 items.add(7, new Spoon());
                 items.add(7, new SuperFood());
                 items.add(7, new Drill());
+                items.add(7, new Sham());
                 items.add(2, new POWbow());
                 items.add(7, new LuckyPick());
                 items.add(0.05, new Landscaper());
@@ -232,6 +234,7 @@ public class MobDrop implements Listener
                 items.add(10, new SharpStick());
                 items.add(5, new Spoon());
                 items.add(5, new SuperFood());
+                items.add(5, new Sham());
                 items.add(5, new Drill());
                 items.add(0.2, new POWbow());
                 items.add(2, new LuckyPick());
