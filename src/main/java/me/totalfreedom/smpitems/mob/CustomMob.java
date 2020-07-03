@@ -90,7 +90,7 @@ public class CustomMob extends SBase
                     show = plugin.players.getBoolean(player.getName().toLowerCase() + ".tubby");
                 if (show)
                 {
-                    Bukkit.broadcastMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
+                    player.sendMessage(ChatColor.YELLOW + "A " + ChatColor.GOLD + name + " " +
                             ChatColor.YELLOW + "has spawned at " + ChatColor.GOLD + entity.getLocation().getBlockX() + ", " +
                             entity.getLocation().getBlockY() + ", " + entity.getLocation().getBlockZ() + ChatColor.YELLOW + " in world " + ChatColor.GOLD + entity.getWorld().getName() + ChatColor.YELLOW + "!");
                 }
